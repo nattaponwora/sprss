@@ -5,8 +5,8 @@ import java.sql.*;
 public class StatementManager {
 	
 	private static String sql_url = "jdbc:mysql://localhost:3306/sprss";
-	private static String sql_user = "sprss_admin";
-	private static String sql_pass = "sprss";
+	private static String sql_user = "root";
+	private static String sql_pass = "";
 	
 	private static String db2_url = "jdbc:db2://10.151.22.73:50005/maxdb";
 	private static String db2_user = "maximo";
