@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class StatementManager {
 	
-	private static String sql_url = "jdbc:mysql://cpr-support02.rtl.cp.co.th:3306/sprss";
+	private static String sql_url = "jdbc:mysql://localhost:3306/sprss";
 	private static String sql_user = "sprss_admin";
 	private static String sql_pass = "sprss";
 	
