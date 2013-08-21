@@ -18,7 +18,7 @@
 		String sql = "SELECT * FROM user";
 		ResultSet result  = stmt.executeQuery(sql);
 		result.next();
-		String res = result.getString("firstname")+ " " +result.getString("lastname") ;
+		String res = result.getString("firstname")+ " " +result.getString("lastname");
 		o.println(res);
 		o.close();
 	%>
