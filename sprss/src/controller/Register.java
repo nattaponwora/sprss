@@ -44,7 +44,7 @@ public class Register extends HttpServlet {
     	
     	String password = (String) request.getParameter("password");
     	
-    	request.setAttribute( "mes", fname + " " + lname + " " + eid + " " + tel + " " + email + " " + position + " " + storeRoom + " " + site);
+    	request.setAttribute( "mes",eid + " " + password + " " + fname + " " + lname + " " + " " +tel + " " + email + " " + position + " " + storeRoom + " " + site);
 		RequestDispatcher obj = request.getRequestDispatcher("test.jsp");
 		obj.forward(request,response);
     }
