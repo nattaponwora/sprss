@@ -35,10 +35,10 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = (String) request.getAttribute("eid");
-		String password = (String) request.getAttribute("password");
-		if( checkAuthen( username , password ) ){
-			request.setAttribute( "mes", username+ " " + password );
+		String eid = (String) request.getParameter("eid");
+		String password = (String) request.getParameter("password");
+		if( checkAuthen( eid , password ) ){
+			request.setAttribute( "mes", eid+ " " + password );
 			RequestDispatcher obj = request.getRequestDispatcher("test.jsp");
 			obj.forward(request,response);
 		}else{

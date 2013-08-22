@@ -33,16 +33,16 @@ public class Register extends HttpServlet {
 	}
     
     private void doRegister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    	String fname = (String) request.getAttribute("firstname");
-    	String lname = (String) request.getAttribute("lastname");
-    	String eid = (String) request.getAttribute("empID");
-    	String tel = (String) request.getAttribute("tel");
-    	String email = (String) request.getAttribute("email");
-    	String position = (String) request.getAttribute("position");
-    	String storeRoom = (String) request.getAttribute("storeRoom");
-    	String site = (String) request.getAttribute("site");
+    	String fname = (String) request.getParameter("firstname");
+    	String lname = (String) request.getParameter("lastname");
+    	String eid = (String) request.getParameter("empID");
+    	String tel = (String) request.getParameter("tel");
+    	String email = (String) request.getParameter("email");
+    	String position = (String) request.getParameter("position");
+    	String storeRoom = (String) request.getParameter("storeRoom");
+    	String site = (String) request.getParameter("site");
     	
-    	String password = (String) request.getAttribute("password");
+    	String password = (String) request.getParameter("password");
     	
     	request.setAttribute( "mes", fname + " " + lname + " " + eid + " " + tel + " " + email + " " + position + " " + storeRoom + " " + site);
 		RequestDispatcher obj = request.getRequestDispatcher("test.jsp");
