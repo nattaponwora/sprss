@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
 		String username = (String) request.getAttribute("eid");
 		String password = (String) request.getAttribute("password");
 		if( checkAuthen( username , password ) ){
-			request.setAttribute( "mes", "Success" );
+			request.setAttribute( "mes", username+ " " + password );
 			RequestDispatcher obj = request.getRequestDispatcher("test.jsp");
 			obj.forward(request,response);
 		}else{
