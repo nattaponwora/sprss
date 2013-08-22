@@ -1,12 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>The Spare Part Requisition Smart System</title>
 <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<img src = "img/cpr_logo.png">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <div class="navbar navbar-inverse" style="position: static;">
               <div class="navbar-inner">
                 <div class="container">
@@ -25,7 +26,7 @@
 	<div class="container">
 		<marquee behavior="scroll" direction="left" scrollamount="3"><i class="icon-thumbs-up"></i><span class="label label-success">Success</span><font size="3" face="Tahoma" color="#4E387E"><div class="alert alert-success">
   Thank you for information, Your registration is complete <br> Please Check your E-mail for User ID and Password.</marquee>
-</div> <br> <a href="index.html"><button type="submit" class="btn">Back to index</button></a>
+</div> <br> <a href="login.jsp"><button type="button" class="btn" onclick = "location.href = 'login.jsp'">Back to index</button></a>
 	</div></center>
 
 
