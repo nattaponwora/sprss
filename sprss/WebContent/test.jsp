@@ -2,8 +2,8 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.PrintWriter" %>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,15 +12,9 @@
 </head>
 <body>
 	<%
+		String mes = (String)request.getAttribute("mes");
 		PrintWriter o = response.getWriter();
-	
-		Statement stmt = StatementManager.getSQLStatement();
-		String sql = "SELECT * FROM user";
-		ResultSet result  = stmt.executeQuery(sql);
-		result.next();
-		String res = result.getString("firstname")+ " " +result.getString("lastname");
-		o.println(res);
-		o.close();
+		o.println (mes);
 	%>
 </body>
 </html>
