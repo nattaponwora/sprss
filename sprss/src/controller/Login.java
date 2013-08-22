@@ -35,7 +35,7 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = (String) request.getAttribute("username");
+		String username = (String) request.getAttribute("eid");
 		String password = (String) request.getAttribute("password");
 		if( checkAuthen( username , password ) ){
 			request.setAttribute( "mes", "Success" );
@@ -48,8 +48,11 @@ public class Login extends HttpServlet {
 		}
 	}
 	
-	public boolean checkAuthen( String username , String password){
-		return true;
+	private boolean checkAuthen( String eid , String password){
+		if( eid.equals(password) )
+			return true;
+		else
+			return false;
 	}
 
 }
