@@ -81,7 +81,7 @@
 				  	<div class="control-group">
 				    	<label class="control-label" for="inputStoreRoom">รหัสคลัง</label>
 				    		<div class="controls">
-				      			<input type="text" id="inputStoreRoom" name="storeName">
+				      			<input type="text" id="inputStoreRoom" name="storeRoom">
 				    		</div>
 				  	</div>
 				  	<div class="control-group">
@@ -90,14 +90,9 @@
 				      			<input type="text" id="inputSite" name="site">
 				    		</div>
 				  	</div>
-				  	<button type="submit" class="btn" style="margin-left:5em">ลงทะเบียน</button>
-				  	</form><br>
-				  	<div class="control-group" style="margin-left:22em">
-				    	<div class="controls">				    		
-				      		<a href="regis.jsp" class="btn btn-large btn-primary">ลงทะเบียน</a>
-							<a href="#" class="btn btn-large">ยกเลิก</a>
-				    	</div>
-				  	</div>
+				  	<button type="submit" class="btn btn-medium btn-primary" style="margin-left:14em">ลงทะเบียน</button>
+				  	<button type="reset" class="btn" style="margin-left:0.5em">ยกเลิก</button>
+				  	</form><br> 	
 
 				
 	</div>

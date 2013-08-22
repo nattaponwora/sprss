@@ -18,7 +18,7 @@
 	<div class="container">
 		<form action = "login" method = "post">
 			<span style="margin-right:0.5em">รหัสพนักงาน  </span>:<input type="text" name="eid"><br>
-			<span style="margin-right:2.5em">รหัสผ่าน</span>:<input type="text" name="password"><br>
+			<span style="margin-right:2.5em">รหัสผ่าน</span>:<input type="password" name="password"><br>
 			<button type="submit" class="btn" style="margin-left:5em">เข้าสู่ระบบ</button>
 			<button type="button" class="btn" style="margin-left:0.5em" onclick = "location.href='register.jsp'">ลงทะเบียน</button>
 		</form>		
