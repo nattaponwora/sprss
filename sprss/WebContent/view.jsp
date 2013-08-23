@@ -75,6 +75,7 @@
 			    </tr>
 			  </tbody>
 		</table>
+		<button type="submit" class="btn btn-medium btn-primary" style="margin-left:14em">Complete</button><dr>
 	</div></center>
 </body>
 </html>

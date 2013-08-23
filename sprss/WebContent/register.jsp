@@ -78,16 +78,11 @@
 				      			<input type="text" id="inputTelNum" name="tel">
 				    		</div>
 				  	</div>
+				  	
 				  	<div class="control-group">
-				    	<label class="control-label" for="inputStoreRoom">รหัสคลัง</label>
+				    	<label class="control-label" for="inputPlant">Plant</label>
 				    		<div class="controls">
-				      			<input type="text" id="inputStoreRoom" name="storeRoom">
-				    		</div>
-				  	</div>
-				  	<div class="control-group">
-				    	<label class="control-label" for="inputSite">Site</label>
-				    		<div class="controls">
-				      			<input type="text" id="inputSite" name="site">
+				      			<input type="text" id="inputPlant" name="plant">
 				    		</div>
 				  	</div>
 				  	<button type="submit" class="btn btn-medium btn-primary" style="margin-left:14em">ลงทะเบียน</button>

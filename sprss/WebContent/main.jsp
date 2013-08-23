@@ -12,10 +12,11 @@
               <div class="navbar-inner">
                 <div class="container">
                   <ul class="nav nav-pills">
-					  <li class="active"><a href="main.jsp">Selecting</a></li>
-					  <li><a href="view.jsp">View</a></li>
+					  <li class="active"><a href="main.jsp">ใบจองสินค้า</a></li>
+					  <li><a href="view.jsp">ใบจองสินค้าที่เลือก</a></li>
+					  <li><a href="view.jsp">ใบจองสินค้าที่ถูกเลือกแล้ว</a></li>
 					</ul>
-                    <span align="right" style="margin-left:65em"><button class="btn btn-mini btn btn-success disabled" type="button">User: Nuttareepan.r</button></span>     
+                    <span align="right" style="margin-left:20em"><button class="btn btn-mini btn btn-success disabled" type="button">User: Nuttareepan.r</button></span>     
                     <span align="right"><button class="btn btn-mini btn btn-danger" type="button">Log Out</button></span>
                 </div>
               </div><!-- /navbar-inner -->
@@ -255,8 +256,8 @@
 
 						  </tbody>
 						</table>
-						<span style="margin-left:30em"><a href="#" class="btn btn-large btn-primary">Submit</a></span>
-						<span style="margin-left:1em"><a href="main.jsp" class="btn btn-large"> Clear </a></span>			    	
+						<span style="margin-left:28em"><a href="#" class="btn btn-medium btn-primary">Submit</a></span>
+						<span style="margin-left:1em"><a href="main.jsp" class="btn btn-medium"> Clear </a></span>			    	
 				    </div>
 				<!--</div>-->
 				</div>
