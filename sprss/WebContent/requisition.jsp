@@ -12,9 +12,9 @@
               <div class="navbar-inner">
                 <div class="container">
                   <ul class="nav nav-pills">
-					  <li class="active"><a href="main.jsp">ใบจองสินค้า</a></li>
-					  <li><a href="view.jsp">ใบจองสินค้าที่เลือก</a></li>
-					  <li><a href="view.jsp">ใบจองสินค้าที่ถูกเลือกแล้ว</a></li>
+					  <li class="active"><a href="main.jsp">ใบจองอะไหล่</a></li>
+					  <li><a href="view.jsp">ใบหยิบอะไหล่</a></li>
+					  <li><a href="view.jsp">ข้อมูลใบจองอะไหล่</a></li>
 					</ul>
                     <span align="right" style="margin-left:20em"><button class="btn btn-mini btn btn-success disabled" type="button">User: Nuttareepan.r</button></span>     
                     <span align="right"><button class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'login.jsp'">Log Out</button></span>
