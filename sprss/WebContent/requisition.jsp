@@ -17,7 +17,7 @@
 					  <li><a href="view.jsp">ใบจองสินค้าที่ถูกเลือกแล้ว</a></li>
 					</ul>
                     <span align="right" style="margin-left:20em"><button class="btn btn-mini btn btn-success disabled" type="button">User: Nuttareepan.r</button></span>     
-                    <span align="right"><button class="btn btn-mini btn btn-danger" type="button">Log Out</button></span>
+                    <span align="right"><button class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'login.jsp'">Log Out</button></span>
                 </div>
               </div><!-- /navbar-inner -->
             </div>
