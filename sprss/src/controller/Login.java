@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Authen
@@ -35,14 +36,18 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		String eid = (String) request.getParameter("eid");
 		String password = (String) request.getParameter("password");
 		if( checkAuthen( eid , password ) ){
+			session.setAttribute("isLogin", true);
 			response.sendRedirect("requisition");
 		}else{
-			request.setAttribute( "mes", "Fail" );
-			RequestDispatcher obj = request.getRequestDispatcher("test.jsp");
-			obj.forward(request,response);
+			session.setAttribute("isLogin", false);
+			response.sendRedirect("requisition");
+			//request.setAttribute( "mes", "Fail" );
+			//RequestDispatcher obj = request.getRequestDispatcher("test.jsp");
+			//obj.forward(request,response);
 		}
 	}
 	

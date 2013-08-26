@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class EnteredRequisition
@@ -39,6 +40,9 @@ public class EnteredRequisition extends HttpServlet {
 	}
 	
 	protected void processRequisitionList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		Boolean loginFlag = (Boolean) session.getAttribute("isLogin");
+		System.out.println(loginFlag);
 		RequestDispatcher obj = request.getRequestDispatcher("requisition.jsp");
 		obj.forward(request,response);
 	}

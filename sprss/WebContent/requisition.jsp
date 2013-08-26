@@ -42,7 +42,7 @@
 				    <!--<div style="width:3px;height:800px;background-color:black;float:left;">-->
 				    <div class="span9" style="margin-left:1em">
 				      <!--Body content-->
-				    	<font size="4" face="Tahoma" color="#493D26" style="font-weight:bold">Selecting Requisition</font><br>
+				    	<font size="4" face="Tahoma" color="#493D26" style="font-weight:bold">ผู้หยิบอะไหล่</font><br>
 				    	<select>
 									  <option>Suntharee</option>
 									  <option>Somchai</option>
