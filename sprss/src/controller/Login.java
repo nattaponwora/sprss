@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
 			session.setAttribute("isLogin", true);
 			response.sendRedirect("requisition");
 		}else{
-			session.setAttribute("isLogin", false);
+			session.setAttribute("loginFalse", true);
 			response.sendRedirect("requisition");
 			//request.setAttribute( "mes", "Fail" );
 			//RequestDispatcher obj = request.getRequestDispatcher("test.jsp");
