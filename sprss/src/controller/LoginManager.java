@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class LoginPage
+ * Servlet implementation class Authen
  */
-@WebServlet("/login")
-public class Login extends HttpServlet {
+@WebServlet(description = "Login Page", urlPatterns = { "/loginmanager" })
+public class LoginManager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public LoginManager() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,15 +29,31 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher obj = request.getRequestDispatcher("login.jsp");
-		obj.forward(request,response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		String eid = (String) request.getParameter("eid");
+		String password = (String) request.getParameter("password");
+		if( checkAuthen( eid , password ) ){
+			session.setAttribute("isLogin", true);
+			response.sendRedirect("requisition");
+		}else{
+			session.setAttribute("loginFalse", true);
+			System.out.println("re False");
+			response.sendRedirect("login");
+		}
+	}
+	
+	private boolean checkAuthen( String eid , String password){
+		if( eid.equals(password) )
+			return true;
+		else
+			return false;
 	}
 
 }

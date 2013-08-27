@@ -6,9 +6,33 @@ public class User {
 	private String lastname;
 	private int eid;
 	private String email;
-	private String posotion;
+	private String position;
 	
 	public User(){
 		
+	}
+	
+	public int getID(){
+		return id; 
+	}
+	
+	public String getFirstname(){
+		return firstname;
+	}
+	
+	public String getLastname(){
+		return lastname;
+	}
+	
+	public int getEID(){
+		return eid;
+	}
+	
+	public String getEmail(){
+		return email;
+	}
+	
+	public String getPosition(){
+		return position;
 	}
 }

@@ -15,14 +15,19 @@
 </head>
 <body background="img/indexBG.jpg">
 	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br>
-	<% HttpSession sess = request.getSession();
-		if( sess.getAttribute("isFalse") != null )
-			if( ((Boolean)sess.getAttribute("isFalse")) ){
+	<%
+		
+		if( session.getAttribute("loginFalse") != null ){
+			if( ((Boolean)session.getAttribute("loginFalse")) ){
 	%>
 	<center><h1 style="margin-top:0em"><font size="3" face="Tahoma" color="#FF0000">Incorrect username or password</font></h1><br>
-	<% }%>
+	<%
+			}
+			session.invalidate();
+		}
+	%>
 	<div class="container">
-		<form action = "login" method = "post">
+		<form action = "loginmanager" method = "post">
 			<span style="margin-right:0.5em">รหัสพนักงาน  </span>:<input type="text" name="eid"><br>
 			<span style="margin-right:2.5em">รหัสผ่าน</span>:<input type="password" name="password"><br>
 			<button type="submit" class="btn" style="margin-left:5em">เข้าสู่ระบบ</button>

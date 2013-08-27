@@ -49,7 +49,7 @@ public class LoginFilter implements Filter {
 		}
 
 		if ( ! loginFlag ) {
-			res.sendRedirect( "login.jsp" );
+			res.sendRedirect( "login" );
 		}else{
 			chain.doFilter(request, response);
 		}
