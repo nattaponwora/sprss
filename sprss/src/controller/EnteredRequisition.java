@@ -42,7 +42,6 @@ public class EnteredRequisition extends HttpServlet {
 	protected void processRequisitionList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Boolean loginFlag = (Boolean) session.getAttribute("isLogin");
-		System.out.println("main = "+loginFlag );
 		RequestDispatcher obj = request.getRequestDispatcher("requisition.jsp");
 		obj.forward(request,response);
 	}
