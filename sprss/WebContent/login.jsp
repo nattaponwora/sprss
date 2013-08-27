@@ -15,6 +15,7 @@
 </head>
 <body background="img/indexBG.jpg">
 	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br>
+	<center><h1 style="margin-top:0em"><font size="3" face="Tahoma" color="#FF0000">Incorrect username or password</font></h1><br>
 	<div class="container">
 		<form action = "login" method = "post">
 			<span style="margin-right:0.5em">รหัสพนักงาน  </span>:<input type="text" name="eid"><br>
