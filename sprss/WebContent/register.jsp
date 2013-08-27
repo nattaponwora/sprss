@@ -12,7 +12,7 @@
             <div class="navbar-inner">
                 <div class="container">
                   	<ul class="nav nav-pills">
-					  <li><a href="login.jsp">Home</a></li>					 
+					  <li><a href="login.jsp">Login</a></li>					 
 					</ul>                    
                 </div>
             <!-- /navbar-inner -->
@@ -86,7 +86,7 @@
 				    		</div>
 				  	</div>
 				  	<button type="submit" class="btn btn-medium btn-primary" style="margin-left:14em">ลงทะเบียน</button>
-				  	<button type="reset" class="btn" style="margin-left:0.5em">ยกเลิก</button>
+				  	<button type="reset" class="btn" style="margin-left:0.5em" onclick = "location.href = 'login.jsp'">ยกเลิก</button>
 				  	</form><br> 	
 
 				

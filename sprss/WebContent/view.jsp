@@ -12,11 +12,12 @@
               <div class="navbar-inner">
                 <div class="container">
                   <ul class="nav nav-pills">
-					  <li class="active"><a href="main.jsp">Selecting</a></li>
-					  <li><a href="view.jsp">View</a></li>
+					  <li><a href="requisition.jsp">ใบจองอะไหล่</a></li>
+					  <li class="active"><a href="view.jsp">ใบหยิบอะไหล่</a></li>
+					  <li><a href="view.jsp">ข้อมูลใบจองอะไหล่</a></li>
 					</ul>
-                    <span align="right" style="margin-left:65em"><button class="btn btn-mini btn btn-success disabled" type="button">User: Nuttareepan.r</button></span>     
-                    <span align="right"><button class="btn btn-mini btn btn-danger" type="button">Log Out</button></span>
+                    <span align="right" style="margin-left:20em"><button class="btn btn-mini btn btn-success disabled" type="button">User: Nuttareepan.r</button></span>     
+                    <span align="right"><button class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'login.jsp'">Log Out</button></span>
                 </div>
               </div><!-- /navbar-inner -->
             </div>

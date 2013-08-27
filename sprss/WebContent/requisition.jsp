@@ -12,12 +12,12 @@
               <div class="navbar-inner">
                 <div class="container">
                   <ul class="nav nav-pills">
-					  <li class="active"><a href="main.jsp">ใบจองอะไหล่</a></li>
+					  <li class="active"><a href="requisition.jsp">ใบจองอะไหล่</a></li>
 					  <li><a href="view.jsp">ใบหยิบอะไหล่</a></li>
 					  <li><a href="view.jsp">ข้อมูลใบจองอะไหล่</a></li>
 					</ul>
                     <span align="right" style="margin-left:20em"><button class="btn btn-mini btn btn-success disabled" type="button">User: Nuttareepan.r</button></span>     
-                    <span align="right"><button class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'login.jsp'">Log Out</button></span>
+                    <span align="right"><button class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'logout'">Log Out</button></span>
                 </div>
               </div><!-- /navbar-inner -->
             </div>
@@ -257,7 +257,7 @@
 						  </tbody>
 						</table>
 						<span style="margin-left:28em"><a href="#" class="btn btn-medium btn-primary">Submit</a></span>
-						<span style="margin-left:1em"><a href="main.jsp" class="btn btn-medium"> Clear </a></span>			    	
+						<span style="margin-left:1em"><a href="requisition.jsp" class="btn btn-medium"> Clear </a></span>			    	
 				    </div>
 				<!--</div>-->
 				</div>
