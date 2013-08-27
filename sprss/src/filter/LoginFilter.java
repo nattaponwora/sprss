@@ -47,13 +47,12 @@ public class LoginFilter implements Filter {
 		} else {
 			loginFlag = flag;
 		}
-		System.out.println(loginFlag);
-		if ( !loginFlag ) {
-			res.sendRedirect("/login.jsp");
-			return;
+
+		if ( ! loginFlag ) {
+			res.sendRedirect( "login.jsp" );
+		}else{
+			chain.doFilter(request, response);
 		}
-		
-		chain.doFilter(req, res);
 	}
 
 	/**
