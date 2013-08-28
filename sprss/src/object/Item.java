@@ -29,5 +29,35 @@ public class Item {
 	public int getAmount(){
 		return amount;
 	}
+	
+	public String getStoreRoom(){
+		return getAssetNO().substring(0, 1);
+	}
+	
+	public int getLog(){
+		String str = getAssetNO().substring(1);
+		String[] temp = str.split("-");
+		return Integer.valueOf(temp[0]);
+	}
+	
+	public int getShelf(){
+		String str = getAssetNO().substring(1);
+		String[] temp = str.split("-");
+		return Integer.valueOf(temp[1]);
+	}
+	
+	public int getBasket(){
+		String str = getAssetNO().substring(1);
+		String[] temp = str.split("-");
+		return Integer.valueOf(temp[2]);
+	}
+	
+	public int getBag(){
+		String str = getAssetNO().substring(1);
+		String[] temp = str.split("-");
+		return Integer.valueOf(temp[3]);
+	}
+	
+	
 
 }
