@@ -66,6 +66,39 @@ public class Item {
 		return Integer.valueOf(temp[3]);
 	}
 	
+	public int compareToStoreType(Item other) {
+		if ( other == null ) return -1;
+        return this.getStoreType().compareTo(other.getStoreType());
+    }
+	
+	public int compareToLog(Item other) {
+        if ( other == null ) return -1;
+        if ( this.getLog() < other.getLog() ) return -1;
+        if ( this.getLog() > other.getLog() ) return +1;
+        return 0;
+    }
+	
+	public int compareToShelf(Item other) {
+        if ( other == null ) return -1;
+        if ( this.getShelf() < other.getShelf() ) return -1;
+        if ( this.getShelf() > other.getShelf() ) return +1;
+        return 0;
+    }
+	
+	public int compareToBasket(Item other) {
+        if ( other == null ) return -1;
+        if ( this.getBasket() < other.getBasket() ) return -1;
+        if ( this.getBasket() > other.getBasket() ) return +1;
+        return 0;
+    }
+	
+	public int compareToBag(Item other) {
+        if ( other == null ) return -1;
+        if ( this.getBag() < other.getBag() ) return -1;
+        if ( this.getBag() > other.getBag() ) return +1;
+        return 0;
+    }
+	
 	
 
 }

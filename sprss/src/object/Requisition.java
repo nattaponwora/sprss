@@ -39,15 +39,8 @@ public class Requisition {
 		return reqID;
 	}
 	
-	public void addItem( Item i ){
-		if( itemList.size() == 0 ){
-			itemList.add(i);
-		}
-		else{
-			if( i.getStoreType() == "F" ){
-				
-			}
-		}
-	}
+	public void addItem( Item item ){
+		itemList.add(item);
+	}	
 	
 }
