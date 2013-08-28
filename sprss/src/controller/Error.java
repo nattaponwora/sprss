@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class LoginPage
+ * Servlet implementation class Error
  */
-@WebServlet("/login")
-public class Login extends HttpServlet {
+@WebServlet("/error")
+public class Error extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public Error() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,16 +29,10 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher obj = request.getRequestDispatcher("login.jsp");
+		request.setAttribute("header", request.getAttribute("header"));
+		request.setAttribute("message", request.getAttribute("message"));
+		RequestDispatcher obj = request.getRequestDispatcher("error.jsp");
 		obj.forward(request,response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		// TODO Auto-generated method stub
 	}
 
 }

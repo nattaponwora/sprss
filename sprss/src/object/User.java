@@ -4,16 +4,36 @@ public class User {
 	private int id;
 	private String firstname;
 	private String lastname;
-	private int eid;
+	private String eid;
 	private String email;
 	private String position;
+	private String plant;
+	private String storeroom;
 	
-	public User(){
-		
+	/**
+	 * Constructor สำหรับคลาส User
+	 * @param id = รหัสผู้ใช้งาน
+	 * @param firstname = ชื่อผู้ใช้
+	 * @param lastname = นามสกุุลผู้ใช้
+	 * @param eid = รหัสพนักงาน
+	 * @param email = อีเมลล์ของผู้ใช้งาน
+	 * @param position = สิทธิ
+	 * @param plant = Plant ที่ผู้ใช้ทำงานงาน
+	 * @param storeroom = คลังที่ผู้ใช้ทำงาน
+	 */
+	public User(int id, String firstname, String lastname, String eid, String email, String position, String plant, String storeroom ){
+		this.id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.eid = eid;
+		this.email = email;
+		this.position = position;
+		this.plant = plant;
+		this.storeroom = storeroom;
 	}
 	
 	public int getID(){
-		return id; 
+		return id;
 	}
 	
 	public String getFirstname(){
@@ -24,7 +44,7 @@ public class User {
 		return lastname;
 	}
 	
-	public int getEID(){
+	public String getEID(){
 		return eid;
 	}
 	
@@ -34,5 +54,13 @@ public class User {
 	
 	public String getPosition(){
 		return position;
+	}
+	
+	public String getPlant(){
+		return plant;
+	}
+	
+	public String getStoreroom(){
+		return storeroom;
 	}
 }
