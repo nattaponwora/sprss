@@ -9,6 +9,13 @@ public class Requisition {
 	private String plant;
 	private int reqID;
 	
+	/**
+	 * Constructor for Requisition class
+	 * @param i
+	 * @param authorID
+	 * @param plant
+	 * @param reqID
+	 */
 	private Requisition( Item i , int authorID , String plant , int reqID ){
 		itemList = new ArrayList<Item>();
 		this.authorID = authorID;
@@ -35,6 +42,11 @@ public class Requisition {
 	public void addItem( Item i ){
 		if( itemList.size() == 0 ){
 			itemList.add(i);
+		}
+		else{
+			if( i.getStoreType() == "F" ){
+				
+			}
 		}
 	}
 	

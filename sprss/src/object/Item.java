@@ -7,6 +7,14 @@ public class Item {
 	private String assetNO; 
 	private int amount;
 	
+	/**
+	 * 
+	 * Constructor for Item class
+	 * @param code
+	 * @param description
+	 * @param assetNO
+	 * @param amount
+	 */
 	public Item( int code , String description , String assetNO , int amount){
 		this.code = code;
 		this.description = description;
@@ -30,7 +38,7 @@ public class Item {
 		return amount;
 	}
 	
-	public String getStoreRoom(){
+	public String getStoreType(){
 		return getAssetNO().substring(0, 1);
 	}
 	
