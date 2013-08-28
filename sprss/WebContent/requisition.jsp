@@ -44,7 +44,7 @@
 				      <!--Body content-->
 				    	<font size="4" face="Tahoma" color="#493D26" style="font-weight:bold">ผู้หยิบอะไหล่</font><br>
 				    	<select>
-									  <option>Suntharee</option>
+									  <option>นริศ</option>
 									  <option>Somchai</option>
 									  <option>Korkiat</option>
 									  <option>Visuth</option>

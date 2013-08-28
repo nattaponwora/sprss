@@ -48,15 +48,22 @@ public class LoginManager extends HttpServlet {
 			User u = AuthenModel.checkAuthen( eid , password );
 			if( u != null ){
 				session.setAttribute("isLogin", true);
+				session.setAttribute("userData", u);
 				response.sendRedirect("requisition");
 			}else{
 				session.setAttribute("loginFalse", true);
 				response.sendRedirect("login");
 			}
 		}catch( NoSuchAlgorithmException e ){
-			
+			request.setAttribute("hearder", "Error NoSuchAlgorithmException");
+			request.setAttribute("message", e.getMessage());
+			RequestDispatcher obj = request.getRequestDispatcher("error");
+			obj.forward(request,response);
 		}catch( UnsupportedEncodingException e ){
-			
+			request.setAttribute("hearder", "Error UnsupportedEncodingException");
+			request.setAttribute("message", e.getMessage());
+			RequestDispatcher obj = request.getRequestDispatcher("error");
+			obj.forward(request,response);
 		}
 	}
 
