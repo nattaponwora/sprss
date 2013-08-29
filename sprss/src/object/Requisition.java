@@ -11,12 +11,11 @@ public class Requisition {
 	
 	/**
 	 * Constructor for Requisition class
-	 * @param i
 	 * @param authorID
 	 * @param plant
 	 * @param reqID
 	 */
-	private Requisition( Item i , int authorID , String plant , int reqID ){
+	private Requisition( int authorID , String plant , int reqID ){
 		itemList = new ArrayList<Item>();
 		this.authorID = authorID;
 		this.plant = plant;
@@ -42,5 +41,9 @@ public class Requisition {
 	public void addItem( Item item ){
 		itemList.add(item);
 	}	
+	
+	public int size(){
+		return itemList.size();
+	}
 	
 }
