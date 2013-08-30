@@ -2,6 +2,7 @@ package object;
 
 public class Item {
 	
+	private int reqID;
 	private int code;
 	private String description;
 	private String assetNO; 
@@ -15,11 +16,16 @@ public class Item {
 	 * @param assetNO
 	 * @param amount
 	 */
-	public Item( int code , String description , String assetNO , int amount){
+	public Item( int reqID , int code , String description , String assetNO , int amount){
+		this.reqID = reqID;
 		this.code = code;
 		this.description = description;
 		this.assetNO = assetNO;
 		this.amount = amount;
+	}
+	
+	public int getReqID(){
+		return reqID;
 	}
 	
 	public int getCode(){

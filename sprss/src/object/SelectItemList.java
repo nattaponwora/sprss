@@ -4,30 +4,47 @@ import java.util.ArrayList;
 
 public class SelectItemList {
 
-	private ArrayList<Requisition> req;
+	private ArrayList<Item> items;
 	
 	public SelectItemList(  ){
-		req = new ArrayList<Requisition>();
+		items = new ArrayList<Item>();
 	}
 	
-	public void addRequisition( Requisition r ){
-		req.add(r);
-	}
-	
-	public ArrayList<Item> getRequisition(){
-		ArrayList<Item> requisition = new ArrayList<Item>();
-		for( int i = 0 ; i < req.size() ; i++ ){
-			for( int j = 0 ; j < req.get(i).size() ; j++ ){
-				if( requisition.size() == 0 ){
-					requisition.add( req.get(i).getItem().get(j) );
+	public void add( Item item ){
+		if( items.size() == 0 ){
+			items.add(item);
+		}
+		else{
+			for( int i = items.size() - 1 ; i >= 0 ; i-- ){
+				if( item.getAssetNO() == items.get(i).getAssetNO() ){
+					items.add(i+1, item);
+					break;
 				}
-				else{
-					for( int k = 0 ; k < requisition.size() ; k++ ){
-						
+				else if( item.compareToStoreType(items.get(i)) > 0 ){
+					items.add(i+1, item);
+					break;
+				}
+				else if( item.compareToStoreType(items.get(i)) == 0 ){
+					if( item.compareToLog(items.get(i)) == 0 ){
+						if( item.compareToShelf(items.get(i)) == 0 ){
+							if( item.compareToBasket(items.get(i)) == 0 ){
+								if( item.compareToBag(items.get(i)) == 0 || item.compareToBag(items.get(i)) < 0 ){
+									items.add(i+1 , item);
+									break;
+								}
+								else{
+									items.add(i , item);
+									break;
+								}							
+							}
+							if( item.compareToBasket(items.get(i)) < 0 ){
+								items.add(i+1 , item);
+							}							
+						}
 					}
 				}
 			}
 		}
-		return requisition;
-	}
+	}	
+	
 }

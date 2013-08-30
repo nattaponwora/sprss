@@ -22,7 +22,7 @@ public class Requisition {
 		this.reqID = reqID;
 	}
 	
-	public ArrayList<Item> getItem(){
+	public ArrayList<Item> getItemList(){
 		return itemList;
 	}
 	
