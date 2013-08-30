@@ -23,7 +23,8 @@ public class AuthenModel {
 	 * @param password
 	 * @return ถ้าข้อมูล login ถูกต้อง จะส่งค่า Object ข้อมูลผู้ใช้กลับ แต่ถ้าไม่ถูกต้องจะเป็น null 
 	 * @throws UnsupportedEncodingException 
-	 * @throws NoSuchAlgorithmException 
+	 * @throws NoSuchAlgorithmException\
+	 * @author Nattapon Worasakdapisan 
 	 */
 	public static User checkAuthen( String eid , String password) throws NoSuchAlgorithmException, UnsupportedEncodingException{
 		String npass = hashPassword( password ) ;
@@ -45,6 +46,14 @@ public class AuthenModel {
 		}
 	}
 	
+	/**เข้ารหัส password ด้วย SHA1
+	 * 
+	 * @param String ของรหัสผ่านที่ต้องการ
+	 * @return String ของ password ที่ทำการเข้ารหัสแล้ว
+	 * @throws NoSuchAlgorithmException
+	 * @throws UnsupportedEncodingException
+	 * @author Nattapon Worasakdapisan
+	 */
 	public static String hashPassword( String password ) throws NoSuchAlgorithmException, UnsupportedEncodingException{
 		String nPassword = "";
 
@@ -56,7 +65,6 @@ public class AuthenModel {
 			sb.append(String.format("%02x", b&0xff)); 
 		} 
 		nPassword = sb.toString();
-		
 		return nPassword;
 	}
 	

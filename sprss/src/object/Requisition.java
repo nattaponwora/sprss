@@ -16,7 +16,7 @@ public class Requisition {
 	 * @param plant
 	 * @param reqID
 	 */
-	private Requisition( Item i , int authorID , String plant , int reqID ){
+	public Requisition( Item i , int authorID , String plant , int reqID ){
 		itemList = new ArrayList<Item>();
 		this.authorID = authorID;
 		this.plant = plant;

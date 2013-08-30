@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,11 +45,14 @@
 				      <!--Body content-->
 				    	<font size="4" face="Tahoma" color="#493D26" style="font-weight:bold">ผู้หยิบอะไหล่</font><br>
 				    	<select>
-									  <option>นริศ</option>
-									  <option>Somchai</option>
-									  <option>Korkiat</option>
-									  <option>Visuth</option>
-									</select>
+				    		<% 
+				    			ArrayList<String> picker = (ArrayList<String>)request.getAttribute("picker");
+				    			for ( int i = 0 ; i < picker.size(); i++){
+				    				out.println( "<option>"+picker.get(i)+"</option>");
+				    			}
+				    		
+				    		%>
+						</select>
 				    	<table class="table table-hover">
 	  						<thead>
 	    					<tr>
