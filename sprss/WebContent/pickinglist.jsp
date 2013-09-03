@@ -61,6 +61,7 @@
 			  </tbody>
 		</table>
 		<button type="submit" class="btn btn-medium btn-primary" style="margin-left:14em">ยืนยัน</button><dr>
+		<button type="reset" class="btn" style="margin-left:0.5em" onclick = "location.href = 'requisition'">ยกเลิก</button>
 	</div></center>
 </body>
 </html>
