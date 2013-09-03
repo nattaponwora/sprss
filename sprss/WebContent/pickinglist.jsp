@@ -3,26 +3,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<title>The Spare Part Requisition Smart System</title>
-<!-- Bootstrap -->
-	<img src = "img/cpr_logo.png">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <div class="navbar navbar-inverse" style="position: static;">
-              <div class="navbar-inner">
-                <div class="container">
-                  <ul class="nav nav-pills">
-					  <li><a href="requisition.jsp">ใบจองอะไหล่</a></li>
-					  <li class="active"><a href="view.jsp">ใบหยิบอะไหล่</a></li>
-					  <li><a href="view.jsp">ข้อมูลใบจองอะไหล่</a></li>
-					</ul>
-                    <span align="right" style="margin-left:20em"><button class="btn btn-mini btn btn-success disabled" type="button">User: Nuttareepan.r</button></span>     
-                    <span align="right"><button class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'login.jsp'">Log Out</button></span>
-                </div>
-              </div><!-- /navbar-inner -->
-            </div>
+	<meta charset="utf-8">
 </head>
 <body background="img/indexBG.jpg">
+	<%@ include file = "header.jsp" %>
 	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br></center>
 	<div class="container">
 		<h4>Name : xxx xxxx</h4> <br>
@@ -76,7 +60,7 @@
 			    </tr>
 			  </tbody>
 		</table>
-		<button type="submit" class="btn btn-medium btn-primary" style="margin-left:14em">Complete</button><dr>
+		<button type="submit" class="btn btn-medium btn-primary" style="margin-left:14em">ยืนยัน</button><dr>
 	</div></center>
 </body>
 </html>

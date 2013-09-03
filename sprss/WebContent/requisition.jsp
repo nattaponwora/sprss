@@ -16,9 +16,9 @@
               <div class="navbar-inner">
                 <div class="container">
                   <ul class="nav nav-pills">
-					  <li class="active"><a href="requisition.jsp">ใบจองอะไหล่</a></li>
-					  <li><a href="view.jsp">ใบหยิบอะไหล่</a></li>
-					  <li><a href="view.jsp">ข้อมูลใบจองอะไหล่</a></li>
+					  <li class="active"><a href="requisition">ใบจองอะไหล่</a></li>
+					  <li><a href="pickinglist">ใบหยิบอะไหล่</a></li>
+					  <li><a href="pickinglist">ข้อมูลใบจองอะไหล่</a></li>
 					</ul>
                     <span align="right" style="margin-left:20em"><button class="btn btn-mini btn btn-success disabled" type="button">User: Nuttareepan.r</button></span>     
                     <span align="right"><button class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'logout'">Log Out</button></span>
@@ -92,7 +92,7 @@
 						  %>
 						  </tbody>
 						</table>
-						<input type="submit" class="btn btn-medium btn-primary" value="Next" />
+						<button style="margin-left:20em" type="submit" class="btn btn-medium btn-primary" >Next</button>
 						<span style="margin-left:1em"><a href="requisition.jsp" class="btn btn-medium"> Clear </a></span>
 						</form>		    	
 				    </div>
