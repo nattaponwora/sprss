@@ -18,6 +18,7 @@ public class EnteredRequisitionModel {
 		picker.add("มานะ  ไปใหน");
 		picker.add("โสฬส  เทพพงค์ชัย");
 		picker.add("สุริยัน  จันทร์ผ่อง");
+		picker.add("วรายุ สิงห์กระโทก");
 		return picker;
 	}
 	
