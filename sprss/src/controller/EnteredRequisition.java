@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.EnteredRequisitionModel;
+import object.Requisition;
+import object.RequisitionList;
 import object.User;
 
 /**
@@ -54,8 +56,13 @@ public class EnteredRequisition extends HttpServlet {
 	 */
 	protected void processRequisitionList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String plant = (String) request.getAttribute("plant");
+		
 		ArrayList<String> picker = EnteredRequisitionModel.getPicker(plant);
 		request.setAttribute("picker", picker);
+		
+		RequisitionList req = EnteredRequisitionModel.getEnterReqList(plant);
+		request.setAttribute("reqList", req);
+		
 		RequestDispatcher obj = request.getRequestDispatcher("requisition.jsp");
 		obj.forward(request,response);
 	}

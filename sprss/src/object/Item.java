@@ -1,5 +1,15 @@
 package object;
 
+/**
+ * Constroctor
+ * @param reqID
+ * @param code
+ * @param description
+ * @param assetNO
+ * @param amount
+ * @author nattaponwor
+ *
+ */
 public class Item {
 	
 	private int reqID;
@@ -11,6 +21,7 @@ public class Item {
 	/**
 	 * 
 	 * Constructor for Item class
+	 * @param reqID
 	 * @param code
 	 * @param description
 	 * @param assetNO
