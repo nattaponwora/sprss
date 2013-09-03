@@ -58,9 +58,11 @@ public class EnteredRequisition extends HttpServlet {
 		String plant = (String) request.getAttribute("plant");
 		System.out.println(plant);
 		String storeroom = (String) request.getAttribute("storeroom");
+		HttpSession session =  request.getSession();
 		
 		ArrayList<User> picker = EnteredRequisitionModel.getPicker(plant, storeroom);
 		request.setAttribute("picker", picker);
+		session.setAttribute("picker", picker );
 		
 		RequisitionList req = EnteredRequisitionModel.getEnterReqList(plant);
 		request.setAttribute("reqList", req);

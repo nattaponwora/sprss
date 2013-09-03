@@ -37,9 +37,9 @@
 				    	<font size="4" face="Tahoma" color="#493D26" style="font-weight:bold">ผู้หยิบอะไหล่</font><br>
 				    	<select name="picker">
 				    		<% 
-				    			ArrayList<String> picker = (ArrayList<String>)request.getAttribute("picker");
+				    			ArrayList<User> picker = (ArrayList<User>)request.getAttribute("picker");
 				    			for ( int i = 0 ; i < picker.size(); i++){
-				    				out.println( "<option value='"+picker.get(i)+"'>"+picker.get(i)+"</option>");
+				    				out.println( "<option value='"+picker.get(i).getID()+"'>"+ picker.get(i).getName() +"</option>");
 				    			}
 				    		
 				    		%>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="object.User" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,10 +18,13 @@
 </head>
 <body background="img/indexBG.jpg">
 	<%@ include file = "header.jsp" %>
+	<% 
+		User picker = (User) request.getAttribute("picker");
+	%>
 	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br></center>
 	<div id = "divprint">
 		<div class="container">
-		<h4>ผู้หยิบอะไหล่ : <%= request.getAttribute("picker") %></h4> <br>
+		<h4>ผู้หยิบอะไหล่ : <%= picker.getName() %></h4> <br>
 		<h>ใบเบิก : 7910034 , 7910035 </h> <br>
 		<center><table class="table table-bordered">
 			<thead>

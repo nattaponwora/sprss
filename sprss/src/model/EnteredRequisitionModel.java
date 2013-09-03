@@ -77,4 +77,5 @@ public class EnteredRequisitionModel {
 		reqList.add(r);
 		return reqList;
 	}
+
 }
