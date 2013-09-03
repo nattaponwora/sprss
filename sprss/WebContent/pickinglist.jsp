@@ -9,7 +9,7 @@
 	<%@ include file = "header.jsp" %>
 	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br></center>
 	<div class="container">
-		<h4>Name : xxx xxxx</h4> <br>
+		<h4>ผู้หยิบอะไหล่ : <%= request.getAttribute("picker") %></h4> <br>
 		<center><table class="table table-bordered">
 			<thead>
 			    <tr>

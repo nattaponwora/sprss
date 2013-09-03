@@ -52,11 +52,11 @@
 				    <div class="span9" style="margin-left:1em">
 				      <!--Body content-->
 				    	<font size="4" face="Tahoma" color="#493D26" style="font-weight:bold">ผู้หยิบอะไหล่</font><br>
-				    	<select>
+				    	<select name="picker">
 				    		<% 
 				    			ArrayList<String> picker = (ArrayList<String>)request.getAttribute("picker");
 				    			for ( int i = 0 ; i < picker.size(); i++){
-				    				out.println( "<option>"+picker.get(i)+"</option>");
+				    				out.println( "<option value='"+picker.get(i)+"'>"+picker.get(i)+"</option>");
 				    			}
 				    		
 				    		%>
@@ -92,8 +92,8 @@
 						  %>
 						  </tbody>
 						</table>
-						<button style="margin-left:20em" type="submit" class="btn btn-medium btn-primary" >Next</button>
-						<span style="margin-left:1em"><a href="requisition.jsp" class="btn btn-medium"> Clear </a></span>
+						<input style="margin-left:20em" type="submit" class="btn btn-medium btn-primary" value = "ยืนยัน">
+						<input type="reset" class="btn btn-medium">
 						</form>		    	
 				    </div>
 				<!--</div>-->
@@ -105,4 +105,3 @@
 </body>
 <footer><br></footer>
 </html>
-

@@ -28,7 +28,6 @@ public class PickItem extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Hi");
 		// TODO Auto-generated method stub
 	}
 
@@ -36,8 +35,10 @@ public class PickItem extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Hey");
-		RequestDispatcher obj = request.getRequestDispatcher("view.jsp");
+		String picker = (String) request.getParameter("picker");
+		System.out.println(picker);
+		request.setAttribute("picker", picker);
+		RequestDispatcher obj = request.getRequestDispatcher("pickinglist.jsp");
 		obj.forward(request,response);
 	}
 
