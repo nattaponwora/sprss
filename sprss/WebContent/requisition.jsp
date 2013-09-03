@@ -8,30 +8,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>The Spare Part Requisition Smart System</title>
-<!-- Bootstrap -->
-	<img src = "img/cpr_logo.png">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <div class="navbar navbar-inverse" style="position: static;">
-              <div class="navbar-inner">
-                <div class="container">
-                  <ul class="nav nav-pills">
-					  <li class="active"><a href="requisition">ใบจองอะไหล่</a></li>
-					  <li><a href="pickinglist">ใบหยิบอะไหล่</a></li>
-					  <li><a href="pickinglist">ข้อมูลใบจองอะไหล่</a></li>
-					</ul>
-                    <span align="right" style="margin-left:20em"><button class="btn btn-mini btn btn-success disabled" type="button">User: Nuttareepan.r</button></span>     
-                    <span align="right"><button class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'logout'">Log Out</button></span>
-                </div>
-              </div><!-- /navbar-inner -->
-            </div>
      <%
      	User user = (User) session.getAttribute("userData");
         RequisitionList reqList = (RequisitionList) request.getAttribute("reqList");
      %>
 </head>
 <body background="img/indexBG.jpg">
-
+	<%@ include file = "header.jsp" %>
 	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br></center>
 	<div class="container-fluid">
 		  	<div class="row-fluid">
@@ -92,8 +75,8 @@
 						  %>
 						  </tbody>
 						</table>
-						<input style="margin-left:20em" type="submit" class="btn btn-medium btn-primary" value = "ยืนยัน">
-						<input type="reset" class="btn btn-medium">
+						<input style="margin-left:30em" type="submit" class="btn btn-medium btn-primary" value = "ยืนยัน">
+						<input type="reset" class="btn btn-medium" value = "Reset">
 						</form>		    	
 				    </div>
 				<!--</div>-->

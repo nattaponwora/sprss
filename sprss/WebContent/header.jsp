@@ -13,10 +13,10 @@
                 <div class="container">
                   <ul class="nav nav-pills">
 					  <li><a href="requisition">ใบจองอะไหล่</a></li>
-					  <li class="active"><a href="pickinglist">ใบหยิบอะไหล่</a></li>
+					  <li><a href="pickinglist">ใบหยิบอะไหล่</a></li>
 					  <li><a href="pickinglist">ข้อมูลใบจองอะไหล่</a></li>
 					</ul>
-                    <span align="right" style="margin-left:20em"><button class="btn btn-mini btn btn-success disabled" type="button">User: Nuttareepan.r</button></span>     
+                    <span align="right" style="margin-left:50em"><button class="btn btn-mini btn btn-success disabled" type="button">User: Nuttareepan.r</button></span>     
                     <span align="right"><button class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'login.jsp'">Log Out</button></span>
                 </div>
               </div><!-- /navbar-inner -->
