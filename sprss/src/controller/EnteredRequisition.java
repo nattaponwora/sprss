@@ -56,8 +56,10 @@ public class EnteredRequisition extends HttpServlet {
 	 */
 	protected void processRequisitionList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String plant = (String) request.getAttribute("plant");
+		System.out.println(plant);
+		String storeroom = (String) request.getAttribute("storeroom");
 		
-		ArrayList<String> picker = EnteredRequisitionModel.getPicker(plant);
+		ArrayList<User> picker = EnteredRequisitionModel.getPicker(plant, storeroom);
 		request.setAttribute("picker", picker);
 		
 		RequisitionList req = EnteredRequisitionModel.getEnterReqList(plant);

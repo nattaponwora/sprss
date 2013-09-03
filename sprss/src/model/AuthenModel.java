@@ -35,10 +35,10 @@ public class AuthenModel {
 			String lastname = "วรศักดาพิศาล";
 			String empID = "97912531";
 			String email = "nattapon_wora@hotmail.com";
-			String position = "admin";
+			String usergroup = "admin";
 			String plant = "0301";
 			String storeroom = "S001";
-			User uData = new User( id, firstname, lastname, empID, email, position, plant, storeroom );
+			User uData = new User( id, firstname, lastname, empID, email, usergroup, plant, storeroom );
 			return uData;
 		}
 		else{

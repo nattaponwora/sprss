@@ -6,7 +6,7 @@ public class User {
 	private String lastname;
 	private String eid;
 	private String email;
-	private String position;
+	private String usergroup;
 	private String plant;
 	private String storeroom;
 	
@@ -17,17 +17,17 @@ public class User {
 	 * @param lastname = นามสกุุลผู้ใช้
 	 * @param eid = รหัสพนักงาน
 	 * @param email = อีเมลล์ของผู้ใช้งาน
-	 * @param position = สิทธิ
+	 * @param usergroup = กลุ่มผู้ใช้
 	 * @param plant = Plant ที่ผู้ใช้ทำงานงาน
 	 * @param storeroom = คลังที่ผู้ใช้ทำงาน
 	 */
-	public User(int id, String firstname, String lastname, String eid, String email, String position, String plant, String storeroom ){
+	public User(int id, String firstname, String lastname, String eid, String email, String usergroup, String plant, String storeroom ){
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.eid = eid;
 		this.email = email;
-		this.position = position;
+		this.usergroup = usergroup;
 		this.plant = plant;
 		this.storeroom = storeroom;
 	}
@@ -52,8 +52,8 @@ public class User {
 		return email;
 	}
 	
-	public String getPosition(){
-		return position;
+	public String getUsergroup(){
+		return usergroup;
 	}
 	
 	public String getPlant(){

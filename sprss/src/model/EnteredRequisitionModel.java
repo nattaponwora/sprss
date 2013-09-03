@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import object.Item;
 import object.Requisition;
 import object.RequisitionList;
+import object.User;
 
 public class EnteredRequisitionModel {
 	
@@ -13,12 +14,33 @@ public class EnteredRequisitionModel {
 	 * @return ArrayList ที่มีรายชื่อของผู้ที่สามารถหยิบอะหล่จากคลัง ใน plant ที่รับเข้ามาเป็น input
 	 * @author Nattapon Worasakdapisan
 	 */
-	public static ArrayList<String> getPicker( String plant ){
-		ArrayList<String> picker = new ArrayList<String>(); 
-		picker.add("มานะ  ไปใหน");
-		picker.add("โสฬส  เทพพงค์ชัย");
-		picker.add("สุริยัน  จันทร์ผ่อง");
-		picker.add("วรายุ สิงห์กระโทก");
+	public static ArrayList<User> getPicker( String plant, String storeroom ){
+		ArrayList<User> picker = new ArrayList<User>();
+		
+//////////////////////////////////////////////////////////////////////////////
+		int id = 1;
+		String firstname = "นัฐพล" ;
+		String lastname = "วรศักดาพิศาล";
+		String empID = "97912531";
+		String email = "nattapon_wora@hotmail.com";
+		String usergroup = "admin";
+		picker.add( new User( id, firstname, lastname, empID, email, usergroup, plant, storeroom ) ) ;
+		
+		id = 2;
+		firstname = "มานะ" ;
+		lastname = "ไปใหน";
+		empID = "97912532";
+		email = "mana_painhi@hotmail.com";
+		usergroup = "picker";
+		picker.add( new User( id, firstname, lastname, empID, email, usergroup, plant, storeroom ) ) ;
+		
+		id = 3;
+		firstname = "โสฬส" ;
+		lastname = "ไปเทพพงค์ชัย";
+		empID = "97912533";
+		email = "little_angle@hotmail.com";
+		picker.add( new User( id, firstname, lastname, empID, email, usergroup, plant, storeroom ) ) ;
+		
 		return picker;
 	}
 	
