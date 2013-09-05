@@ -10,7 +10,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
      <%
      	User user = (User) session.getAttribute("userData");
+     	ArrayList<User> picker = (ArrayList<User>)request.getAttribute("picker");
         RequisitionList reqList = (RequisitionList) request.getAttribute("reqList");
+        request.setAttribute("picker", picker);
+        request.setAttribute("reqList", reqList);
      %>
 </head>
 <body background="img/indexBG.jpg">
@@ -37,7 +40,6 @@
 				    	<font size="4" face="Tahoma" color="#493D26" style="font-weight:bold">ผู้หยิบอะไหล่</font><br>
 				    	<select name="picker">
 				    		<% 
-				    			ArrayList<User> picker = (ArrayList<User>)request.getAttribute("picker");
 				    			for ( int i = 0 ; i < picker.size(); i++){
 				    				out.println( "<option value='"+picker.get(i).getID()+"'>"+ picker.get(i).getName() +"</option>");
 				    			}
@@ -66,7 +68,7 @@
 						      <td><font color="#64E986">Available</font></td>
 						      <td>
 						      	<label class="checkbox">
-	  						  		<input type="checkbox" name="check1" id="check1" value="check1">
+	  						  		<input type="checkbox" name="req" id="req<%= i %>" value="<%= r.getReqID() %>">
 								</label>
 							  </td>
 						    </tr>

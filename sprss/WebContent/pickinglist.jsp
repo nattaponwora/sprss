@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="object.User" %>
+<%@ page import="object.RequisitionList" %>
+<%@ page import="object.Requisition" %>
+<%@ page import="object.ItemList" %>
+<%@ page import="object.Item" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,6 +24,8 @@
 	<%@ include file = "header.jsp" %>
 	<% 
 		User picker = (User) request.getAttribute("picker");
+		RequisitionList selectReq = ( RequisitionList ) request.getAttribute("reqList"); 
+		ItemList itemList = (ItemList) request.getAttribute("itemList");
 	%>
 	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br></center>
 	<div id = "divprint">
@@ -37,48 +43,20 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>			      
-			      <td>30020798</td>
-			      <td>RANCILIO 10700228 CONTROL PANEL RED 1GR</td>
-			      <td>S30-03-6-3</td>
-			      <td>19218162</td>
-			      <td>2 pieces</td>
+			  <% 
+			  	for ( int i =0; i < selectReq.size() ; i++ ){
+			  		Item item = itemList.getItem(i);
+			  %>
+			  	<tr>			      
+			      <td><%= item.getCode() %></td>
+			      <td><%= item.getDescription() %></td>
+			      <td><%= item.getAssetNO() %></td>
+			      <td><%= item.getReqID() %></td>
+			      <td><%= item.getAmount() %></td>
 			    </tr>
-			    <tr>
-			      <td>30017152</td>
-			      <td>NEC PW-ZAA06049A GIBMAC PKG ASY SWITCH</td>
-			      <td>S26-04-4-2</td>
-			      <td>19218162</td>
-			      <td>1 pieces</td>
-			    </tr>
-			    <tr>
-			      <td>30010251</td>
-			      <td>380-314-0-30 นกนางนวล ก๊อกคูลเลอร์</td>
-			      <td>S26-04-4-2</td>
-			      <td>19218162</td>
-			      <td>1 pieces</td>
-			  	</tr>
-			    <tr>
-			      <td>30008444</td>
-			      <td>คอมเพรสเซอร์ ZR28K3PFJ-SCROLL 24000BTU</td>
-			      <td>S05-01-2-4</td>
-			      <td>19218162</td>
-			      <td>1 pieces</td>
-			    </tr>
-			    <tr>
-			      <td>30002200</td>
-			      <td>คอมเพรสเซอร์ MT56 HK4 MANEROP</td>
-			      <td>S01-02-2-4</td>
-			      <td>19218162</td>
-			      <td>1 pieces</td>
-			    </tr>
-			    <tr>
-			      <td>30014406</td>
-			      <td>R.คอมเพรสเซอร์ MT56 HK4 MANEROP</td>
-			      <td></td>
-			      <td>19218162</td>
-			      <td>1 pieces</td>
-			    </tr>
+			  <%
+			  	}
+			  %>
 			  </tbody>
 		</table>
 		<button type="submit" class="btn btn-medium btn-primary" style="margin-left:10em">ยืนยัน</button><dr>

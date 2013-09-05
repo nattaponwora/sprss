@@ -9,6 +9,7 @@ public class Requisition {
 	private String plant;
 	private int reqID;
 	private int itemNum;
+	private int orderNum;
 	
 	/**
 	 * Constructor for Requisition class
@@ -23,6 +24,7 @@ public class Requisition {
 		this.plant = plant;
 		this.reqID = reqID;
 		itemNum = 0;
+		orderNum = 0;
 	}
 	
 	public ArrayList<Item> getItemList(){
@@ -44,6 +46,7 @@ public class Requisition {
 	public void addItem( Item item ){
 		itemList.add(item);
 		itemNum += item.getAmount();
+		orderNum += 1;
 	}	
 	
 	public int size(){
@@ -54,4 +57,7 @@ public class Requisition {
 		return itemNum;
 	}
 	
+	public int getOrderNum(){
+		return orderNum;
+	}
 }

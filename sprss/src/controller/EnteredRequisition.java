@@ -66,6 +66,7 @@ public class EnteredRequisition extends HttpServlet {
 		
 		RequisitionList req = EnteredRequisitionModel.getEnterReqList(plant);
 		request.setAttribute("reqList", req);
+		session.setAttribute("reqList", req );
 		
 		RequestDispatcher obj = request.getRequestDispatcher("requisition.jsp");
 		obj.forward(request,response);

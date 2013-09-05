@@ -5,12 +5,23 @@ import java.util.ArrayList;
 public class ItemList {
 
 	private ArrayList<Item> items;
+	private int itemNum;
 	
 	public ItemList(  ){
 		items = new ArrayList<Item>();
+		itemNum = 0;
+	}
+	
+	public int getNum(){
+		return itemNum;
+	}
+	
+	public Item getItem( int i ){
+		return items.get(i);
 	}
 	
 	public void add( Item item ){
+		itemNum++ ;
 		if( items.size() == 0 ){
 			items.add(item);
 		}

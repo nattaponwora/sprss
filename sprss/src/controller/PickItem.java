@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import object.Item;
+import object.Requisition;
+import object.RequisitionList;
 import object.User;
+import object.ItemList;
 
 /**
  * Servlet implementation class PickItem
@@ -39,19 +43,60 @@ public class PickItem extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pid = request.getParameter("picker");
 		HttpSession sess = request.getSession();
+		/*
+		 * จัดการใบจองอะไหล่ที่ต้องการ
+		 */
+		String[] reqList = request.getParameterValues("req");
+		
+		
+		/*
+		 * หา Object สำหรับผู้หยิบอะไหล่ที่เลือก
+		 */
+		String pid = request.getParameter("picker");
+		//ArrayList<User> p = (ArrayList<User>) request.getAttribute("picker");
 		ArrayList<User> p = (ArrayList<User>) sess.getAttribute("picker");
+		RequisitionList allReq = (RequisitionList) sess.getAttribute("reqList");
+		RequisitionList selectReq = new RequisitionList();
+		ItemList itemList = new ItemList();
+		
 		User u = null;
-		for( int i= 0 ; i < p.size() ; i++ ){
+		for( int i = 0 ; i < p.size() ; i++ ){
 			if ( p.get(i).getID() == Integer.parseInt(pid) ){
 				u = p.get(i);
 				break;
 			}
-		}
+		}	
 		request.setAttribute("picker", u );
-		RequestDispatcher obj = request.getRequestDispatcher("pickinglist.jsp");
-		obj.forward(request,response);
+
+		int reqOrder = 0; // ลำดับที่ใบใบสั่งอะไหล่ทั้งหมด
+		for ( int selectOrder = 0 ; selectOrder < reqList.length ; selectOrder++){
+			while( reqOrder < allReq.size() ){
+				Requisition r = allReq.get( reqOrder );
+				int checkReqID  = Integer.parseInt( reqList[ selectOrder ] );
+				if( checkReqID == r.getReqID() ){
+					selectReq.add(r);
+					break;
+				}
+				reqOrder++;
+			}
+			ArrayList<Item> list = selectReq.get(selectOrder).getItemList();
+			for ( int i = 0 ; i < list.size() ; i++ ){
+				Item item = list.get(i);
+				itemList.add( item );
+			}
+		}
+		
+		for ( int i=0 ; i < itemList.getNum() ; i++ ){
+			System.out.println(itemList.getItem(i).getCode() + "  " + itemList.getItem(i).getReqID() +"   " + itemList.getItem(i).getDescription() + "    " +itemList.getItem(i).getAssetNO());
+		}
+			
+		request.setAttribute("reqList", selectReq);
+		request.setAttribute("itemList", itemList);
+		
+		//เปลี่ยนหน้า
+		//RequestDispatcher obj = request.getRequestDispatcher("pickinglist.jsp");
+		//obj.forward(request,response);
 	}
 
 }
