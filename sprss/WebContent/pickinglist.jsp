@@ -44,7 +44,7 @@
 			  </thead>
 			  <tbody>
 			  <% 
-			  	for ( int i =0; i < selectReq.size() ; i++ ){
+			  	for ( int i =0; i < itemList.size() ; i++ ){
 			  		Item item = itemList.getItem(i);
 			  %>
 			  	<tr>			      

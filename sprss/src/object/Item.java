@@ -68,18 +68,27 @@ public class Item {
 	public int getShelf(){
 		String str = getAssetNO().substring(1);
 		String[] temp = str.split("-");
+		if( temp.length == 1 ){
+			return 0;
+		}
 		return Integer.valueOf(temp[1]);
 	}
 	
 	public int getBasket(){
 		String str = getAssetNO().substring(1);
 		String[] temp = str.split("-");
+		if( temp.length == 2 ){
+			return 0;
+		}
 		return Integer.valueOf(temp[2]);
 	}
 	
 	public int getBag(){
 		String str = getAssetNO().substring(1);
 		String[] temp = str.split("-");
+		if( temp.length == 3 ){
+			return 0;
+		}
 		return Integer.valueOf(temp[3]);
 	}
 	

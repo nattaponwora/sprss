@@ -5,34 +5,28 @@ import java.util.ArrayList;
 public class ItemList {
 
 	private ArrayList<Item> items;
-	private int itemNum;
 	
 	public ItemList(  ){
 		items = new ArrayList<Item>();
-		itemNum = 0;
 	}
 	
-	public int getNum(){
-		return itemNum;
+	public int size(){
+		return items.size();
 	}
 	
 	public Item getItem( int i ){
 		return items.get(i);
 	}
 	
-	public void add( Item item ){
-		itemNum++ ;
+	public void add( Item item ){		
 		if( items.size() == 0 ){
 			items.add(item);
 		}
 		else{
 			for( int i = items.size() - 1 ; i >= 0 ; i-- ){
-				if( item.getAssetNO() == items.get(i).getAssetNO() ){
+				if( item.getAssetNO().equals(items.get(i).getAssetNO()) ){
 					items.add(i+1, item);
 					return;
-				}
-				if( i < 0 ){
-					items.add(0 , item);
 				}
 				if( item.compareToStoreType(items.get(i)) > 0 ){
 					items.add(i+1, item);
@@ -43,42 +37,27 @@ public class ItemList {
 						if( item.compareToShelf(items.get(i)) == 0 ){
 							if( item.compareToBasket(items.get(i)) == 0 ){
 								if( item.compareToBag(items.get(i)) == 0 || item.compareToBag(items.get(i)) < 0 ){
-									items.add(i+1 , item);
+									items.add(i+1, item);
 									return;
 								}
-								else{
-									items.add(i , item);
-									return;
-								}							
 							}
-							else if( item.compareToBasket(items.get(i)) < 0 ){
-								items.add(i+1 , item);
-								return;
-							}
-							else{
-								items.add(i , item);
+							if( item.compareToBasket(items.get(i)) < 0 ){
+								items.add(i+1, item);
 								return;
 							}
 						}
-						else if( item.compareToShelf(items.get(i)) < 0 ){
-							items.add(i+1, item);
-							return;
-						}
-						else{
-							items.add(i, item);
+						if( item.compareToShelf(items.get(i)) < 0 ){
+							items.add(i+1 , item);
 							return;
 						}
 					}
-					else if( item.compareToLog(items.get(i)) < 0 ){
-						items.add(i+1 , item);
-						return;
-					}
-					else{
-						items.add(i, item);
+					if( item.compareToLog(items.get(i)) < 0 ){
+						items.add(i+1, item);
 						return;
 					}
 				}
 			}
+			items.add(0 , item);
 		}
 	}	
 	

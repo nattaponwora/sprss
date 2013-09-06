@@ -87,7 +87,7 @@ public class PickItem extends HttpServlet {
 			}
 		}
 		
-		for ( int i=0 ; i < itemList.getNum() ; i++ ){
+		for ( int i=0 ; i < itemList.size() ; i++ ){
 			System.out.println(itemList.getItem(i).getCode() + "  " + itemList.getItem(i).getReqID() +"   " + itemList.getItem(i).getDescription() + "    " +itemList.getItem(i).getAssetNO());
 		}
 			
@@ -95,8 +95,8 @@ public class PickItem extends HttpServlet {
 		request.setAttribute("itemList", itemList);
 		
 		//เปลี่ยนหน้า
-		//RequestDispatcher obj = request.getRequestDispatcher("pickinglist.jsp");
-		//obj.forward(request,response);
+		RequestDispatcher obj = request.getRequestDispatcher("pickinglist.jsp");
+		obj.forward(request,response);
 	}
 
 }
