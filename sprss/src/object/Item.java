@@ -1,3 +1,8 @@
+/**
+ * The class that create item
+ * @author POM
+ */
+
 package object;
 
 /**
@@ -17,6 +22,7 @@ public class Item {
 	private String description;
 	private String assetNO; 
 	private int amount;
+	private int autID;
 	
 	/**
 	 * 
@@ -27,12 +33,13 @@ public class Item {
 	 * @param assetNO
 	 * @param amount
 	 */
-	public Item( int reqID , int code , String description , String assetNO , int amount){
+	public Item( int reqID , int code , String description , String assetNO , int amount , int autID){
 		this.reqID = reqID;
 		this.code = code;
 		this.description = description;
 		this.assetNO = assetNO;
 		this.amount = amount;
+		this.autID = autID;
 	}
 	
 	public int getReqID(){
@@ -53,6 +60,10 @@ public class Item {
 	
 	public int getAmount(){
 		return amount;
+	}
+	
+	public int getAutID(){
+		return autID;
 	}
 	
 	public String getStoreType(){

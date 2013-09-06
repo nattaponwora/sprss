@@ -38,6 +38,7 @@
 			      	<th>รหัสสินค้า</th>
 			     	<th>รายการ</th>
 			    	<th>Asset No./Storage bin</th>
+			    	<th>รหัสช่าง</th>
 			    	<th>ใบจอง</th>
 			        <th>จำนวน</th>
 			    </tr>
@@ -51,6 +52,7 @@
 			      <td><%= item.getCode() %></td>
 			      <td><%= item.getDescription() %></td>
 			      <td><%= item.getAssetNO() %></td>
+			      <td><%= item.getAutID() %></td>
 			      <td><%= item.getReqID() %></td>
 			      <td><%= item.getAmount() %></td>
 			    </tr>

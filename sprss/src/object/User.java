@@ -1,3 +1,7 @@
+/**
+ * The class that store the information of user
+ * @author POM
+ */
 package object;
 
 public class User {

@@ -1,3 +1,7 @@
+/**
+ * The class that store the item list
+ * @author POM
+ */
 package object;
 
 import java.util.ArrayList;

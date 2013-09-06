@@ -1,3 +1,7 @@
+/**
+ * The class that store requisition list
+ * @author POM
+ */
 package object;
 
 import java.util.ArrayList;

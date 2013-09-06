@@ -1,3 +1,7 @@
+/**
+ * The class that contain the item to pick.
+ * @author POM
+ */
 package object;
 
 import java.util.ArrayList;
