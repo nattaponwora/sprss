@@ -27,8 +27,7 @@
 					    <div class="container" style="margin-top:2em">
 					      	<font size="3" face="Tahoma" color="#493D26">
 						      	ชื่อผู้ใช้ : <%= user.getFirstname() %><br>
-						      	จำนวนใบจอง : <%= reqList.size() %> ใบ<br>
-						     	จำนวน : <%= reqList.getItemNum() %> ชิ้น
+						      	จำนวนใบจอง : <%= reqList.size() %> ใบ<br>						   
 						     	<hr width="300">
 					  		</font>
 					  	</div>
