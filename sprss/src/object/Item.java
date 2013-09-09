@@ -18,7 +18,7 @@ package object;
 public class Item {
 	
 	private int reqID;
-	private int code;
+	private int itemnum;
 	private String description;
 	private String assetNO; 
 	private int amount;
@@ -33,9 +33,9 @@ public class Item {
 	 * @param assetNO
 	 * @param amount
 	 */
-	public Item( int reqID , int code , String description , String assetNO , int amount , int autID){
+	public Item( int reqID , int itemnum , String description , String assetNO , int amount , int autID){
 		this.reqID = reqID;
-		this.code = code;
+		this.itemnum = itemnum;
 		this.description = description;
 		this.assetNO = assetNO;
 		this.amount = amount;
@@ -46,8 +46,8 @@ public class Item {
 		return reqID;
 	}
 	
-	public int getCode(){
-		return code;
+	public int getItemnum(){
+		return itemnum;
 	}
 	
 	public String getDescription(){

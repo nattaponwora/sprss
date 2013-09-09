@@ -17,9 +17,7 @@ public class Requisition {
 	private String enteredDate;
 	private String pickedDate;
 	private String plant;
-	private String status;
-	private String type;
-	private int itemNum;
+	private int totalItem;
 	
 	/**
 	 * Constructor for Requisition class
@@ -38,7 +36,7 @@ public class Requisition {
 		this.enteredDate = enterDate;
 		this.pickedDate = pickedDate;
 		this.plant = plant;
-		itemNum = 0;
+		totalItem = 0;
 	}
 	
 	public ArrayList<Item> getItemList(){
@@ -87,15 +85,15 @@ public class Requisition {
 	
 	public void addItem( Item item ){
 		itemList.add(item);
-		itemNum += item.getAmount();		
+		totalItem += item.getAmount();		
 	}	
 	
 	public int size(){
 		return itemList.size();
 	}
 	
-	public int getItemNum(){
-		return itemNum;
+	public int getTotalItem(){
+		return totalItem;
 	}	
 	
 }

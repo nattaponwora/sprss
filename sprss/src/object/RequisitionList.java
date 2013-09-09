@@ -21,7 +21,7 @@ public class RequisitionList  {
 	
 	public void add( Requisition r ){
 		reqList.add(r);
-		itemNum += r.getItemNum();
+		itemNum += r.getTotalItem();
 	}
 	
 	public Requisition get(int i){

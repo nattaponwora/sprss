@@ -88,7 +88,7 @@ public class PickItem extends HttpServlet {
 		}
 		
 		for ( int i=0 ; i < itemList.size() ; i++ ){
-			System.out.println(itemList.getItem(i).getCode() + "  " + itemList.getItem(i).getReqID() +"   " + itemList.getItem(i).getDescription() + "    " +itemList.getItem(i).getAssetNO());
+			System.out.println(itemList.getItem(i).getItemnum() + "  " + itemList.getItem(i).getReqID() +"   " + itemList.getItem(i).getDescription() + "    " +itemList.getItem(i).getAssetNO());
 		}
 			
 		request.setAttribute("reqList", selectReq);

@@ -49,7 +49,7 @@
 			  		Item item = itemList.getItem(i);
 			  %>
 			  	<tr>			      
-			      <td align="center"><%= item.getCode() %></td>
+			      <td align="center"><%= item.getItemnum() %></td>
 			      <td align="center"><%= item.getDescription() %></td>
 			      <td align="center"><%= item.getAssetNO() %></td>
 			      <td align="center"><%= item.getAutID() %></td>
