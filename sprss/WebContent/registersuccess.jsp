@@ -24,7 +24,7 @@
 		<h>เบอร์โทรศัพท์ : <%= request.getAttribute("tel") %> </h> <br>	
 		<h>email : <%= request.getAttribute("email") %> </h> <br>	
 		<h>Plant : <%= request.getAttribute("plant") %> </h> <br>	
-		<h>StoreRoom : <%= request.getAttribute("storename") %> </h> <br>	
+		<h>StoreRoom : <%= request.getAttribute("storeRoom") %> </h> <br>	
 		<h>กลุ่มผู้ใช้ : <%= request.getAttribute("usergroup") %> </h> <br>	
 </div> <br> <a href="login.jsp"><button type="button" class="btn" onclick = "location.href = 'login.jsp'">Back to Login</button></a>
 	</div></center>

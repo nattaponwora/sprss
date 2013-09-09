@@ -93,12 +93,12 @@
 				<tr>
 					<td>
 						<div class="control-group">
-				    	<label class="control-label" for="inputPassword"><b>ตำแหน่ง</b></label>
+				    	<label class="control-label" for="inputPassword"><b>กลุ่มผู้ใช่</b></label>
 				    		<div class="controls">
-				      			<select name="position">
-								  <option>Administrator</option>
-								  <option>Manager</option>
-								  <option>Picker</option>
+				      			<select name="usergroup">
+								  <option value="1">Administrator</option>
+								  <option value="2">Manager</option>
+								  <option value="3">Picker</option>
 								</select>
 				    		</div>
 				 		</div>

@@ -16,6 +16,8 @@
 <body background="img/indexBG.jpg">
 	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br>
 	<div class="container">
+		<center><h3><font color="red"><%= (String)request.getAttribute("header") %></font></font></h1></center><br>
+		<center><h4><font color="blue"><b>สาเหตุ : <%= (String)request.getAttribute("message") %></b></font></h4></center><br>
 		<center><h1 style="margin-top:0em"><font size="3" face="Tahoma" color="#FF0000">โปรดติดต่อเจ้าหน้าที่</font></h1><br>
 </div> <br> <a href="login.jsp"><button type="button" class="btn" onclick = "location.href = 'login.jsp'">Back to Login</button></a>
 	</div></center>

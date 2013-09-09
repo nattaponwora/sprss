@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class StatementManager {
 	
-	private static String sql_url = "jdbc:mysql://localhost:3306/sprss";
+	private static String sql_url = "jdbc:mysql://localhost:3306/sprss?&useUnicode=true&characterEncoding=UTF-8";
 	private static String sql_user = "root";
 	private static String sql_pass = "";
 	

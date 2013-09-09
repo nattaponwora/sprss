@@ -29,10 +29,20 @@ public class Error extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doError(request, response);
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doError(request, response);
+		// TODO Auto-generated method stub
+	}
+	
+	protected void doError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("header", request.getAttribute("header"));
 		request.setAttribute("message", request.getAttribute("message"));
 		RequestDispatcher obj = request.getRequestDispatcher("error.jsp");
 		obj.forward(request,response);
+		// TODO Auto-generated method stub
 	}
 
 }

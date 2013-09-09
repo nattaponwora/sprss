@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -55,12 +56,17 @@ public class LoginManager extends HttpServlet {
 				response.sendRedirect("login");
 			}
 		}catch( NoSuchAlgorithmException e ){
-			request.setAttribute("hearder", "Error NoSuchAlgorithmException");
+			request.setAttribute("header", "Error NoSuchAlgorithmException");
 			request.setAttribute("message", e.getMessage());
 			RequestDispatcher obj = request.getRequestDispatcher("error");
 			obj.forward(request,response);
 		}catch( UnsupportedEncodingException e ){
-			request.setAttribute("hearder", "Error UnsupportedEncodingException");
+			request.setAttribute("header", "Error UnsupportedEncodingException");
+			request.setAttribute("message", e.getMessage());
+			RequestDispatcher obj = request.getRequestDispatcher("error");
+			obj.forward(request,response);
+		} catch (SQLException e) {
+			request.setAttribute("header", "Error SQLException");
 			request.setAttribute("message", e.getMessage());
 			RequestDispatcher obj = request.getRequestDispatcher("error");
 			obj.forward(request,response);

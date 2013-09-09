@@ -3,6 +3,9 @@ package model;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import object.User;
 
@@ -25,26 +28,32 @@ public class AuthenModel {
 	 * @throws UnsupportedEncodingException 
 	 * @throws NoSuchAlgorithmException\
 	 * @author Nattapon Worasakdapisan 
+	 * @throws SQLException 
 	 */
-	public static User checkAuthen( String eid , String password) throws NoSuchAlgorithmException, UnsupportedEncodingException{
+	public static User checkAuthen( String eid , String password) throws NoSuchAlgorithmException, UnsupportedEncodingException, SQLException{
 		String npass = hashPassword( password ) ;
-		System.out.println(npass);
-		if( eid.equals("9999") && password.equals("1234") ){
-			int id = 1;
-			String firstname = "นัฐพล" ;
-			String lastname = "วรศักดาพิศาล";
-			String empID = "97912531";
-			String email = "nattapon_wora@hotmail.com";
-			String tel = "0867778888";
-			String usergroup = "admin";
-			String plant = "0301";
-			String storeroom = "S001";
-			User uData = new User( id, firstname, lastname, empID, email, tel, usergroup, plant, storeroom );
-			return uData;
+		Statement stm = StatementManager.getSQLStatement();
+		String sql = "SELECT * FROM user WHERE eid = '" + eid + "' ";
+		ResultSet rs = stm.executeQuery(sql);
+		
+		while ( rs.next() ){
+			if( npass.equals( rs.getString("password") ) ){
+				int id = rs.getInt("uid");
+				String firstname = rs.getString("firstname") ;
+				String lastname = rs.getString("lastname") ;
+				String empID = rs.getString("eid") ;
+				String email = rs.getString("email") ;
+				String tel = rs.getString("tel") ;
+				String usergroup = rs.getString("usergroup") ;
+				String plant = rs.getString("plant") ;
+				String storeroom = rs.getString("storeroom") ;
+				User uData = new User( id, firstname, lastname, empID, email, tel, usergroup, plant, storeroom );
+				return uData;
+			}else{
+				return null;
+			}
 		}
-		else{
-			return null;
-		}
+		return null;
 	}
 	
 	/**เข้ารหัส password ด้วย SHA1
