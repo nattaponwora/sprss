@@ -23,71 +23,99 @@
 	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br>
 		<h1><font size="4" face="Tahoma" color="#493D26">ลงทะเบียน</font></h1><br></center>
 			<div class="container">
-				<form class="form-horizontal" style="margin-left:12em" action = "register" method = "post">
+				<form class="form-horizontal" action = "registermanager" method = "post">
 				
-				
-					<div class="control-group">
-				    	<label class="control-label" for="inputEmpID">รหัสพนักงาน</label>
-				    		<div class="controls">
-				      			<input type="text" id="inputEmpID" name="empID">
-				    		</div>
-				 	</div>
-				 	
-				 	<div class="control-group">
-				    	<label class="control-label" for="inputPassword">รหัสผ่าน</label>
-				    		<div class="controls">
-				      			<input type="password" id="inputPassword" name="password">
-				    		</div>
-				 	</div>
-				 	
-					<div class="control-group">
-				    	<label class="control-label" for="inputFirstname">ชื่อ</label>
-				    		<div class="controls">
-				      			<input type="text" id="inputFirstname" name="firstname">
-				    		</div>
-				 	</div>
-
-				 	<div class="control-group">
-				    	<label class="control-label" for="inputLastname">นามสกุล</label>
-				    		<div class="controls">
-				      			<input type="text" id="LastName" name="lastname">
-				    		</div>
-				 	</div>					
-
-				 	<div class="control-group">
-				    	<label class="control-label" for="inputPassword">ตำแหน่ง</label>
+				<table>
+				<tr>
+					<td>
+						<div class="control-group">
+					    	<label class="control-label" for="inputEmpID"><b>รหัสพนักงาน</b></label>
+					    		<div class="controls">
+					      			<input type="text" id="inputEmpID" name="empID">
+					    		</div>
+					 	</div>
+					 </td>
+				</tr>
+				<tr>
+					<td>
+						 <div class="control-group">
+						    	<label class="control-label" for="inputFirstname"><b>ชื่อ</b></label>
+						    		<div class="controls">
+						      			<input type="text" id="inputFirstname" name="firstname">
+						    		</div>
+						 </div>
+					 </td>
+					 <td>
+					 	<div class="control-group">
+					    	<label class="control-label" for="inputLastname"><b>นามสกุล</b></label>
+					    		<div class="controls">
+					      			<input type="text" id="LastName" name="lastname">
+					    		</div>
+					 	</div>	
+					 </td>
+				</tr>
+				<tr>
+					<td>
+						<div class="control-group">
+						    	<label class="control-label" for="inputTelNum"><b>เบอร์โทรศัพท์</b></label>
+						    		<div class="controls">
+						      			<input type="text" id="inputTelNum" name="tel">
+						    		</div>
+					  	</div>
+					</td>
+					<td>
+						<div class="control-group">
+					    	<label class="control-label" for="inputEmail"><b>email</b></label>
+					   			<div class="controls">
+					      			<input type="text" id="inputEmail" name="email">
+					   			</div>
+				  		</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="control-group">
+					    	<label class="control-label" for="inputPlant"><b>Plant</b></label>
+					    		<div class="controls">
+					      			<input type="text" id="inputPlant" name="plant">
+					    		</div>
+				  		</div>
+					</td>
+					<td>
+						<div class="control-group">
+					    	<label class="control-label" for="inputStoreRoom"><b>StoreRoom</b></label>
+					    		<div class="controls">
+					      			<input type="text" id="inputStoreRoom" name="storeRoom">
+					    		</div>
+					  	</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="control-group">
+				    	<label class="control-label" for="inputPassword"><b>ตำแหน่ง</b></label>
 				    		<div class="controls">
 				      			<select name="position">
-								  <option>Head Office</option>
 								  <option>Administrator</option>
-								  <option>Employee</option>
-								  <option>Staff</option>
+								  <option>Manager</option>
+								  <option>Picker</option>
 								</select>
 				    		</div>
-				 	</div>
-
-					<div class="control-group">
-				    	<label class="control-label" for="inputEmail">Email</label>
-				   			<div class="controls">
-				      			<input type="text" id="inputEmail" name="email">
-				   			</div>
-				  	</div>
-				  	<div class="control-group">
-				    	<label class="control-label" for="inputTelNum">เบอร์โทรศัพท์</label>
-				    		<div class="controls">
-				      			<input type="text" id="inputTelNum" name="tel">
-				    		</div>
-				  	</div>
-				  	
-				  	<div class="control-group">
-				    	<label class="control-label" for="inputPlant">Plant</label>
-				    		<div class="controls">
-				      			<input type="text" id="inputPlant" name="plant">
-				    		</div>
-				  	</div>
-				  	<button type="submit" class="btn btn-medium btn-primary" style="margin-left:14em">ลงทะเบียน</button>
-				  	<button type="reset" class="btn" style="margin-left:0.5em" onclick = "location.href = 'login.jsp'">ยกเลิก</button>
-				  	</form><br> 	
+				 		</div>
+					</td>
+				</tr>
+				<tr>
+				<td>&nbsp;</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="center">
+					<input type="submit" class="btn btn-medium btn-primary" style="margin-left:14em" value="ลงทะเบียน" >
+			  		<input type="reset" class="btn" style="margin-left:0.5em"  value = "reset" >
+			  		<button type="reset" class="btn" style="margin-left:0.5em" onclick = "location.href = 'login.jsp'">ยกเลิก</button>
+				</td>
+				</tr>
+				</table>
+			 	</form><br> 	
 
 				
 	</div>

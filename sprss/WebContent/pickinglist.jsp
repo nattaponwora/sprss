@@ -32,7 +32,7 @@
 		<div class="container">
 		<h4>ผู้หยิบอะไหล่ : <%= picker.getName() %></h4> <br>
 		<h>ใบเบิก : 7910034 , 7910035 </h> <br>
-		<center><table class="table table-bordered">
+		<center><table width="100%" class="table table-bordered">
 			<thead>
 			    <tr>
 			      	<th>รหัสสินค้า</th>
@@ -49,12 +49,12 @@
 			  		Item item = itemList.getItem(i);
 			  %>
 			  	<tr>			      
-			      <td><%= item.getCode() %></td>
-			      <td><%= item.getDescription() %></td>
-			      <td><%= item.getAssetNO() %></td>
-			      <td><%= item.getAutID() %></td>
-			      <td><%= item.getReqID() %></td>
-			      <td><%= item.getAmount() %></td>
+			      <td align="center"><%= item.getCode() %></td>
+			      <td align="center"><%= item.getDescription() %></td>
+			      <td align="center"><%= item.getAssetNO() %></td>
+			      <td align="center"><%= item.getAutID() %></td>
+			      <td align="center"><%= item.getReqID() %></td>
+			      <td align="center"><%= item.getAmount() %></td>
 			    </tr>
 			  <%
 			  	}

@@ -23,28 +23,14 @@ public class Register extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-    
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	doRegister( request , response );
-	}
-    
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doRegister( request , response );
-	}
-    
-    private void doRegister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    	String fname = (String) request.getParameter("firstname");
-    	String lname = (String) request.getParameter("lastname");
-    	String eid = (String) request.getParameter("empID");
-    	String tel = (String) request.getParameter("tel");
-    	String email = (String) request.getParameter("email");
-    	String position = (String) request.getParameter("position");
-    	String plant = (String) request.getParameter("plant");    	
-    	String password = (String) request.getParameter("password");
-    	
-    	request.setAttribute( "mes",eid + " " + password + " " + fname + " " + lname + " " + " " +tel + " " + email + " " + position + " " + plant);
-		RequestDispatcher obj = request.getRequestDispatcher("test.jsp");
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher obj = request.getRequestDispatcher("register.jsp");
 		obj.forward(request,response);
-    }
-    
+		// TODO Auto-generated method stub
+	}
+
 }
