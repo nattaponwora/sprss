@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -55,21 +56,37 @@ public class EnteredRequisition extends HttpServlet {
 	 * @throws IOException
 	 */
 	protected void processRequisitionList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String plant = (String) request.getAttribute("plant");
-		System.out.println(plant);
-		String storeroom = (String) request.getAttribute("storeroom");
-		HttpSession session =  request.getSession();
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("userData");
+		String plant = user.getPlant();
+		String storeroom = user.getStoreroom();
+		int usergroup = user.getUsergroup();
 		
-		ArrayList<User> picker = EnteredRequisitionModel.getPicker(plant, storeroom);
-		request.setAttribute("picker", picker);
-		session.setAttribute("picker", picker );
+		try{
+			ArrayList<User> picker;
+			if( usergroup > 2 ){
+				picker = new ArrayList<User>();
+				picker.add(user);
+			}else{
+				picker = EnteredRequisitionModel.getPicker(plant, storeroom);
+				request.setAttribute("picker", picker);
+				session.setAttribute("picker", picker );
+			}
+			
+			
+			RequisitionList req = EnteredRequisitionModel.getEnterReqList(plant);
+			request.setAttribute("reqList", req);
+			session.setAttribute("reqList", req );
+			
+			RequestDispatcher obj = request.getRequestDispatcher("requisition.jsp");
+			obj.forward(request,response);
+		}catch( SQLException e ){
+			request.setAttribute("header", "Error SQLException");
+			request.setAttribute("message", e.getMessage());
+			RequestDispatcher obj = request.getRequestDispatcher("error");
+			obj.forward(request,response);
+		}
 		
-		RequisitionList req = EnteredRequisitionModel.getEnterReqList(plant);
-		request.setAttribute("reqList", req);
-		session.setAttribute("reqList", req );
-		
-		RequestDispatcher obj = request.getRequestDispatcher("requisition.jsp");
-		obj.forward(request,response);
 	}
 	
 }

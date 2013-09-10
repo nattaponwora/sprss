@@ -1,5 +1,8 @@
 package model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import object.Item;
@@ -13,37 +16,23 @@ public class EnteredRequisitionModel {
 	 * @param String ที่ระบุ plant ที่ต้องการรายชื่อผูู้หยิบอะไหล่ เช่น 0301 
 	 * @return ArrayList ที่มีรายชื่อของผู้ที่สามารถหยิบอะหล่จากคลัง ใน plant ที่รับเข้ามาเป็น input
 	 * @author Nattapon Worasakdapisan
+	 * @throws SQLException 
 	 */
-	public static ArrayList<User> getPicker( String plant, String storeroom ){
+	public static ArrayList<User> getPicker( String plant, String storeroom) throws SQLException{
 		ArrayList<User> picker = new ArrayList<User>();
-		
-//////////////////////////////////////////////////////////////////////////////
-		int id = 1;
-		String firstname = "นัฐพล" ;
-		String lastname = "วรศักดาพิศาล";
-		String empID = "97912531";
-		String email = "nattapon_wora@hotmail.com";
-		String tel = "0856667777";
-		String usergroup = "admin";
-		picker.add( new User( id, firstname, lastname, empID, tel, email, usergroup, plant, storeroom ) ) ;
-		
-		id = 2;
-		firstname = "มานะ" ;
-		lastname = "ไปใหน";
-		empID = "97912532";
-		email = "mana_painhi@hotmail.com";
-		tel = "0823334444";
-		usergroup = "picker";
-		picker.add( new User( id, firstname, lastname, empID, tel, email, usergroup, plant, storeroom ) ) ;
-		
-		id = 3;
-		firstname = "โสฬส" ;
-		lastname = "ไปเทพพงค์ชัย";
-		empID = "97912533";
-		email = "little_angle@hotmail.com";
-		tel = "0889999999";
-		picker.add( new User( id, firstname, lastname, empID, tel, email, usergroup, plant, storeroom ) ) ;
-		
+		Statement stm = StatementManager.getSQLStatement();
+		String query = "SELECT uid, firstname, lastname, eid, email, tel, usergroup FROM user WHERE plant='" + plant + "' AND storeroom = '" + storeroom + "' AND usergroup > '1' ";		
+		ResultSet rs = stm.executeQuery(query);
+		while ( rs.next() ){
+			int id = rs.getInt("uid");
+			String firstname = rs.getString( "firstname" );
+			String lastname = rs.getString( "lastname" );
+			int eid = rs.getInt( "eid" );
+			String email = rs.getString( "email" );
+			String tel = rs.getString( "tel" );
+			int usergroup = rs.getInt( "usergroup" );
+			picker.add( new User( id, firstname, lastname, eid, tel, email, usergroup, plant, storeroom ) ) ;
+		}
 		return picker;
 	}
 	

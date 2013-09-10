@@ -41,10 +41,10 @@ public class AuthenModel {
 				int id = rs.getInt("uid");
 				String firstname = rs.getString("firstname") ;
 				String lastname = rs.getString("lastname") ;
-				String empID = rs.getString("eid") ;
+				int empID = rs.getInt("eid") ;
 				String email = rs.getString("email") ;
 				String tel = rs.getString("tel") ;
-				String usergroup = rs.getString("usergroup") ;
+				int usergroup = rs.getInt("usergroup") ;
 				String plant = rs.getString("plant") ;
 				String storeroom = rs.getString("storeroom") ;
 				User uData = new User( id, firstname, lastname, empID, email, tel, usergroup, plant, storeroom );

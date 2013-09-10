@@ -8,10 +8,10 @@ public class User {
 	private int id;
 	private String firstname;
 	private String lastname;
-	private String eid;
+	private int eid;
 	private String email;
 	private String tel;
-	private String usergroup;
+	private int usergroup;
 	private String plant;
 	private String storeroom;
 	
@@ -27,7 +27,7 @@ public class User {
 	 * @param plant = Plant ที่ผู้ใช้ทำงานงาน
 	 * @param storeroom = คลังที่ผู้ใช้ทำงาน
 	 */
-	public User(int id, String firstname, String lastname, String eid, String email, String tel, String usergroup, String plant, String storeroom ){
+	public User(int id, String firstname, String lastname, int eid, String email, String tel, int usergroup, String plant, String storeroom ){
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -55,7 +55,7 @@ public class User {
 		return firstname + " " + lastname;
 	}
 	
-	public String getEID(){
+	public int getEID(){
 		return eid;
 	}
 	
@@ -67,7 +67,7 @@ public class User {
 		return tel;
 	}
 	
-	public String getUsergroup(){
+	public int getUsergroup(){
 		return usergroup;
 	}
 	
