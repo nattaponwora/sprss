@@ -23,12 +23,15 @@
 		  	<div class="row-fluid">
 				<div class="span3">
 				      <!--Sidebar content-->
-				    <font size="4" face="Tahoma" color="#493D26" style="font-weight:bold">Detail</font><br>
-					    <div class="container" style="margin-top:2em">
+				    <font size="4" face="Tahoma" color="#0000A0" style="font-weight:bold">Detail</font><br>
+				    	<hr width = "200">
+					    <div class="container" style="margin-top:1em">
 					      	<font size="3" face="Tahoma" color="#493D26">
-						      	ชื่อผู้ใช้ : <%= user.getFirstname() %><br>
-						      	จำนวนใบจอง : <%= reqList.size() %> ใบ<br>						   
-						     	<hr width="300">
+					      		<font color = "#1569C7">User Name : </font><%= user.getName() %><br>
+					      		<font color = "#1569C7">รหัสพนักงาน : </font><%= user.getEID() %><br>
+						      	<font color = "#1569C7">Plant : </font><%= user.getPlant() %><br>
+						      	<font color = "#1569C7">Store Room : </font><%= user.getStoreroom() %><br>
+						      	<font color = "#1569C7">จำนวนใบเบิกอะไหล่ : </font> <%= reqList.size() %> ใบ<br>						   
 					  		</font>
 					  	</div>
 				    </div>
@@ -48,11 +51,11 @@
 				    	<table class="table table-hover">
 	  						<thead>
 	    					<tr>
-						      <div><th><font size="5" face="Tahoma" color="#493D26"><h5>ลำดับ</h5></font></th></div>
-						      <div><th><font size="5" face="Tahoma" color="#493D26"><h5>เลขที่ใบจอง</h5></font></th></div>
-						      <div><th><font size="5" face="Tahoma" color="#493D26"><h5>จำนวนอะไหล่</h5></font></th></div>
-						      <div><th><font size="5" face="Tahoma" color="#493D26"><h5>รหัสช่าง</h5></font></th></div>
-						      <div><th><font size="5" face="Tahoma" color="#493D26"><h5>เลือก</h5></font></th></div>
+						      <th><font size="5" face="Tahoma" color="#493D26"><h5>ลำดับ</h5></font></th>
+						      <th><font size="5" face="Tahoma" color="#493D26"><h5>เลขที่ใบจอง</h5></font></th>
+						      <th><font size="5" face="Tahoma" color="#493D26"><h5>จำนวนอะไหล่</h5></font></th>
+						      <th><font size="5" face="Tahoma" color="#493D26"><h5>รหัสช่าง</h5></font></th>
+						      <th><font size="5" face="Tahoma" color="#493D26"><h5>เลือก</h5></font></th>
 						    </tr>
 						  </thead>
 						  <tbody>
