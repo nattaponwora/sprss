@@ -42,9 +42,21 @@ public class EnteredRequisitionModel {
 	 * @param storeroom ==> String ที่ระบุ storeroom ที่ต้องการหยิบอะไหล่ 
 	 * @return ข้อมูลใบเบิกอะไหล่ที่ยังไม่ได้หยิบทั้งหมด โดยเป็นข้อมูลชนิด RequisitionList
 	 * @author Nattapon Worasakdapisa
+	 * @throws SQLException 
 	 */
-	public static RequisitionList getEnterReqList(String plant){
+	public static RequisitionList getEnterReqList(String plant, String storeroom) throws SQLException{
+		Statement stm = StatementManager.getSQLStatement();
+		String query = 	  "SELECT req_id ,resv_eid, resv_name, resv_team, enterdate, status, type"
+						+ "FROM requisition"
+						+ "WHERE status = 'entered' AND plant = '"+ plant +"' AND storeroom = '" + storeroom + "'  "
+						+ "ORDER BY req_id asc";
+		ResultSet rs = stm.executeQuery( query );
 		RequisitionList reqList = new RequisitionList();
+		
+		while ( rs.next() ){
+			reqList.add( new Requisition( rs.getInt("req_id"), rs.getInt("resv_eid") ,  rs.getString("resv_name"), rs.getString("resv_team") , rs.getDate("enterdate") , rs.getString("status") , rs.getString("type")) )  );
+		}
+		
 		Item i = new Item(70000, 1, "Item1" , "S12-01-01-02" , 1 , 97912531);
 		Item j = new Item(70000, 2, "Item2" , "S12-01-01-03" , 2 , 97912531);
 		Item k = new Item(70000, 3, "Item3" , "S12-03-04-03" , 1 , 97912531);
