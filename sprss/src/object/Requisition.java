@@ -4,6 +4,7 @@
  */
 package object;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Requisition {
@@ -13,7 +14,7 @@ public class Requisition {
 	private String authorName;
 	private String authorTeam;	
 	private int reqID;
-	private String enteredDate;
+	private Date enteredDate;
 	private String pickedDate;
 	private String plant;
 	private int totalItem;
@@ -25,7 +26,7 @@ public class Requisition {
 	 * @param reqID
 	 */
 
-	public Requisition( int authorID , String authorName, String authorTeam, int reqID, String enterDate, String pickedDate, String plant ){
+	public Requisition(int reqID, int authorID , String authorName, String authorTeam, Date enterDate, String pickedDate, String plant ){
 		itemList = new ArrayList<Item>();
 		this.authorID = authorID;
 		this.authorName = authorName;
@@ -57,7 +58,7 @@ public class Requisition {
 		return reqID;
 	}
 	
-	public String getEnteredDate(){
+	public Date getEnteredDate(){
 		return enteredDate;
 	}
 	
