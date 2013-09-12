@@ -14,9 +14,8 @@
               <div class="navbar-inner">
                 <div class="container">
                   <ul class="nav nav-pills">
-					  <li><a href="requisition">ใบจองอะไหล่</a></li>
-					  <li><a href="pickinglist">ใบหยิบอะไหล่</a></li>
-					  <li><a href="pickinglist">ข้อมูลใบจองอะไหล่</a></li>
+					  <li><a href="requisition">ใบเบิกอะไหล่</a></li>					  
+					  <li><a href="pickedlist">ข้อมูลใบเบิกอะไหล่</a></li>
 					</ul>
                     <span align="right" style="margin-left:50em"><button class="btn btn-mini btn btn-success disabled" type="button">User: <%= hUser.getName() %></button></span>     
                     <span align="right"><button class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'login.jsp'">Log Out</button></span>

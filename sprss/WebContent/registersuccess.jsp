@@ -17,18 +17,17 @@
 	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br>
 	<div class="container">
 		<center><h1 style="margin-top:0em"><font size="3" face="Tahoma" color="#008000">Register Successful</font></h1><br>	
-		<h>รหัสพนักงาน : <%= request.getAttribute("eid") %> </h> <br>	
-		<h>รหัสผ่าน : <%= request.getAttribute("password") %> </h> <br>	
-		<h>ชื่อ : <%= request.getAttribute("firstname") %> </h> <br>	
-		<h>นามสกุล : <%= request.getAttribute("lastname") %> </h> <br>	
-		<h>เบอร์โทรศัพท์ : <%= request.getAttribute("tel") %> </h> <br>	
-		<h>email : <%= request.getAttribute("email") %> </h> <br>	
-		<h>Plant : <%= request.getAttribute("plant") %> </h> <br>	
-		<h>StoreRoom : <%= request.getAttribute("storeRoom") %> </h> <br>	
-		<h>กลุ่มผู้ใช้ : <%= request.getAttribute("usergroup") %> </h> <br>	
+		<font color = "#1569C7">รหัสพนักงาน : </font><%= request.getAttribute("eid") %><br>	
+		<font color = "#1569C7">รหัสผ่าน : </font><%= request.getAttribute("password") %><br>	
+		<font color = "#1569C7">ชื่อ : </font><%= request.getAttribute("firstname") %><br>	
+		<font color = "#1569C7">นามสกุล : </font><%= request.getAttribute("lastname") %><br>	
+		<font color = "#1569C7">เบอร์โทรศัพท์ : </font><%= request.getAttribute("tel") %><br>	
+		<font color = "#1569C7">email : </font><%= request.getAttribute("email") %><br>	
+		<font color = "#1569C7">Plant : </font><%= request.getAttribute("plant") %><br>	
+		<font color = "#1569C7">Store Room : </font><%= request.getAttribute("storeRoom") %><br>	
+		<font color = "#1569C7">กลุ่มผู้ใช้ : </font><%= request.getAttribute("usergroup") %><br>	
 </div> <br> <a href="login.jsp"><button type="button" class="btn" onclick = "location.href = 'login.jsp'">Back to Login</button></a>
 	</div></center>
-
 
 </body>
 </html>

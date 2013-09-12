@@ -10,8 +10,7 @@ public class Requisition {
 
 	private ArrayList<Item> itemList;
 	private int authorID;
-	private String authorFirstName;
-	private String authorLastName;	
+	private String authorName;
 	private String authorTeam;	
 	private int reqID;
 	private String enteredDate;
@@ -26,11 +25,10 @@ public class Requisition {
 	 * @param reqID
 	 */
 
-	public Requisition( int authorID , String authorFirstName, String authorLastName, String authorTeam, int reqID, String enterDate, String pickedDate, String plant ){
+	public Requisition( int authorID , String authorName, String authorTeam, int reqID, String enterDate, String pickedDate, String plant ){
 		itemList = new ArrayList<Item>();
 		this.authorID = authorID;
-		this.authorFirstName = authorFirstName;
-		this.authorLastName = authorLastName;
+		this.authorName = authorName;
 		this.authorTeam = authorTeam;		
 		this.reqID = reqID;
 		this.enteredDate = enterDate;
@@ -47,16 +45,8 @@ public class Requisition {
 		return authorID;
 	}
 	
-	public String getAuthorFirstName(){
-		return authorFirstName;
-	}
-	
-	public String getAuthorLastName(){
-		return authorLastName;
-	}
-	
 	public String getAuthorName(){
-		return authorFirstName + " " + authorLastName;
+		return authorName;
 	}
 	
 	public String getAuthorTeam(){

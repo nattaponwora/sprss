@@ -31,7 +31,19 @@
 	<div id = "divprint">
 		<div class="container">
 		<h4>ผู้หยิบอะไหล่ : <%= picker.getName() %></h4> <br>
-		<h>ใบเบิก : 7910034 , 7910035 </h> <br>
+		<font style="font-weight:bold" >ใบเบิกอะไหล่ : </font>
+		<tbody>
+			  <% 
+			  	for ( int i =0; i < selectReq.size() ; i++ ){
+			  		Requisition req = selectReq.get(i);
+			  %>
+			  	<tr>			     
+			      <td align="center"><%= req.getReqID() %></td>			      
+			    </tr>
+			  <%
+			  	}
+			  %>
+			  </tbody>
 		<center><table width="100%" class="table table-bordered">
 			<thead>
 			    <tr>
@@ -39,7 +51,7 @@
 			     	<th>รายการ</th>
 			    	<th>Asset No./Storage bin</th>
 			    	<th>รหัสช่าง</th>
-			    	<th>ใบจอง</th>
+			    	<th>ใบเบิกอะไหล่</th>
 			        <th>จำนวน</th>
 			    </tr>
 			  </thead>
