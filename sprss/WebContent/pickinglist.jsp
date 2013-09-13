@@ -47,12 +47,12 @@
 		<center><table width="100%" class="table table-bordered">
 			<thead>
 			    <tr>
+			        <th>ใบเบิกอะไหล่</th>
 			      	<th>รหัสสินค้า</th>
 			     	<th>รายการ</th>
 			    	<th>Asset No./Storage bin</th>
-			    	<th>รหัสช่าง</th>
-			    	<th>ใบเบิกอะไหล่</th>
 			        <th>จำนวน</th>
+			        <th>รหัสช่าง</th>
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -60,13 +60,13 @@
 			  	for ( int i =0; i < itemList.size() ; i++ ){
 			  		Item item = itemList.getItem(i);
 			  %>
-			  	<tr>			      
+			  	<tr>
+			  	  <td align="center"><%= item.getReqID() %></td>
 			      <td align="center"><%= item.getItemnum() %></td>
 			      <td align="center"><%= item.getDescription() %></td>
 			      <td align="center"><%= item.getAssetNO() %></td>
-			      <td align="center"><%= item.getAutID() %></td>
-			      <td align="center"><%= item.getReqID() %></td>
 			      <td align="center"><%= item.getAmount() %></td>
+			      <td align="center"><%= item.getAutID() %></td>
 			    </tr>
 			  <%
 			  	}

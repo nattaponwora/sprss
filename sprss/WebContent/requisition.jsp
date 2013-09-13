@@ -53,8 +53,10 @@
 	    					<tr>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5>ลำดับ</h5></font></th>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5>เลขที่ใบจอง</h5></font></th>
+						      <th><font size="5" face="Tahoma" color="#493D26"><h5>วันที่เบิก</h5></font></th>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5>จำนวนอะไหล่</h5></font></th>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5>รหัสช่าง</h5></font></th>
+						      <th><font size="5" face="Tahoma" color="#493D26"><h5>ทีม</h5></font></th>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5>เลือก</h5></font></th>
 						    </tr>
 						  </thead>
@@ -66,8 +68,10 @@
 						  	<tr class=<%= i%2 == 0 ? "success" : "warning"  %>>
 						  	  <td><%= i+1 %></td>
 						      <td><%= r.getReqID() %></td>
+						      <td><%= r.getPickedDate() %></td>
 						      <td><%= r.size() %></td>
 						      <td><%= r.getAuthorID() %></td>
+						      <td><%= r.getAuthorTeam() %></td>
 						      <td>
 						      	<label class="checkbox">
 	  						  		<input type="checkbox" name="req" id="req<%= i %>" value="<%= r.getReqID() %>">
