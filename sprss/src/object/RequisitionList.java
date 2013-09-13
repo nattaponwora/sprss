@@ -31,4 +31,13 @@ public class RequisitionList  {
 	public int size(){
 		return reqList.size();
 	}
+	
+	public Requisition getByID( int reqID ){
+		for( int i = 0 ; i < reqList.size() ; i++ ){
+			if( reqID == reqList.get(i).getReqID() ){
+				return reqList.get(i);
+			}
+		}
+		return null;
+	}
 }
