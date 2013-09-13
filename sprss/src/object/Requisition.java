@@ -15,8 +15,11 @@ public class Requisition {
 	private String authorTeam;	
 	private int reqID;
 	private Date enteredDate;
-	private String pickedDate;
+	private Date pickedDate;	
 	private String plant;
+	private String storeroom;
+	private String status;
+	private String type;
 	private int totalItem;
 	
 	/**
@@ -26,15 +29,18 @@ public class Requisition {
 	 * @param reqID
 	 */
 
-	public Requisition(int reqID, int authorID , String authorName, String authorTeam, Date enterDate, String pickedDate, String plant ){
+	public Requisition(int reqID, int authorID , String authorName, String authorTeam, Date enterDate, String plant, String storeroom, String status , String type ){
 		itemList = new ArrayList<Item>();
 		this.authorID = authorID;
 		this.authorName = authorName;
 		this.authorTeam = authorTeam;		
 		this.reqID = reqID;
 		this.enteredDate = enterDate;
-		this.pickedDate = pickedDate;
+		this.pickedDate = null;
 		this.plant = plant;
+		this.storeroom = storeroom;
+		this.status = status;
+		this.type = type;
 		totalItem = 0;
 	}
 	
@@ -62,16 +68,28 @@ public class Requisition {
 		return enteredDate;
 	}
 	
-	public String getPickedDate(){
+	public Date getPickedDate(){
 		return pickedDate;
 	}
 	
-	public void setPickedDate( String s ){
-		this.pickedDate = s;
+	public void setPickedDate( Date d ){
+		this.pickedDate = d;
 	}
 	
 	public String getPlant(){
 		return plant;
+	}
+	
+	public String getStoreroom(){
+		return storeroom;
+	}
+	
+	public String getStatus(){
+		return status;
+	}
+	
+	public String getType(){
+		return type;
 	}
 	
 	public void addItem( Item item ){
