@@ -75,7 +75,13 @@ public class EnteredRequisition extends HttpServlet {
 			
 			
 			RequisitionList req = EnteredRequisitionModel.getEnterReqList(plant, storeroom);
-			req.sort("team");
+			System.out.println(request.getParameter("sort"));
+			if( request.getParameter("sort") == null ){
+				req.sort( "reqID" );
+			}else{
+				req.sort( (String)request.getParameter("sort") );
+			}
+			
 			request.setAttribute("reqList", req);
 			session.setAttribute("reqList", req );
 			

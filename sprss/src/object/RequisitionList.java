@@ -68,7 +68,7 @@ public class RequisitionList  {
 			case "team" : return r.getAuthorTeam();
 			case "eid" : return r.getAuthorID() + "";
 			case "item" : return r.size() + "";
-			default : return "";
+			default : return r.getReqID() + "";
 		}
 	}
 }

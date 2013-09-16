@@ -52,11 +52,11 @@
 	  						<thead>
 	    					<tr>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5>ลำดับ</h5></font></th>
-						      <th><font size="5" face="Tahoma" color="#493D26"><h5>เลขที่ใบจอง</h5></font></th>
+						      <th><font size="5" face="Tahoma" color="#493D26"><h5><a href="requisition?sort=reqID">เลขที่ใบจอง</a></h5></font></th>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5>วันที่เบิก</h5></font></th>
-						      <th><font size="5" face="Tahoma" color="#493D26"><h5>จำนวนอะไหล่</h5></font></th>
-						      <th><font size="5" face="Tahoma" color="#493D26"><h5>รหัสช่าง</h5></font></th>
-						      <th><font size="5" face="Tahoma" color="#493D26"><h5>ทีม</h5></font></th>
+						      <th><font size="5" face="Tahoma" color="#493D26"><h5><a href="requisition?sort=item">จำนวนอะไหล่</a></h5></font></th>
+						      <th><font size="5" face="Tahoma" color="#493D26"><h5><a href="requisition?sort=eid">รหัสช่าง</a></h5></font></th>
+						      <th><font size="5" face="Tahoma" color="#493D26"><h5><a href="requisition?sort=team">ทีม</a></h5></font></th>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5>เลือก</h5></font></th>
 						    </tr>
 						  </thead>
