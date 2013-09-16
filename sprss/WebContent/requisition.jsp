@@ -68,7 +68,7 @@
 						  	<tr class=<%= i%2 == 0 ? "success" : "warning"  %>>
 						  	  <td><%= i+1 %></td>
 						      <td><%= r.getReqID() %></td>
-						      <td><%= r.getPickedDate() %></td>
+						      <td><%= r.getEnteredDate() %></td>
 						      <td><%= r.size() %></td>
 						      <td><%= r.getAuthorID() %></td>
 						      <td><%= r.getAuthorTeam() %></td>

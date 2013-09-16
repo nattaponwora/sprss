@@ -40,4 +40,35 @@ public class RequisitionList  {
 		}
 		return null;
 	}
+	
+	public void sort(String key){
+		int n = reqList.size();
+		for (int i = 1; i < n; i++){
+			  int j = i;
+			  
+			  Requisition r = reqList.get(i);
+			  String nowK = getKey( reqList.get(i) , key );
+			  String beforeK = getKey( reqList.get(j-1) , key );
+			  
+			  while ((j > 0) && ( beforeK.compareToIgnoreCase( nowK ) > 0 )){
+				  j--;
+				  if( j > 0 ){
+					  beforeK = getKey( reqList.get(j-1) , key );
+				  }
+				  
+			  }
+			  reqList.add(j, reqList.remove(i));
+			  }
+	}
+	
+	private String getKey( Requisition r, String key ){
+		String tmp;
+		switch (key){
+			case "reqID" : return r.getReqID() + "";
+			case "team" : return r.getAuthorTeam();
+			case "eid" : return r.getAuthorID() + "";
+			case "item" : return r.size() + "";
+			default : return "";
+		}
+	}
 }
