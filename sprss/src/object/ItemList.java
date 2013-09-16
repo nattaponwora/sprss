@@ -28,11 +28,19 @@ public class ItemList {
 		}
 		else{
 			for( int i = items.size() - 1 ; i >= 0 ; i-- ){
+				if( item.getStoreType().equals("0") ){
+					items.add(0, item);
+					return;
+				}
+				if( item.getStoreType().equals("N") ){
+					items.add(item);
+					return;
+				}
 				if( item.getAssetNO().equals(items.get(i).getAssetNO()) ){
 					items.add(i+1, item);
 					return;
-				}
-				if( item.compareToStoreType(items.get(i)) > 0 ){
+				}				
+				if( item.compareToStoreType(items.get(i)) > 0 && !(items.get(i).getStoreType().equals("N")) ){
 					items.add(i+1, item);
 					return;
 				}

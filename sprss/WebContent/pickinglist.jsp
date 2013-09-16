@@ -72,11 +72,10 @@
 			  	}
 			  %>
 			  </tbody>
-		</table>
-		<button type="submit" class="btn btn-medium btn-primary" style="margin-left:10em">ยืนยัน</button><dr>
-		<button type="reset" class="btn" style="margin-left:0.5em" onclick = "location.href = 'requisition'">ยกเลิก</button>		
+		</table>			
 	</div></center>
 	</div>
-	<input type="button" class="btn btn-medium btn-primary" style="margin-left:50em" value="พิมพ์" onclick =  "printDiv('divprint')"> 
+	<input type="button" class="btn btn-medium btn-primary" style="margin-left:50em" value="พิมพ์" onclick =  "printDiv('divprint')">
+	<button type="button" class="btn" style="margin-left:0.5em" onclick = "location.href = 'requisition'">กลับ</button> 
 </body>
 </html>
