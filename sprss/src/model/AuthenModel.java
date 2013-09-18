@@ -53,6 +53,7 @@ public class AuthenModel {
 				return null;
 			}
 		}
+		stm.close();
 		return null;
 	}
 	

@@ -41,6 +41,7 @@ public class MXMSyncModel {
 		
 		
 		String s = rs.getString("DISPLAYNAME");
+		stm.close();
 		return s;
 		//stm = StatementManager.getSQLStatement();
 	}

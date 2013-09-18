@@ -33,6 +33,7 @@ public class EnteredRequisitionModel {
 			int usergroup = rs.getInt( "usergroup" );
 			picker.add( new User( id, firstname, lastname, eid, tel, email, usergroup, plant, storeroom ) ) ;
 		}
+		stm.close();
 		return picker;
 	}
 	
@@ -75,7 +76,8 @@ public class EnteredRequisitionModel {
 			Requisition r =  reqList.getByID( req );
 			r.addItem( new Item( req, rs.getInt("itemnum"), rs.getString("description") , rs.getString("binnum"), rs.getInt("amount"), r.getAuthorID() ) );
 		}
-
+		
+		stm.close();
 		return reqList;
 	}
 
