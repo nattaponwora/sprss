@@ -27,11 +27,13 @@
 		User picker = (User) request.getAttribute("picker");
 		RequisitionList selectReq = ( RequisitionList ) request.getAttribute("reqList"); 
 		ItemList itemList = (ItemList) request.getAttribute("itemList");
+		Integer id = (Integer)request.getAttribute("id");
 	%>
 	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br></center>
 	<div id = "divprint">
 		<div class="container">
 		<h4>ผู้หยิบอะไหล่ : <%= picker.getName() %></h4> <br>
+		<h5>หมายเลขใบรวมรายการ : <%= id %></h5><br/>
 		<font style="font-weight:bold" >ใบเบิกอะไหล่ : </font>
 		<tbody>
 			  <% 

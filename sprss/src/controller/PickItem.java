@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.EnteredRequisitionModel;
 import object.Item;
 import object.Requisition;
 import object.RequisitionList;
@@ -93,6 +95,14 @@ public class PickItem extends HttpServlet {
 			
 		request.setAttribute("reqList", selectReq);
 		request.setAttribute("itemList", itemList);
+		
+		try {
+			int id = EnteredRequisitionModel.insertSelectRequisition( u, selectReq,itemList);
+			request.setAttribute("id", id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//เปลี่ยนหน้า
 		RequestDispatcher obj = request.getRequestDispatcher("pickinglist.jsp");

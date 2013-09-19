@@ -4,8 +4,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 
 import object.Item;
+import object.ItemList;
 import object.Requisition;
 import object.RequisitionList;
 import object.User;
@@ -79,6 +81,37 @@ public class EnteredRequisitionModel {
 		
 		stm.close();
 		return reqList;
+	}
+	
+	public static int insertSelectRequisition( User u, RequisitionList rl, ItemList il) throws SQLException{
+		Statement stm = StatementManager.getSQLStatement();
+		int sid = createSelReqID( u.getID() , stm );
+		updatePickingData(rl , il , sid,  stm);
+		return sid;
+		
+		//String query = "UPDATE"
+	}
+	
+	private static int createSelReqID( int id, Statement stm ) throws SQLException{
+		String query = "INSERT INTO selreq ( uid ) VALUE ( '" + id + "' )";
+		stm.execute(query , Statement.RETURN_GENERATED_KEYS);
+		ResultSet rs = stm.getGeneratedKeys();
+		int selreq_id = 0;
+		if( rs.next() ){
+			selreq_id = rs.getInt(1);
+		}
+		return selreq_id;
+	}
+	
+	private static void updatePickingData(RequisitionList rl, ItemList il , int sid, Statement stm) throws SQLException{
+		String query = "UPDATE requisition SET status = 'picked' , selreq_id = '"+ sid +"' WHERE req_id IN (";
+				query+= "'"+ rl.get(0).getReqID() + "'";
+				for(int i=1 ; i< rl.size(); i++){
+					query += ",'" + rl.get(i).getReqID() + "'";
+				}
+				
+		query += ")";
+		stm.executeUpdate(query);
 	}
 
 }
