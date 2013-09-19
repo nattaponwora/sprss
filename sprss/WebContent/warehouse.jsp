@@ -18,11 +18,18 @@
 </head>
 <body background="img/indexBG.jpg">
 	<%@ include file = "header.jsp" %>
-	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br></center>
-	<table width = "60%" border="1" align="center">
-		<tr>
-			<td>หมายเลขอ้างอิง</td><td>คำอธิบาย</td><td>Plant</td><td>Storeroom</td>
-		</tr>
+	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br></center>	
+	<div class="container">
+	<center><table width="100%" class="table table-bordered">
+			<thead>
+			    <tr>
+			        <th>หมายเลขอ้างอิง</th>
+			      	<th>คำอธิบาย</th>
+			     	<th>Plant</th>
+			    	<th>Storeroom</th>			        
+			    </tr>
+			  </thead>
+			  <tbody>
 		<%
 			 for( int i = 0 ; i < wh.size() ; i++ ){
 				 Warehouse w = wh.get(i);
@@ -36,12 +43,11 @@
 		<%
 			 }
 		%>
-		<tr>
-			<td colspan="4">
-			Plant <input type="text" name="plant" /> Storeroom <input type = "text" name = "storeroom" /> <input type="submit" value ="เพิ่ม" />
-			</td>
-		</tr>
-	</table>
+			  </tbody>
+		</table>
+		</center>
+	</div>
+	<center><b><font color="#1569C7">Plant: </font></b><input type="text" name="plant" /><b><font color="#1569C7">Storeroom: </font></b><input type = "text" name = "storeroom" /> <input type="submit" value ="เพิ่ม" /></center>
 	
 	
 

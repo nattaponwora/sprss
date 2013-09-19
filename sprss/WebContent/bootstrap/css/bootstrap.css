@@ -177,8 +177,11 @@ textarea {
     color: #000 !important;
     text-shadow: none !important;
     background: transparent !important;
-    box-shadow: none !important;
+    box-shadow: none !important;    
   }
+  
+  body {font: 12pt georgia,serif;}
+  
   a,
   a:visited {
     text-decoration: underline;
