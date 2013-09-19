@@ -18,8 +18,7 @@
      %>
 </head>
 <body background="img/indexBG.jpg">
-	<%@ include file = "header.jsp" %>
-	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br></center>
+	<%@ include file = "header.jsp" %>	
 	<div class="container-fluid">
 		  	<div class="row-fluid">
 				<div class="span3">
