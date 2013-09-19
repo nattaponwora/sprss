@@ -28,7 +28,6 @@
 		RequisitionList selectReq = ( RequisitionList ) request.getAttribute("reqList"); 
 		ItemList itemList = (ItemList) request.getAttribute("itemList");
 	%>
-	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br></center>
 	<div id = "divprint">
 		<div class="container">
 		<h4>ผู้หยิบอะไหล่ : <%= picker.getName() %></h4> <br>

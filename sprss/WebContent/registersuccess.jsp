@@ -14,7 +14,7 @@
             </div>
 </head>
 <body background="img/indexBG.jpg">
-	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br>
+	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">RSSM : Spare Part Requisition Management</font></h1><br>
 	<div class="container">
 		<center><h1 style="margin-top:0em"><font size="3" face="Tahoma" color="#008000">Register Successful</font></h1><br>	
 		<font color = "#1569C7">รหัสพนักงาน : </font><%= request.getAttribute("eid") %><br>	

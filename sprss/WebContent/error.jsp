@@ -14,7 +14,7 @@
             </div>
 </head>
 <body background="img/indexBG.jpg">
-	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">The Spare Part Requisition Smart System</font></h1><br>
+	<center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26">RSSM : Spare Part Requisition Management</font></h1><br>
 	<div class="container">
 		<center><h3><font color="red"><%= (String)request.getAttribute("header") %></font></font></h1></center><br>
 		<center><h4><font color="blue"><b>สาเหตุ : <%= (String)request.getAttribute("message") %></b></font></h4></center><br>
