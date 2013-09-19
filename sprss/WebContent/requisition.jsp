@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
      <%
      	User user = (User) session.getAttribute("userData");
      	ArrayList<User> picker = (ArrayList<User>)request.getAttribute("picker");
