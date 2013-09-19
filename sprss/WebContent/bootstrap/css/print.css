@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+
+@media print {
+     body {font: 8pt tahoma;}
+     table{border:0;}
+}
