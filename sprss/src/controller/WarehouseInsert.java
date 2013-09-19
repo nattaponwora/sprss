@@ -2,29 +2,27 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import object.Warehouse;
+import exception.DuplicateDataException;
 import model.WarehouseManagerModel;
 
 /**
- * Servlet implementation class WarehouseManager
+ * Servlet implementation class WarehouseInsert
  */
-@WebServlet("/warehouse")
-public class WarehouseManager extends HttpServlet {
+@WebServlet("/warehouseinsert")
+public class WarehouseInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WarehouseManager() {
+    public WarehouseInsert() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,21 +31,6 @@ public class WarehouseManager extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try{
-			ArrayList<Warehouse> wh = WarehouseManagerModel.getWarehouse();
-			request.setAttribute("warehouse", wh);
-			String mes = (String) request.getParameter("mes");
-			if( mes != null  ){
-				request.setAttribute("mes", mes );
-			}
-			RequestDispatcher obj = request.getRequestDispatcher("warehouse.jsp");
-			obj.forward(request,response);
-		}catch(SQLException e){
-			request.setAttribute("header", "Error SQLException");
-			request.setAttribute("message", e.getMessage());
-			RequestDispatcher obj = request.getRequestDispatcher("error");
-			obj.forward(request,response);
-		}
 		// TODO Auto-generated method stub
 	}
 
@@ -55,6 +38,17 @@ public class WarehouseManager extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String plant = request.getParameter("plant");
+		String storeroom = request.getParameter("storeroom");
+		try{
+			WarehouseManagerModel.insertWarehouse(plant, storeroom);
+			response.sendRedirect("warehouse?mes=0");
+		}catch(SQLException e){
+			response.sendRedirect("warehouse?mes=1");
+		}catch(DuplicateDataException e){
+			response.sendRedirect("warehouse?mes=2");
+		}
+		
 		// TODO Auto-generated method stub
 	}
 

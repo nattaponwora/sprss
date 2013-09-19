@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>The Spare Part Requisition Smart System</title>
+<title>RSSM : Spare Part Requisition Management</title>
 <!-- Bootstrap -->
 	<% User hUser = (User) session.getAttribute("userData"); %>	
 	<img src = "img/cpr_logo.png">
@@ -14,9 +14,9 @@
               <div class="navbar-inner">
                 <div class="container">
                   <ul class="nav nav-pills">
-					  <li><a href="requisition">ใบเบิกอะไหล่</a></li>					  
+					  <li><a href="requisition">ใบเบิกอะไหล่(User)</a></li>					  
 					  <li><a href="pickedlist">ข้อมูลใบเบิกอะไหล่(Test)</a></li>
-					  <li><a href="warehouse">คลังสินค้า(Test)</a></li>
+					  <li><a href="warehouse">คลังสินค้า(Admin)</a></li>
 					</ul>
                     <span align="right" style="margin-left:50em"><button class="btn btn-mini btn btn-success disabled" type="button">User: <%= hUser.getName() %></button></span>     
                     <span align="right"><button class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'login.jsp'">Log Out</button></span>

@@ -10,7 +10,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <script>
+  	$(function() {
+	    $( "#dialog" ).dialog();
+	  });
+  </script>
      <%
      	User user = (User) session.getAttribute("userData");
 		ArrayList<Warehouse> wh = ( ArrayList<Warehouse> ) request.getAttribute("warehouse");     
@@ -49,10 +57,26 @@
 	</div>
 	<center>
 		<%
-			String mes = request.getAttribute("mes");
+		
+			String mes = (String) request.getAttribute("mes");
+			if(mes != null){
+		%>
+		<div id="dialog" title="SPRSS">
+  			<p><br/><b><center><%
+  				if( mes.equals("1") ){
+  					out.println("<font color='red'>ไม่สามารถเพิ่มได้</font>");
+  				}else if( mes.equals("0") ){
+  					out.println("<font color='green'>บันทึกสำเร็จ</font>");
+  				}else if( mes.equals("2") ){
+  					out.println("<font color='orange'>คลังที่บันทึกมีอยู่ในระบบแล้ว</font>");
+  				}
+  			%></center></b></p>
+		</div>
+		<%	
+			}
 		%>
 	</center>
-	<center><form action="warehouseinsert"><b><font color="#1569C7">Plant: </font></b><input type="text" name="plant" /><b><font color="#1569C7">Storeroom: </font></b><input type = "text" name = "storeroom" /> <input type="submit" value ="เพิ่ม" /></form></center>
+	<center><form action="warehouseinsert" method="post"><b><font color="#1569C7">Plant: </font></b><input type="text" name="plant" /><b><font color="#1569C7">Storeroom: </font></b><input type = "text" name = "storeroom" /> <input type="submit" value ="เพิ่ม" /></form></center>
 	
 	
 
