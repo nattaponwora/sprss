@@ -16,7 +16,7 @@
 			   		<th>ชื่อพนักงาน</th>
 			      	<th>จำนวนใบเบิก</th>
 			     	<th>จำนวนอะไหล่</th>
-			     	<th>ยืนยัน</th>			    	
+			     	<th>เข้าดู</th>			    	
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -26,7 +26,7 @@
 			      <td>กระเจี๊ยบ หวานจัง</td>
 			      <td>5</td>
 			      <td>20</td>
-			      <td><button type="submit" class="btn btn-small btn-primary">เสร็จสิ้น</button></td>			      
+			      <td><button type="submit" class="btn btn-small btn-primary">เข้าดู</button></td>			      
 			    </tr>			    
 			  </tbody>
 		</table>		
