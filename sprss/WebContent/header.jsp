@@ -18,8 +18,10 @@
 					  <li><a href="pickedlist">ข้อมูลใบเบิกอะไหล่(Test)</a></li>
 					  <li><a href="warehouse">คลังสินค้า(Admin)</a></li>
 					</ul>
-                    <span align="right"><button class="btn btn-mini btn btn-success disabled" type="button">User: <%= hUser.getName() %></button></span>     
-                    <span align="right"><button class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'login.jsp'">Log Out</button></span>
+					<span><button style="float: right;" class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'login.jsp'">Log Out</button></span>
+					<span style="float: right;" >&nbsp;</span>
+                 	<span><button style="float: right;" class="btn btn-mini btn btn-success disabled" type="button">User: <%= hUser.getName() %></button></span>    
+                 	
                 </div>
               </div><!-- /navbar-inner -->
             </div>
