@@ -1,13 +1,13 @@
 package object;
 
-public class PickedRequisition extends RequisitionList {
+public class PickingRequisition extends RequisitionList {
 	
 	private int id;
 	private int eid;
 	private String firstname;
 	private String lastname;
 	
-	public PickedRequisition( int id , int eid , String firstname , String lastname ){
+	public PickingRequisition( int id , int eid , String firstname , String lastname ){
 		super();
 		this.id = id;
 		this.eid = eid;

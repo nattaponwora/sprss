@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@ page import="object.Requisition" %>
+<%@ page import="object.PickingRequisition" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,6 +9,9 @@
 </head>
 <body background="img/indexBG.jpg">
 	<%@ include file = "header.jsp" %>	
+	<%
+			PickingRequisition pReq = (PickingRequisition) request.getAttribute("pickReq");
+		%>
 	<div class="container">		
 		<center><table class="table table-bordered">
 			<thead>
@@ -20,15 +25,22 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <td>123456</td>
-			      <td>9999999</td>
-			      <td>กระเจี๊ยบ หวานจัง</td>
-			      <td>5</td>
-			      <td>20</td>
-			      <td><button type="submit" class="btn btn-small btn-primary">เสร็จสิ้น</button></td>			      
-			    </tr>			    
-			  </tbody>
+			  <% 
+			  	for ( int i =0; i < pReq.size() ; i++ ){
+			  		Requisition req = pReq.get(i);
+			  %>
+			  	<tr>
+			  	  <td align="center"><%= pReq.getID() %></td>
+			      <td align="center"><%= pReq.getEid() %></td>
+			      <td align="center"><%= pReq.getName() %></td>
+			      <td align="center"><%= pReq.size() %></td>
+			      <td align="center"><%= pReq.getItemNum() %></td>
+			      <td><button type="submit" class="btn btn-small btn-primary">เสร็จสิ้น</button></td>
+			    </tr>
+			  <%
+			  	}
+			  %>
+			  </tbody>			  
 		</table>		
 	</div></center>
 </body>
