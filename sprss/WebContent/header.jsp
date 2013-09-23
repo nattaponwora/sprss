@@ -17,7 +17,7 @@
 					  <li><a href="requisition">ใบเบิกอะไหล่(User $ Head)</a></li>					  
 					  <li><a href="show">ข้อมูลใบเบิกอะไหล่( ALL !Test)</a></li>
 					  <li><a href="warehouse">คลังสินค้า(Admin)</a></li>
-					  <li><a href="register">ลงทะเบียนสมาชิก(Admin & Head)</a></li>
+					  <li><a href="register">ลงทะเบียนสมาชิก(Admin & Manager)</a></li>
 					</ul>
 					<span><button style="float: right;" class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'login.jsp'">Log Out</button></span>
 					<span style="float: right;" >&nbsp;</span>
