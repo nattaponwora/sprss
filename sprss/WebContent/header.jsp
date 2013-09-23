@@ -19,7 +19,7 @@
 					  <li><a href="warehouse">คลังสินค้า(Admin)</a></li>
 					  <li><a href="register">ลงทะเบียนสมาชิก(Admin & Manager)</a></li>
 					</ul>
-					<span><button style="float: right;" class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'login.jsp'">Log Out</button></span>
+					<span><button style="float: right;" class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'logout'">Log Out</button></span>
 					<span style="float: right;" >&nbsp;</span>
                  	<span><button style="float: right;" class="btn btn-mini btn btn-success disabled" type="button">User: <%= hUser.getName() %></button></span>    
                  	

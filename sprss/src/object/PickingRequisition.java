@@ -1,11 +1,15 @@
 package object;
 
+import java.util.Date;
+
 public class PickingRequisition extends RequisitionList {
 	
 	private int id;
 	private int eid;
 	private String firstname;
 	private String lastname;
+	private Date begin;
+	private Date finish;
 	
 	public PickingRequisition( int id , int eid , String firstname , String lastname ){
 		super();
@@ -13,6 +17,16 @@ public class PickingRequisition extends RequisitionList {
 		this.eid = eid;
 		this.firstname = firstname;
 		this.lastname = lastname;
+	}
+	
+	public PickingRequisition( int id , int eid , String firstname , String lastname, Date begin, Date finish ){
+		super();
+		this.id = id;
+		this.eid = eid;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.begin = begin;
+		this.finish = finish;
 	}
 	
 	public int getID(){
@@ -35,4 +49,12 @@ public class PickingRequisition extends RequisitionList {
 		return firstname + " " + lastname;
 	}
 	
+	public Date getBegin(){
+		return begin;
+	}
+	
+	public Date getFinish(){
+		return finish;
+	}
+		
 }
