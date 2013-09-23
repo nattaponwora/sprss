@@ -39,7 +39,6 @@ public class ShowPickModel {
 		
 		ResultSet item_rs = stm.executeQuery( query_item );
 		Map< Integer , ItemList > itemList = new HashMap<Integer, ItemList>();
-		
 		while( item_rs.next() ){
 			int req_id = item_rs.getInt("req_id");
 			Item i = new Item( req_id, item_rs.getInt("itemnum"), item_rs.getString("description") , item_rs.getString("binnum"), item_rs.getInt("amount"), item_rs.getInt("resv_eid") );
@@ -57,26 +56,31 @@ public class ShowPickModel {
 		// add Requisition to selreq
 		String query_req = 	  "SELECT req_id ,resv_eid, resv_name, resv_team, enterdate, status, type, selreq_id "
 				+ "FROM requisition "
-				+ "WHERE status = 'entered' AND plant = '"+ plant +"' AND storeroom = '" + storeroom + "' "
-				+ "AND status = 'pick' "
+				+ "WHERE status = 'pick' AND plant = '"+ plant +"' AND storeroom = '" + storeroom + "' "
 				+ "ORDER BY req_id asc";
 		ResultSet req_rs = stm.executeQuery( query_req );
 		while ( req_rs.next() ){
 			for( int i = 0 ; i< selList.size() ; i++ ){
 				PickingRequisition p = selList.get(i);
-				String selID = req_rs.getString("selreq_id");
-				if(  selID.equals( p.getID() ) ){
+				int selID = req_rs.getInt("selreq_id");
+				if(  selID == p.getID() ){
 					Requisition r = new Requisition( req_rs.getInt("req_id"), req_rs.getInt("resv_eid") ,  req_rs.getString("resv_name"), req_rs.getString("resv_team") , req_rs.getDate("enterdate") , plant , storeroom ,req_rs.getString("status") , req_rs.getString("type"));
+					System.out.println(req_rs.getInt("req_id"));
 					ItemList il = itemList.get( req_rs.getInt("req_id") );
+					System.out.println(il.size());
 					for ( int j = 0 ; j < il.size() ; j++ ){
+						System.out.println("Step 3");
+						System.out.println( il.getItem(j).getReqID() + "  " +   il.getItem(j).getItemnum());
 						r.addItem(il.getItem(j));
 					}
+					System.out.println( r.getReqID() + "  " + r.getTotalItem() );
+					
 					p.add( r );
 					break;
 				}
 			}
 		}
-			
+		System.out.println("END");
 		stm.close();
 		return selList;
 	}

@@ -22,4 +22,12 @@
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/pickinglist</url-pattern>
   </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/show</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/warehouse</url-pattern>
+  </filter-mapping>
 </web-app>
