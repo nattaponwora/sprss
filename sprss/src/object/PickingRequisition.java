@@ -11,12 +11,13 @@ public class PickingRequisition extends RequisitionList {
 	private Date begin;
 	private Date finish;
 	
-	public PickingRequisition( int id , int eid , String firstname , String lastname ){
+	public PickingRequisition( int id , int eid , String firstname , String lastname, Date begin ){
 		super();
 		this.id = id;
 		this.eid = eid;
 		this.firstname = firstname;
 		this.lastname = lastname;
+		this.begin = begin;
 	}
 	
 	public PickingRequisition( int id , int eid , String firstname , String lastname, Date begin, Date finish ){
