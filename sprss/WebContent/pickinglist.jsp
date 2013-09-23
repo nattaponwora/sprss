@@ -31,9 +31,9 @@
 	%>
 	<div id = "divprint">
 		<div class="container">
-		<h4>ผู้หยิบอะไหล่ : <%= picker.getName() %></h4> <br>
-		<h5>หมายเลขใบรวมรายการ : <%= id %></h5><br/>
-		<font style="font-weight:bold" >ใบเบิกอะไหล่ : </font>
+		<font style="font-weight:bold" >หยิบอะไหล่ : <%= picker.getName() %></font><br>
+		<font style="font-weight:bold" >หมายเลขใบรวมรายการ : <%= id %></font><br/>
+		<font style="font-weight:bold" >ใบเบิกอะไหล่ :</font>
 		<tbody>
 			  <% 
 			  	for ( int i =0; i < selectReq.size() ; i++ ){
@@ -45,8 +45,8 @@
 			  <%
 			  	}
 			  %>
-			  </tbody>
-		<center><table width="100%" class="table table-bordered">
+			  </tbody>			  
+		<center><table width="100%" class="table table-bordered"><br>
 			<thead>
 			    <tr>
 			        <th>ใบเบิกอะไหล่</th>
