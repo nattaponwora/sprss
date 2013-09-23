@@ -30,7 +30,6 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		session.invalidate();
 		RequestDispatcher obj = request.getRequestDispatcher("login.jsp");
 		obj.forward(request,response);
 	}

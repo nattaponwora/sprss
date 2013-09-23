@@ -11,7 +11,7 @@ import object.Requisition;
 import object.RequisitionList;
 
 public class ShowPickModel {
-	public static PickedRequisition getPicking( String plant , String storeroom  ) throws SQLException{
+	public static PickingRequisition getPicking( String plant , String storeroom  ) throws SQLException{
 		Statement stm = StatementManager.getSQLStatement();
 		String query = 	  "SELECT req_id ,resv_eid, resv_name, resv_team, enterdate, status, type "
 						+ "FROM requisition "
