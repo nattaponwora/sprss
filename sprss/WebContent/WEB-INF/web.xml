@@ -18,4 +18,8 @@
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/requisition</url-pattern>
   </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/pickinglist</url-pattern>
+  </filter-mapping>
 </web-app>

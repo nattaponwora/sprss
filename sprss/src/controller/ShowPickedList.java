@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.ShowPickModel;
-import model.StatementManager;
-import object.PickedRequisition;
+import object.PickingRequisition;
 import object.User;
 
 /**
@@ -41,8 +41,7 @@ public class ShowPickedList extends HttpServlet {
 		String storeroom = user.getStoreroom();
 		
 		try {
-			PickedRequisition p;
-			p = ShowPickModel.getPicking( plant , storeroom );
+			ArrayList<PickingRequisition> p = ShowPickModel.getPicking( plant , storeroom );
 			request.setAttribute("pickReq", p);
 			RequestDispatcher obj = request.getRequestDispatcher("pickedlist.jsp");
 			obj.forward(request,response);
