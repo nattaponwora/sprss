@@ -46,7 +46,7 @@
 			  	}
 			  %>
 			  </tbody>			  
-		<center><table width="100%" class="table table-bordered"><br>
+		<center><table width="100%"  border="0"><br>
 			<thead>
 			    <tr>
 			        <th>ใบเบิกอะไหล่</th>
