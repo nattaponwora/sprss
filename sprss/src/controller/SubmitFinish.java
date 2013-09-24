@@ -35,6 +35,7 @@ public class SubmitFinish extends HttpServlet {
 		
 		try{
 			SubmitFinishModel.updateStatus( req_id );
+			response.sendRedirect("show");
 			System.out.println("update");
 		} catch( SQLException e ){
 			e.printStackTrace();

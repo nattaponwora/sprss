@@ -15,7 +15,7 @@
 			ArrayList<PickingRequisition> pReq = (ArrayList<PickingRequisition>) request.getAttribute("pickReq");
 		%>
 	<div class="container">		
-		<center><table class="table table-bordered">
+		<center><form action="submitfinish" method="post"><table class="table table-bordered">
 			<thead>
 			    <tr>
 			    	<th>เลขที่ใบหยิบ</th>
@@ -39,13 +39,13 @@
 			      <td align="center"><%= req.size() %></td>
 			      <td align="center"><%= req.getItemNum() %></td>
 			      <td align="center"><%= req.getBegin() %></td>
-			      <td><form action="submitfinish" method="post"><input type="hidden" name="finish" value="<%= req.getID() %>"/><input type="submit" class="btn btn-small btn-primary" value="เสร็จสิ้น"></input></form></td>
+			      <td><input type="hidden" name="finish" value="<%= req.getID() %>"/><input type="submit" class="btn btn-small btn-primary" value="เสร็จสิ้น"></input></td>
 			    </tr>
 			  <%
 			  	}
 			  %>
 			  </tbody>			  
-		</table>		
+		</table></form>		
 	</div></center>
 </body>
 </html>
