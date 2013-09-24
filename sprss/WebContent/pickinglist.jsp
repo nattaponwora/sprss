@@ -75,14 +75,14 @@
 			  		}
 			  		else{
 			  %>		
-			  		<tr bgcolor="#FFFFFF">
+			  		<tr>
 			  <%
 			  		}			  
 			  %>			  		
 			  			  	
 					  	  <td align="center"><%= item.getReqID() %></td>
 					      <td align="center"><%= item.getItemnum() %></td>
-					      <td align="center"><%= item.getDescription() %></td>
+					      <td align="left"><%= item.getDescription() %></td>
 					      <td align="center"><%= item.getAssetNO() %></td>
 					      <td align="center"><%= item.getAmount() %></td>
 					      <td align="center"><%= item.getAutID() %></td>

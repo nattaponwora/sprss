@@ -24,7 +24,8 @@
 			      	<th>จำนวนใบเบิก</th>
 			     	<th>จำนวนอะไหล่ (ชิ้น)</th>
 			     	<th>เวลาเริ่มหยิบ</th>
-			     	<th>ยืนยัน</th>			    	
+			     	<th>ยืนยัน</th>
+			     	<th>รายละเอียด</th>			    	
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -40,6 +41,7 @@
 			      <td align="center"><%= req.getItemNum() %></td>
 			      <td align="center"><%= req.getBegin() %></td>
 			      <td><input type="hidden" name="finish" value="<%= req.getID() %>"/><input type="submit" class="btn btn-small btn-primary" value="เสร็จสิ้น"></input></td>
+			      <td><a href="pickinglist?id=<%= req.getID() %>"><img src="img/images.jpg" width="30" height="25"></a></td>
 			    </tr>
 			  <%
 			  	}
