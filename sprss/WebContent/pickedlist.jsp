@@ -39,7 +39,7 @@
 			      <td align="center"><%= req.size() %></td>
 			      <td align="center"><%= req.getItemNum() %></td>
 			      <td align="center"><%= req.getBegin() %></td>
-			      <td><button type="submit" class="btn btn-small btn-primary">เสร็จสิ้น</button></td>
+			      <td><form action="submitfinish" method="post"><input type="hidden" name="finish" value="<%= req.getID() %>"/><input type="submit" class="btn btn-small btn-primary" value="เสร็จสิ้น"></input></form></td>
 			    </tr>
 			  <%
 			  	}
