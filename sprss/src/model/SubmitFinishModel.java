@@ -18,10 +18,10 @@ public class SubmitFinishModel {
 		String query_req = 
 				"UPDATE requisition "
 				+ "SET status = 'finished' "
-				+ "WHERE req_id = " + id;
+				+ "WHERE selreq_id = " + id;
 		stm.executeUpdate(query_req);
 		
-		System.out.println("finish_update");
+		//System.out.println("finish_update");
 						
 	}
 
