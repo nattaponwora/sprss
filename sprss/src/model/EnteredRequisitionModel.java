@@ -8,6 +8,7 @@ import java.util.Date;
 
 import object.Item;
 import object.ItemList;
+import object.PickingRequisition;
 import object.Requisition;
 import object.RequisitionList;
 import object.User;
@@ -93,7 +94,7 @@ public class EnteredRequisitionModel {
 	}
 	
 	private static int createSelReqID( int id, Statement stm ) throws SQLException{
-		String query = "INSERT INTO selreq ( uid ) VALUE ( '" + id + "' )";
+		String query = "INSERT INTO selreq ( uid , status ) VALUE ( '" + id + "' , 'pick' )";
 		stm.execute(query , Statement.RETURN_GENERATED_KEYS);
 		ResultSet rs = stm.getGeneratedKeys();
 		int selreq_id = 0;
@@ -112,6 +113,51 @@ public class EnteredRequisitionModel {
 				
 		query += ")";
 		stm.executeUpdate(query);
+	}
+	
+	public static RequisitionList getSelectRequisition( int id ) throws SQLException{
+		Statement stm = StatementManager.getSQLStatement();
+		String query = 
+				  "SELECT r.req_id, resv_eid, resv_name, resv_team , enterdate , plant , storeroom, r.status, r.type  "
+				+ "FROM selreq s "
+				+ "JOIN requisition r ON s.selreq_id = r.selreq_id "
+				+ "WHERE s.selreq_id = " + id;
+		ResultSet rs = stm .executeQuery(query);
+		
+		
+		
+		RequisitionList selreq = new RequisitionList();
+		while ( rs.next() ){
+			Requisition r = new Requisition(rs.getInt("req_id"), rs.getInt("resv_eid"), rs.getString("resv_name"), rs.getString("resv_team"), rs.getDate("enterdate"), rs.getString("plant"), rs.getString("storeroom"), rs.getString("status"), rs.getString("type"));
+			selreq.add(r);
+		}
+		return selreq;
+	}
+	
+	public static ItemList getItemListBySelID( int id ) throws SQLException{
+		Statement stm = StatementManager.getSQLStatement();
+		String query = 
+				  "SELECT r.req_id, i.itemnum, i.description, i.binnum, i.amount, r.resv_eid "
+				+ "FROM itemusage i join requisition r on i.req_id = r.req_id "
+				+ "WHERE r.selreq_id = " + id ;
+		ResultSet rs = stm .executeQuery(query);
+		ItemList list = new ItemList();
+		while ( rs.next() ){
+			Item item = new Item(rs.getInt("req_id"), rs.getInt("itemnum"), rs.getString("description"), rs.getString("binnum"), rs.getInt("amount"), rs.getInt("resv_eid"));
+			list.add(item);
+		}
+		return list;
+	}
+	
+	public static User getSelPicker( int id ) throws SQLException{
+		Statement stm = StatementManager.getSQLStatement();
+		String query = 
+				"SELECT u.uid , firstname, lastname, eid, email, tel, usergroup, plant, storeroom "
+				+ "FROM user u join selreq s on u.uid = s.uid "
+				+ "WHERE s.selreq_id = "+id;
+		ResultSet rs = stm .executeQuery(query);
+		rs.next();
+		return new User(rs.getInt("uid"), rs.getString("firstname"), rs.getString("lastname"), rs.getInt("eid"), rs.getString("eid"), rs.getString("tel"), rs.getInt("usergroup"), rs.getString("plant"), rs.getString("storeroom"));
 	}
 
 }

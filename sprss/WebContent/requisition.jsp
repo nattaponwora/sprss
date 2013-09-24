@@ -13,8 +13,8 @@
      	User user = (User) session.getAttribute("userData");
      	ArrayList<User> picker = (ArrayList<User>)request.getAttribute("picker");
         RequisitionList reqList = (RequisitionList) request.getAttribute("reqList");
-        request.setAttribute("picker", picker);
-        request.setAttribute("reqList", reqList);
+        //request.setAttribute("picker", picker);
+        //request.setAttribute("reqList", reqList);
      %>
 </head>
 <body background="img/indexBG.jpg">
@@ -36,7 +36,7 @@
 					  	</div>
 				    </div>
 				    <!--<div style="width:3px;height:800px;background-color:black;float:left;">-->
-				    <form action="pickinglist" method="post" >
+				    <form action="submitselreq" method="post" >
 				    <div class="span9" style="margin-left:1em">
 				      <!--Body content-->
 				    	<font size="4" face="Tahoma" color="#493D26" style="font-weight:bold">ผู้หยิบอะไหล่</font><br>
