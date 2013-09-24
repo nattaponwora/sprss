@@ -11,7 +11,7 @@ public class SubmitFinishModel {
 		
 		String query_selreq = 
 				"UPDATE selreq "
-				+ "SET status = 'finished' "
+				+ "SET status = 'finished' , finish_time = CURRENT_TIMESTAMP "
 				+ "WHERE selreq_id = " + id;
 		stm.executeUpdate(query_selreq);
 		

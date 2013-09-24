@@ -36,7 +36,7 @@
 			      <td align="center"><%= req.getName() %></td>
 			      <td align="center"><%= req.size() %></td>
 			      <td align="center"><%= req.getItemNum() %></td>
-			      <td align="center"><%= req.getFinish() %></td>
+			      <td align="center"><%= req.getFinish().toString().replace(".0", " น.") %></td>
 			      <td><center><input type="image" src="img/images.jpg" name="image" width="30" height="25"></center></td>			      
 			    </tr>
 			  <%
