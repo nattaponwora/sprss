@@ -23,6 +23,7 @@
 			   		<th>ชื่อพนักงาน</th>
 			      	<th>จำนวนใบเบิก</th>
 			     	<th>จำนวนอะไหล่ (ชิ้น)</th>
+			     	<th>เวลาเริ่มหยิบ</th>
 			     	<th>ยืนยัน</th>			    	
 			    </tr>
 			  </thead>
@@ -37,6 +38,7 @@
 			      <td align="center"><%= req.getName() %></td>
 			      <td align="center"><%= req.size() %></td>
 			      <td align="center"><%= req.getItemNum() %></td>
+			      <td align="center"><%= req.getBegin() %></td>
 			      <td><button type="submit" class="btn btn-small btn-primary">เสร็จสิ้น</button></td>
 			    </tr>
 			  <%
