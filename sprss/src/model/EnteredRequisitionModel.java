@@ -105,7 +105,7 @@ public class EnteredRequisitionModel {
 	}
 	
 	private static void updatePickingData(RequisitionList rl, ItemList il , int sid, Statement stm) throws SQLException{
-		String query = "UPDATE requisition SET status = 'picked' , selreq_id = '"+ sid +"' WHERE req_id IN (";
+		String query = "UPDATE requisition SET status = 'pick' , selreq_id = '"+ sid +"' WHERE req_id IN (";
 				query+= "'"+ rl.get(0).getReqID() + "'";
 				for(int i=1 ; i< rl.size(); i++){
 					query += ",'" + rl.get(i).getReqID() + "'";
