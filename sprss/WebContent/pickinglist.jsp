@@ -60,21 +60,37 @@
 			  <tbody>
 			  <% 
 			  	String s = "";
+			  	int temp = 0;
 			  	for ( int i =0; i < itemList.size() ; i++ ){
-			  		Item item = itemList.getItem(i);			  		
+			  		Item item = itemList.getItem(i);				  		
+			  		if( !s.equals(item.getStoreType()) ){
+			  			s = item.getStoreType();
+			  			temp++;
+			  		}
+			  		if( temp%2 == 0 ){
+			  			
+			  %>
+			  			<tr bgcolor="#E5E4E2">			  	 
+			  <%	 
+			  		}
+			  		else{
 			  %>		
-			  <tr>
+			  		<tr bgcolor="#FFFFFF">
+			  <%
+			  		}			  
+			  %>			  		
+			  			  	
 					  	  <td align="center"><%= item.getReqID() %></td>
 					      <td align="center"><%= item.getItemnum() %></td>
 					      <td align="center"><%= item.getDescription() %></td>
 					      <td align="center"><%= item.getAssetNO() %></td>
 					      <td align="center"><%= item.getAmount() %></td>
 					      <td align="center"><%= item.getAutID() %></td>
-					    </tr>	  	
+			  </tr>	  	
 			  <%			  	
 			  	}
 			  %>
-			  </tbody>
+			  </tbody>	
 		</table>			
 	</div></center>
 	</div>
