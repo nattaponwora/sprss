@@ -63,7 +63,7 @@ public class EnteredRequisitionModel {
 		
 		int i=0;
 		while ( rs.next() ){
-			reqList.add( new Requisition( rs.getInt("req_id"), rs.getInt("resv_eid") ,  rs.getString("resv_name"), rs.getString("resv_team") , rs.getDate("enterdate") , plant , storeroom ,rs.getString("status") , rs.getString("type")) );
+			reqList.add( new Requisition( rs.getInt("req_id"), rs.getInt("resv_eid") ,  rs.getString("resv_name"), rs.getString("resv_team") , rs.getTimestamp("enterdate") , plant , storeroom ,rs.getString("status") , rs.getString("type")) );
 			reqNumList[i] = rs.getInt("req_id");
 			i++;
 		}
@@ -128,7 +128,7 @@ public class EnteredRequisitionModel {
 		
 		RequisitionList selreq = new RequisitionList();
 		while ( rs.next() ){
-			Requisition r = new Requisition(rs.getInt("req_id"), rs.getInt("resv_eid"), rs.getString("resv_name"), rs.getString("resv_team"), rs.getDate("enterdate"), rs.getString("plant"), rs.getString("storeroom"), rs.getString("status"), rs.getString("type"));
+			Requisition r = new Requisition(rs.getInt("req_id"), rs.getInt("resv_eid"), rs.getString("resv_name"), rs.getString("resv_team"), rs.getTimestamp("enterdate"), rs.getString("plant"), rs.getString("storeroom"), rs.getString("status"), rs.getString("type"));
 			selreq.add(r);
 		}
 		return selreq;

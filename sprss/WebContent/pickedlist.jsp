@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
     <%@ page import="object.Requisition" %>
     <%@ page import="java.util.ArrayList" %>
+    <%@ page import="java.util.Date" %>
     <%@ page import="object.RequisitionList" %>
 <%@ page import="object.PickingRequisition" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
