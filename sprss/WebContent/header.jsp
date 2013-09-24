@@ -14,10 +14,11 @@
               <div class="navbar-inner">
                 <div class="container">
                   <ul class="nav nav-pills">
-					  <li><a href="requisition">ใบเบิกอะไหล่(User $ Head)</a></li>					  
-					  <li><a href="show">ข้อมูลใบเบิกอะไหล่( ALL !Test)</a></li>
-					  <li><a href="warehouse">คลังสินค้า(Admin)</a></li>
-					  <li><a href="register">ลงทะเบียนสมาชิก(Admin & Manager)</a></li>
+					  <li><a href="requisition">ใบเบิกอะไหล่</a></li>					  
+					  <li><a href="show">ใบหยิบที่กำลังดำเนินการ</a></li>
+					  <li><a href="show">ข้อมูลการหยิบอะไหล่</a></li>
+					  <li><a href="warehouse">คลังสินค้า</a></li>
+					  <li><a href="register">ลงทะเบียนสมาชิก</a></li>
 					</ul>
 					<span><button style="float: right;" class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'logout'">Log Out</button></span>
 					<span style="float: right;" >&nbsp;</span>
