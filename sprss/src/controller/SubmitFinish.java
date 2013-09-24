@@ -32,7 +32,7 @@ public class SubmitFinish extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int req_id = Integer.valueOf(request.getParameter("finish"));
-		
+		System.out.println(req_id);
 		try{
 			SubmitFinishModel.updateStatus( req_id );
 			response.sendRedirect("show");
