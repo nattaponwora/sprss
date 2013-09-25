@@ -94,7 +94,9 @@
 		</table>			
 	</div></center>
 	</div>
+	<br>
 	<input type="button" class="btn btn-medium btn-primary" style="margin-left:50em" value="พิมพ์" onclick =  "printDiv('divprint')">
 	<button type="button" class="btn" style="margin-left:0.5em" onclick = "location.href = 'requisition'">กลับ</button> 
+	<br><br><br>
 </body>
 </html>

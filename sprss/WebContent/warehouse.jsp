@@ -11,6 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <link rel="stylesheet" href="bootstrap/Table_zebra/css/blue.css" type="text/css">
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css" />
@@ -27,7 +28,7 @@
 <body background="img/indexBG.jpg">
 	<%@ include file = "header.jsp" %>	
 	<div class="container">
-	<center><table width="100%" class="table table-bordered">
+	<center><table class="zebra">
 			<thead>
 			    <tr>
 			        <th>หมายเลขอ้างอิง</th>
@@ -76,9 +77,8 @@
 		%>
 	</center>
 	<center><form action="warehouseinsert" method="post"><b><font color="#1569C7">Plant: </font></b><input type="text" name="plant" /><b><font color="#1569C7">Storeroom: </font></b><input type = "text" name = "storeroom" /> <input type="submit" value ="เพิ่ม" /></form></center>
+	<br><br><br>
 	
-	
-
 </body>
 <footer><br></footer>
 </html>

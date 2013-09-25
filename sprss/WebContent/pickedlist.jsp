@@ -8,15 +8,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="bootstrap/Table_zebra/css/blue.css" type="text/css">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body background="img/indexBG.jpg">
 	<%@ include file = "header.jsp" %>	
 	<%
 			ArrayList<PickingRequisition> pReq = (ArrayList<PickingRequisition>) request.getAttribute("pickReq");
 		%>
-	<div class="container">		
-		<center><table class="table table-bordered">
+	<center><table class="zebra">
 			<thead>
 			    <tr>
 			    	<th>เลขที่ใบหยิบ</th>
@@ -49,6 +49,7 @@
 			  %>
 			  </tbody>			  
 		</table>	
-	</div></center>
+	</center>
+	<br><br><br>
 </body>
 </html>
