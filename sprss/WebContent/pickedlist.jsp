@@ -41,8 +41,8 @@
 			      <td align="center"><%= req.size() %></td>
 			      <td align="center"><%= req.getItemNum() %></td>
 			      <td align="center"><%= req.getBegin().toString().replace(".0", " น.") %></td>
-			      <td><form action="submitfinish" method="post" height="0"><input type="hidden" name="finish" value="<%= req.getID() %>"/><input type="submit" class="btn btn-small btn-primary" value="เสร็จสิ้น"></input></form>	</td>
-			      <td><a href="pickinglist?id=<%= req.getID() %>"><img src="img/images.jpg" width="30" height="25"></a></td>
+			      <td><center><form action="submitfinish" method="post" height="0"><input type="hidden" name="finish" value="<%= req.getID() %>"/><input type="submit" class="btn btn-small btn-primary" value="เสร็จสิ้น"></input></form></center></td>
+			      <td><center><a href="pickinglist?id=<%= req.getID() %>"><img src="img/magnifying.png" width="30" height="10"></a></center></td>
 			    </tr>
 			  <%
 			  	}
