@@ -43,6 +43,7 @@ public class ShowPickedList extends HttpServlet {
 		try {
 			ArrayList<PickingRequisition> p = ShowPickModel.getPicking( plant , storeroom );
 			request.setAttribute("pickReq", p);
+			session.setAttribute("page", "show");
 			RequestDispatcher obj = request.getRequestDispatcher("pickedlist.jsp");
 			obj.forward(request,response);
 		} catch (SQLException e) {

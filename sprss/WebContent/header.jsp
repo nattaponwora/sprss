@@ -7,18 +7,21 @@
 <meta charset="utf-8">
 <title>RSSM : SPRM</title>
 <!-- Bootstrap -->
-	<% User hUser = (User) session.getAttribute("userData"); %>	
+	<% 
+		User hUser = (User) session.getAttribute("userData"); 
+		String this_page = (String) session.getAttribute("page");
+	%>	
 	<img src = "img/cpr_logo.png">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <div class="navbar navbar-inverse" style="position: static;">
               <div class="navbar-inner">
                 <div class="container">
                   <ul class="nav nav-pills">
-					  <li><a href="requisition">ใบเบิกอะไหล่</a></li>					  
-					  <li><a href="show">ใบหยิบที่กำลังดำเนินการ</a></li>
-					  <li><a href="show">ข้อมูลการหยิบอะไหล่</a></li>
-					  <li><a href="warehouse">คลังสินค้า</a></li>
-					  <li><a href="register">ลงทะเบียนสมาชิก</a></li>
+					  <li<%= this_page.equals("requisition") ? " class=\"active\"" : ""  %>><a href="requisition">ใบเบิกอะไหล่</a></li>					  
+					  <li<%= this_page.equals("show") ? " class=\"active\"" : ""  %>><a href="show">ใบหยิบที่กำลังดำเนินการ</a></li>
+					  <li<%= this_page.equals("???") ? " class=\"active\"" : ""  %>><a href="show">ข้อมูลการหยิบอะไหล่</a></li>
+					  <li<%= this_page.equals("warehouse") ? " class=\"active\"" : ""  %>><a href="warehouse">คลังสินค้า</a></li>
+					  <li<%= this_page.equals("register") ? " class=\"active\"" : ""  %>><a href="register">ลงทะเบียนสมาชิก</a></li>
 					</ul>
 					<span><button style="float: right;" class="btn btn-mini btn btn-danger" type="button" onclick = "location.href = 'logout'">Log Out</button></span>
 					<span style="float: right;" >&nbsp;</span>

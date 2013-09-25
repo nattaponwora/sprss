@@ -75,7 +75,6 @@ public class EnteredRequisition extends HttpServlet {
 			
 			
 			RequisitionList req = EnteredRequisitionModel.getEnterReqList(plant, storeroom);
-			System.out.println(request.getParameter("sort"));
 			if( request.getParameter("sort") == null ){
 				req.sort( "reqID" );
 			}else{
@@ -84,6 +83,7 @@ public class EnteredRequisition extends HttpServlet {
 			
 			request.setAttribute("reqList", req);
 			session.setAttribute("reqList", req );
+			session.setAttribute("page", "requisition");
 			
 			RequestDispatcher obj = request.getRequestDispatcher("requisition.jsp");
 			obj.forward(request,response);

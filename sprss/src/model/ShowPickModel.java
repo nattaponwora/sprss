@@ -29,7 +29,6 @@ public class ShowPickModel {
 		ArrayList<PickingRequisition> selList = new ArrayList<PickingRequisition>();
 		while ( selreq_rs.next() ){
 			selList.add(new PickingRequisition( selreq_rs.getInt("selreq_id"), selreq_rs.getInt("eid") , selreq_rs.getString("firstname"), selreq_rs.getString("lastname"), selreq_rs.getTimestamp("begin_time")  ));
-			System.out.println(selreq_rs.getTimestamp("begin_time"));
 		}
 		
 		String query_item =   
@@ -68,8 +67,6 @@ public class ShowPickModel {
 					Requisition r = new Requisition( req_rs.getInt("req_id"), req_rs.getInt("resv_eid") ,  req_rs.getString("resv_name"), req_rs.getString("resv_team") , req_rs.getDate("enterdate") , plant , storeroom ,req_rs.getString("status") , req_rs.getString("type"));
 					ItemList il = itemList.get( req_rs.getInt("req_id") );
 					for ( int j = 0 ; j < il.size() ; j++ ){
-						System.out.println("Step 3");
-						System.out.println( il.getItem(j).getReqID() + "  " +   il.getItem(j).getItemnum());
 						r.addItem(il.getItem(j));
 					}				
 					p.add( r );

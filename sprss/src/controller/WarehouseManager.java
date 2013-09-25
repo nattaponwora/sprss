@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import object.Warehouse;
 import model.WarehouseManagerModel;
@@ -34,12 +35,14 @@ public class WarehouseManager extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{
+			HttpSession session = request.getSession();
 			ArrayList<Warehouse> wh = WarehouseManagerModel.getWarehouse();
 			request.setAttribute("warehouse", wh);
 			String mes = (String) request.getParameter("mes");
 			if( mes != null  ){
 				request.setAttribute("mes", mes );
 			}
+			session.setAttribute("page", "warehouse");
 			RequestDispatcher obj = request.getRequestDispatcher("warehouse.jsp");
 			obj.forward(request,response);
 		}catch(SQLException e){
