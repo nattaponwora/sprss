@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
+<link rel="stylesheet" type="text/css" href="bootstrap/css/button.css">
      <%
      	User user = (User) session.getAttribute("userData");
      	ArrayList<User> picker = (ArrayList<User>)request.getAttribute("picker");
@@ -33,6 +33,12 @@
 						      	<font color = "#1569C7">Store Room : </font><%= user.getStoreroom() %><br>
 						      	<font color = "#1569C7">จำนวนใบเบิกอะไหล่ : </font> <%= reqList.size() %> ใบ<br>						   
 					  		</font>
+					  	</div>
+					  	<div align = "center">
+					  		<br /><br />
+					  		<b><font color = "#13A600">Last Update</font> : </b>
+					  		<br /> 
+					  		<button class="refresh" onclick>Refresh</button>
 					  	</div>
 				    </div>
 				    <!--<div style="width:3px;height:800px;background-color:black;float:left;">-->

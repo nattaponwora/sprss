@@ -19,7 +19,7 @@
                   <ul class="nav nav-pills">
 					  <li<%= this_page.equals("requisition") ? " class=\"active\"" : ""  %>><a href="requisition">ใบเบิกอะไหล่</a></li>					  
 					  <li<%= this_page.equals("show") ? " class=\"active\"" : ""  %>><a href="show">ใบหยิบที่กำลังดำเนินการ</a></li>
-					  <li<%= this_page.equals("???") ? " class=\"active\"" : ""  %>><a href="show">ข้อมูลการหยิบอะไหล่</a></li>
+					  <li<%= this_page.equals("finish") ? " class=\"active\"" : ""  %>><a href="finish">ข้อมูลการหยิบอะไหล่</a></li>
 					  <li<%= this_page.equals("warehouse") ? " class=\"active\"" : ""  %>><a href="warehouse">คลังสินค้า</a></li>
 					  <li<%= this_page.equals("register") ? " class=\"active\"" : ""  %>><a href="register">ลงทะเบียนสมาชิก</a></li>
 					</ul>

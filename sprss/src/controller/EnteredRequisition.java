@@ -67,6 +67,8 @@ public class EnteredRequisition extends HttpServlet {
 			if( usergroup > 2 ){
 				picker = new ArrayList<User>();
 				picker.add(user);
+				request.setAttribute("picker", picker);
+				session.setAttribute("picker", picker );
 			}else{
 				picker = EnteredRequisitionModel.getPicker(plant, storeroom);
 				request.setAttribute("picker", picker);
