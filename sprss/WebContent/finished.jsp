@@ -21,6 +21,7 @@
 			   		<th>ชื่อพนักงาน</th>
 			      	<th>จำนวนใบเบิก</th>
 			     	<th>จำนวนอะไหล่(ชิ้น)</th>
+			     	<th>เวลาเริ่มหยิบ</th>
 					<th>เวลาหยิบเสร็จ</th>
 			     	<th>รายละเอียด</th>			    	
 			    </tr>
@@ -36,6 +37,7 @@
 			      <td align="center"><%= req.getName() %></td>
 			      <td align="center"><%= req.size() %></td>
 			      <td align="center"><%= req.getItemNum() %></td>
+			      <td align="center"><%= req.getBegin().toString().replace(".0", " น.") %></td>
 			      <td align="center"><%= req.getFinish().toString().replace(".0", " น.") %></td>
 			      <td><center><input type="image" src="img/magnifying.png" name="image" width="30" height="25"></center></td>			      
 			    </tr>
