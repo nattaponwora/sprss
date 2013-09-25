@@ -39,7 +39,7 @@
 			      <td align="center"><%= req.getItemNum() %></td>
 			      <td align="center"><%= req.getBegin().toString().replace(".0", " น.") %></td>
 			      <td align="center"><%= req.getFinish().toString().replace(".0", " น.") %></td>
-			      <td><center><input type="image" src="img/magnifying.png" name="image" width="30" height="25"></center></td>			      
+			      <td><center><a href="pickinglist?id=<%= req.getID() %>"><img src="img/magnifying.png" width="30" height="10"></a></center></td>			      
 			    </tr>
 			  <%
 			  	}

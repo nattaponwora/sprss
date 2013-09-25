@@ -8,6 +8,7 @@
 <!-- Bootstrap -->
 	<img src = "img/cpr_logo.png">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="bootstrap/Table_zebra/css/blue.css" type="text/css">
     <div class="navbar navbar-inverse" style="position: static;">
               <div class="navbar-inner">
               </div><!-- /navbar-inner -->
