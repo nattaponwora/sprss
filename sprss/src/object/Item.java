@@ -22,6 +22,7 @@ public class Item {
 	private String description;
 	private String assetNO; 
 	private int amount;
+	private String unit;
 	private int autID;
 	
 	/**
@@ -33,12 +34,13 @@ public class Item {
 	 * @param assetNO
 	 * @param amount
 	 */
-	public Item( int reqID , int itemnum , String description , String assetNO , int amount , int autID){
+	public Item( int reqID , int itemnum , String description , String assetNO , int amount , String unit, int autID){
 		this.reqID = reqID;
 		this.itemnum = itemnum;
 		this.description = description;
 		this.assetNO = assetNO;
 		this.amount = amount;
+		this.unit = unit;
 		this.autID = autID;
 	}
 	
@@ -60,6 +62,10 @@ public class Item {
 	
 	public int getAmount(){
 		return amount;
+	}
+	
+	public String getUnit(){
+		return unit;
 	}
 	
 	public int getAutID(){
