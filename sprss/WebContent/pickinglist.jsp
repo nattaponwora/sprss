@@ -85,7 +85,7 @@
 					      <td align="left"><%= item.getDescription() %></td>
 					      <td align="center"><%= item.getAssetNO() %></td>
 					      <td align="center"><%= item.getAmount() %></td>
-					      <td align="center"><%= item.getAutID() %></td>
+					      <td align="center"><%= item.getAutID() %></td>					      
 			  </tr>	  	
 			  <%			  	
 			  	}
