@@ -13,11 +13,21 @@
 </head>
 <body background="img/indexBG.jpg">
 	<%@ include file = "header.jsp" %>	
+	<center><h1><font size="5" face="Tahoma" color="#0000FF"> ใบหยิบที่กำลังดำเนินการ </font></h1><br></center>
 	<%
 			ArrayList<PickingRequisition> pReq = (ArrayList<PickingRequisition>) request.getAttribute("pickReq");
 		%>
+	<% if ( pReq.size() == 0 ){
+	%>
+		<center><h1><font size="3" face="Tahoma" color="#FF0000"> ไม่มีใบหยิบที่กำลังดำเนินการ </font></h1><br></center>
+	<%
+	}
+	else{
+	%>
+	
 	<center><table class="zebra">
 			<thead>
+			
 			    <tr>
 			    	<th>เลขที่ใบหยิบ</th>
 			   		<th>รหัสพนักงาน</th>
@@ -50,6 +60,9 @@
 			  </tbody>			  
 		</table>	
 	</center>
+	<%
+	}
+	%>
 	<br><br><br>
 </body>
 </html>

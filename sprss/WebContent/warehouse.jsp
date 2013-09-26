@@ -27,6 +27,7 @@
 </head>
 <body background="img/indexBG.jpg">
 	<%@ include file = "header.jsp" %>	
+	<center><h1><font size="5" face="Tahoma" color="#0000FF"> คลังสินค้า </font></h1><br></center>
 	<div class="container">
 	<center><table class="zebra">
 			<thead>

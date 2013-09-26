@@ -10,6 +10,7 @@
 </head>
 <body background="img/indexBG.jpg">
 	<%@ include file = "header.jsp" %>
+	<center><h1><font size="5" face="Tahoma" color="#0000FF">ข้อมูลการหยิบอะไหล่</font></h1><br></center>
 	<%
 			ArrayList<PickingRequisition> pReq = (ArrayList<PickingRequisition>) request.getAttribute("pickReq");
 		%>	
