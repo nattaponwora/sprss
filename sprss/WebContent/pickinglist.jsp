@@ -5,6 +5,9 @@
 <%@ page import="object.Requisition" %>
 <%@ page import="object.ItemList" %>
 <%@ page import="object.Item" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.DateFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,9 +31,13 @@
 		RequisitionList selectReq = ( RequisitionList ) request.getAttribute("reqList"); 
 		ItemList itemList = (ItemList) request.getAttribute("itemList");
 		Integer id = (Integer)request.getAttribute("id");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
 	%>
 	<div id = "divprint">
 		<div class="container">
+		<center><font style="font-weight:bold" >ใบรวมใบเบิกอะไหล่</font><br></center>
+		<div style="text-align:right"><font style="font-weight:bold" >วันที่ : <%= dateFormat.format(date) + " น." %></font><br></div>
 		<font style="font-weight:bold" >หยิบอะไหล่ : <%= picker.getName() %></font><br>
 		<font style="font-weight:bold" >หมายเลขใบรวมรายการ : <%= id %></font><br/>
 		<font style="font-weight:bold" >ใบเบิกอะไหล่ :</font>
@@ -45,7 +52,8 @@
 			  <%
 			  	}
 			  %>
-			  </tbody>			  
+		</tbody>
+		<font style="font-weight:bold" >รวมจำรวนใบเบิกอะไหล่ : <%= selectReq.getItemNum() %></font><br/>			  
 		<center><table width="100%"  border="0"><br>
 			<thead>
 			    <tr>
@@ -84,8 +92,9 @@
 					      <td align="center"><%= item.getItemnum() %></td>
 					      <td align="left"><%= item.getDescription() %></td>
 					      <td align="center"><%= item.getAssetNO() %></td>
-					      <td align="center"><%= item.getAmount() %></td>
-					      <td align="center"><%= item.getAutID() %></td>					      
+					      <td align="center"><%= item.getAmount() + " " + item.getUnit() %></td>
+					      <td align="center"><%= item.getAutID() %></td>
+					      <br>					      
 			  </tr>	  	
 			  <%			  	
 			  	}
