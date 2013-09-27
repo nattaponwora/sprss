@@ -68,7 +68,7 @@ public class EnteredRequisitionModel {
 			i++;
 		}
 		
-		query =   "SELECT itemusage_id , itemnum, description, binnum, amount, requisition.req_id "
+		query =   "SELECT itemusage_id , itemnum, description, binnum, amount, unit, requisition.req_id "
 				+ "FROM itemusage join requisition on itemusage.req_id = requisition.req_id "
 				+ "WHERE requisition.status = 'entered' AND requisition.plant = '"+ plant +"' AND requisition.storeroom = '" + storeroom + "'  "
 				+ "ORDER BY req_id asc";
@@ -77,7 +77,7 @@ public class EnteredRequisitionModel {
 		while( rs.next() ){
 			int req = rs.getInt("req_id");
 			Requisition r =  reqList.getByID( req );
-			r.addItem( new Item( req, rs.getInt("itemnum"), rs.getString("description") , rs.getString("binnum"), rs.getInt("amount"), r.getAuthorID() ) );
+			r.addItem( new Item( req, rs.getInt("itemnum"), rs.getString("description") , rs.getString("binnum"), rs.getInt("amount"), rs.getString("unit"), r.getAuthorID() ) );
 		}
 		
 		stm.close();
@@ -137,13 +137,13 @@ public class EnteredRequisitionModel {
 	public static ItemList getItemListBySelID( int id ) throws SQLException{
 		Statement stm = StatementManager.getSQLStatement();
 		String query = 
-				  "SELECT r.req_id, i.itemnum, i.description, i.binnum, i.amount, r.resv_eid "
+				  "SELECT r.req_id, i.itemnum, i.description, i.binnum, i.amount, i.unit , r.resv_eid "
 				+ "FROM itemusage i join requisition r on i.req_id = r.req_id "
 				+ "WHERE r.selreq_id = " + id ;
 		ResultSet rs = stm .executeQuery(query);
 		ItemList list = new ItemList();
 		while ( rs.next() ){
-			Item item = new Item(rs.getInt("req_id"), rs.getInt("itemnum"), rs.getString("description"), rs.getString("binnum"), rs.getInt("amount"), rs.getInt("resv_eid"));
+			Item item = new Item(rs.getInt("req_id"), rs.getInt("itemnum"), rs.getString("description"), rs.getString("binnum"), rs.getInt("amount"),rs.getString("unit"), rs.getInt("resv_eid"));
 			list.add(item);
 		}
 		return list;

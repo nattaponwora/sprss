@@ -32,7 +32,7 @@ public class ShowPickModel {
 		}
 		
 		String query_item =   
-				"SELECT itemusage_id , itemnum, description, binnum, amount, requisition.req_id, requisition.resv_eid "
+				"SELECT itemusage_id , itemnum, description, binnum, amount,unit, requisition.req_id, requisition.resv_eid "
 				+ "FROM itemusage join requisition on itemusage.req_id = requisition.req_id "
 				+ "WHERE requisition.status = 'pick' AND requisition.plant = '"+ plant +"' AND requisition.storeroom = '" + storeroom + "'  "
 				+ "ORDER BY req_id asc";
@@ -41,7 +41,7 @@ public class ShowPickModel {
 		Map< Integer , ItemList > itemList = new HashMap<Integer, ItemList>();
 		while( item_rs.next() ){
 			int req_id = item_rs.getInt("req_id");
-			Item i = new Item( req_id, item_rs.getInt("itemnum"), item_rs.getString("description") , item_rs.getString("binnum"), item_rs.getInt("amount"), item_rs.getInt("resv_eid") );
+			Item i = new Item( req_id, item_rs.getInt("itemnum"), item_rs.getString("description") , item_rs.getString("binnum"), item_rs.getInt("amount"),item_rs.getString("unit"), item_rs.getInt("resv_eid") );
 			
 			ItemList il;
 			if( ! itemList.containsKey(req_id) ){
