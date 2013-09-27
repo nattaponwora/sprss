@@ -111,21 +111,11 @@ public class ItemList {
 			}
 		}
 		items.clear();
-		if( s.size() != 0 ){
-			items.addAll(s);
-		}
-		if( f.size() != 0 ){
-			items.addAll(f);
-		}
-		if( r.size() != 0 ){
-			items.addAll(r);
-		}
-		if( n.size() != 0 ){
-			items.addAll(n);
-		}
-		if( o.size() != 0 ){
-			items.addAll(o);
-		}
+		items.addAll(s);
+		items.addAll(f);
+		items.addAll(r);
+		items.addAll(n);
+		items.addAll(o);		
 	}
 	
 }

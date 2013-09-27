@@ -52,8 +52,8 @@
 			  <%
 			  	}
 			  %>
-		</tbody>
-		<font style="font-weight:bold" >รวมจำรวนใบเบิกอะไหล่ : <%= selectReq.getItemNum() %></font><br/>			  
+		</tbody><br>
+		<font style="font-weight:bold" >รวมจำรวนใบเบิกอะไหล่ : <%= selectReq.getItemNum() %></font>		  
 		<center><table width="100%"  border="0"><br>
 			<thead>
 			    <tr>
@@ -62,6 +62,7 @@
 			     	<th>รายการ</th>
 			    	<th>Asset No./Storage bin</th>
 			        <th>จำนวน</th>
+			        <th>หน่วย</th>
 			        <th>รหัสช่าง</th>
 			    </tr>
 			  </thead>
@@ -92,7 +93,8 @@
 					      <td align="center"><%= item.getItemnum() %></td>
 					      <td align="left"><%= item.getDescription() %></td>
 					      <td align="center"><%= item.getAssetNO() %></td>
-					      <td align="center"><%= item.getAmount() + " " + item.getUnit() %></td>
+					      <td align="center"><%= item.getAmount() %></td>
+					      <td align="center"><%= item.getUnit() %></td>
 					      <td align="center"><%= item.getAutID() %></td>
 					      <br>					      
 			  </tr>	  	
