@@ -14,7 +14,7 @@ public class MXMSyncModel {
 		Statement sqlStm = StatementManager.getSQLStatement();
 		String siteQuery = "SELECT plant, storeroom FROM warehouse";
 		ResultSet storeRS = sqlStm.executeQuery(siteQuery);
-		String sql =  "SELECT iu.INVUSENUM req_id,il.ITEMNUM, il.DESCRIPTION des, inv.GP_BINNUM, il.QUANTITY amount, iu.GP_PDA_USERID resv_id, p.DISPLAYNAME resv_name, iu.GP_PDA_TEAM resv_team, iu.SITEID plant ,iu.FROMSTORELOC storeroom, iu.GP_PDA_UPDATEDDATE enterdate, iu.USETYPE type "
+		String sql =  "SELECT iu.INVUSENUM req_id,il.ITEMNUM, il.DESCRIPTION des, inv.GP_BINNUM, il.QUANTITY amount, inv.ISSUEUNIT unit, iu.GP_PDA_USERID resv_id, p.DISPLAYNAME resv_name, iu.GP_PDA_TEAM resv_team, iu.SITEID plant ,iu.FROMSTORELOC storeroom, iu.GP_PDA_UPDATEDDATE enterdate, iu.USETYPE type "
 					+ "FROM invuse iu "
 					+ "join INVUSELINE il on iu.INVUSENUM = il.INVUSENUM "
 					+ "join INVENTORY inv on inv.ITEMNUM = il.ITEMNUM AND inv.SITEID = iu.SITEID AND inv.LOCATION = iu.FROMSTORELOC "
