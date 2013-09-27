@@ -71,51 +71,7 @@ public class ItemList {
 			}
 			items.add(0 , item);
 		}
-		ArrayList<Item> s = new ArrayList<Item>();
-		ArrayList<Item> f = new ArrayList<Item>();
-		ArrayList<Item> r = new ArrayList<Item>();
-		ArrayList<Item> n = new ArrayList<Item>();
-		ArrayList<Item> o = new ArrayList<Item>();
-		for( int i = 0 ; i < items.size() ; i++ ){
-			if( items.get(i).getStoreType().equals("S") ){
-				s.add(items.get(i));
-			}
-			else if( items.get(i).getStoreType().equals("F")){
-				f.add(items.get(i));
-			}
-			else if( items.get(i).getStoreType().equals("R") ){
-				r.add(items.get(i));
-			}
-			else if( items.get(i).getStoreType().equals("N") ){
-				if( n.size() == 0 ){
-					n.add(items.get(i));
-				}
-				else{
-					for( int j = 0 ; j < n.size() ; j++ ){
-						int temp = Integer.valueOf(n.get(j).getAssetNO().substring(n.get(j).getAssetNO().length()-2));
-						int temp2 = Integer.valueOf(items.get(i).getAssetNO().substring(items.get(i).getAssetNO().length()-2));
-						if( temp2 >= temp ){
-							n.add(j, items.get(i));
-						}
-						else{
-							if( j == n.size()-1 ){
-								n.add(items.get(i));
-							}
-						}
-					}
-					
-				}
-			}
-			else{
-				o.add(items.get(i));
-			}
-		}
-		items.clear();
-		items.addAll(s);
-		items.addAll(f);
-		items.addAll(r);
-		items.addAll(n);
-		items.addAll(o);		
+			
 	}
 	
 }

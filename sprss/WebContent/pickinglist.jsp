@@ -40,21 +40,21 @@
 		<div style="text-align:right"><font style="font-weight:bold" >วันที่ : <%= dateFormat.format(date) + " น." %></font><br></div>
 		<font style="font-weight:bold" >หยิบอะไหล่ : <%= picker.getName() %></font><br>
 		<font style="font-weight:bold" >หมายเลขใบรวมรายการ : <%= id %></font><br/>
-		<font style="font-weight:bold" >ใบเบิกอะไหล่ :</font>
-		<tbody>
+		<font style="font-weight:bold" >ใบเบิกอะไหล่ :</font>		
 			  <% 
 			  	for ( int i =0; i < selectReq.size() ; i++ ){
 			  		Requisition req = selectReq.get(i);
 			  %>
-			  	<tr>			     
-			      <td align="center"><%= req.getReqID() %></td>			      
-			    </tr>
+			  				     
+			      <%= req.getReqID() %>		      
+			    
 			  <%
 			  	}
 			  %>
-		</tbody><br>
-		<font style="font-weight:bold" >รวมจำรวนใบเบิกอะไหล่ : <%= selectReq.getItemNum() %></font>		  
-		<center><table width="100%"  border="0"><br>
+		<br>
+		<font style="font-weight:bold" >รวมจำรวนใบเบิกอะไหล่ : <%= selectReq.size() %></font>	<br><br>	
+		 
+		<center><table width="100%"  border="0">
 			<thead>
 			    <tr>
 			        <th>ใบเบิกอะไหล่</th>
@@ -89,14 +89,13 @@
 			  		}			  
 			  %>			  		
 			  			  	
-					  	  <td align="center"><%= item.getReqID() %></td>
-					      <td align="center"><%= item.getItemnum() %></td>
-					      <td align="left"><%= item.getDescription() %></td>
-					      <td align="center"><%= item.getAssetNO() %></td>
-					      <td align="center"><%= item.getAmount() %></td>
-					      <td align="center"><%= item.getUnit() %></td>
-					      <td align="center"><%= item.getAutID() %></td>
-					      <br>					      
+					  	  <td height="30" align="center"><%= item.getReqID() %></td>
+					      <td height="30" align="center"><%= item.getItemnum() %></td>
+					      <td height="30" align="left"><%= item.getDescription() %></td>
+					      <td height="30" align="center"><%= item.getAssetNO() %></td>
+					      <td height="30" align="center"><%= item.getAmount() %></td>
+					      <td height="30" align="center"><%= item.getUnit() %></td>
+					      <td height="30" align="center"><%= item.getAutID() %></td>					      				      
 			  </tr>	  	
 			  <%			  	
 			  	}
