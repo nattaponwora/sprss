@@ -103,6 +103,10 @@ public class Requisition {
 	
 	public int getTotalItem(){
 		return totalItem;
-	}	
+	}
+	
+	public String toString(){
+		return "reqID = " + reqID + ", authorID = "+authorID+" , authorName  ="+ authorName+",  authorTeam  ="+ authorTeam+" , enteredDate = "+ enteredDate+" , plant = "+ plant +" , storeroom = "+ storeroom+" , status = "+ status +" , type = "+ type;
+	}
 	
 }

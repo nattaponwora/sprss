@@ -88,6 +88,7 @@ public class EnteredRequisitionModel {
 		Statement stm = StatementManager.getSQLStatement();
 		int sid = createSelReqID( u.getID() , stm );
 		updatePickingData(rl , il , sid,  stm);
+		stm.close();
 		return sid;
 		
 		//String query = "UPDATE"
@@ -101,6 +102,7 @@ public class EnteredRequisitionModel {
 		if( rs.next() ){
 			selreq_id = rs.getInt(1);
 		}
+		stm.close();
 		return selreq_id;
 	}
 	
@@ -113,6 +115,7 @@ public class EnteredRequisitionModel {
 				
 		query += ")";
 		stm.executeUpdate(query);
+		stm.close();
 	}
 	
 	public static RequisitionList getSelectRequisition( int id ) throws SQLException{
@@ -131,6 +134,7 @@ public class EnteredRequisitionModel {
 			Requisition r = new Requisition(rs.getInt("req_id"), rs.getInt("resv_eid"), rs.getString("resv_name"), rs.getString("resv_team"), rs.getTimestamp("enterdate"), rs.getString("plant"), rs.getString("storeroom"), rs.getString("status"), rs.getString("type"));
 			selreq.add(r);
 		}
+		stm.close();
 		return selreq;
 	}
 	
@@ -146,6 +150,7 @@ public class EnteredRequisitionModel {
 			Item item = new Item(rs.getInt("req_id"), rs.getInt("itemnum"), rs.getString("description"), rs.getString("binnum"), rs.getInt("amount"),rs.getString("unit"), rs.getInt("resv_eid"));
 			list.add(item);
 		}
+		stm.close();
 		return list;
 	}
 	
@@ -157,6 +162,7 @@ public class EnteredRequisitionModel {
 				+ "WHERE s.selreq_id = "+id;
 		ResultSet rs = stm .executeQuery(query);
 		rs.next();
+		stm.close();
 		return new User(rs.getInt("uid"), rs.getString("firstname"), rs.getString("lastname"), rs.getInt("eid"), rs.getString("eid"), rs.getString("tel"), rs.getInt("usergroup"), rs.getString("plant"), rs.getString("storeroom"));
 	}
 

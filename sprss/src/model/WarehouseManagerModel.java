@@ -27,7 +27,9 @@ public class WarehouseManagerModel {
 		String query = "SELECT DESCRIPTION des FROM LOCATIONS WHERE SITEID = '" + plant + "' AND LOCATION = '"+ storeroom +"'";
 		ResultSet rs = stm.executeQuery(query);
 		rs.next();
-		return rs.getString("des");
+		String result = rs.getString("des");
+		rs.close();
+		return result;
 	}
 	
 	public static void insertWarehouse( String plant , String storeroom ) throws SQLException, DuplicateDataException{

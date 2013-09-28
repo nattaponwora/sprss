@@ -31,12 +31,12 @@ public class MXMSync extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			System.out.println( MXMSyncModel.getDataFromMXM() );
+			MXMSyncModel.getDataFromMXM();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		//response.sendRedirect("requisition");
 		// TODO Auto-generated method stub
 	}
 

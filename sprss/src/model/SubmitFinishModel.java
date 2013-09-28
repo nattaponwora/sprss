@@ -20,9 +20,8 @@ public class SubmitFinishModel {
 				+ "SET status = 'finished' "
 				+ "WHERE selreq_id = " + id;
 		stm.executeUpdate(query_req);
-		
+		stm.close();
 		//System.out.println("finish_update");
-						
 	}
 
 }

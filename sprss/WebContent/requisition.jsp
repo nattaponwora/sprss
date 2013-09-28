@@ -38,7 +38,7 @@
 					  		<br /><br />
 					  		<b><font color = "#13A600">Last Update</font> : </b>
 					  		<br /> 
-					  		<button class="refresh" onclick>Refresh</button>
+					  		<button class="refresh" onclick ="window.location='mxmsync'">Refresh</button>
 					  	</div>
 				    </div>
 				    <!--<div style="width:3px;height:800px;background-color:black;float:left;">-->
