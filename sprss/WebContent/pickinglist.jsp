@@ -37,23 +37,34 @@
 	<div id = "divprint">
 		<div class="container">
 		<center><font style="font-weight:bold" >ใบรวมใบเบิกอะไหล่</font><br></center>
-		<div style="text-align:right"><font style="font-weight:bold" >วันที่ : <%= dateFormat.format(date) + " น." %></font><br></div>
-		<font style="font-weight:bold" >หยิบอะไหล่ : <%= picker.getName() %></font><br>
-		<font style="font-weight:bold" >หมายเลขใบรวมรายการ : <%= id %></font><br/>
-		<font style="font-weight:bold" >ใบเบิกอะไหล่ :</font>		
-			  <% 
-			  	for ( int i =0; i < selectReq.size() ; i++ ){
-			  		Requisition req = selectReq.get(i);
-			  %>
-			  				     
-			      <%= req.getReqID() %>		      
-			    
-			  <%
-			  	}
-			  %>
-		<br>
-		<font style="font-weight:bold" >รวมจำรวนใบเบิกอะไหล่ : <%= selectReq.size() %></font>	<br><br>	
-		 
+		<div style="text-align:right"><font style="font-weight:bold" >วันที่ : <%= dateFormat.format(date) + " น." %></font></div>
+		<table width="100%">		
+		<tr>	
+			<td align="right" height="15"><font style="font-weight:bold" >หมายเลขใบรวมรายการ : <%= id %></font></td>
+		</tr>
+		<tr>
+			<td height="15"><font style="font-weight:bold" >ผู้หยิบอะไหล่ : <%= picker.getName() %></font></td>
+		</tr>
+		<tr>
+			<td height="15"><font style="font-weight:bold" >รวมจำนวนใบเบิกอะไหล่ : <%= selectReq.size() %></font>	</td>
+		</tr>
+		<tr>
+			<td height="15"><font style="font-weight:bold" >ใบเบิกอะไหล่ :</font>		
+				  <% 
+				  	for ( int i =0; i < selectReq.size() ; i++ ){
+				  		Requisition req = selectReq.get(i);
+				  %>
+				  				     
+				      <%= req.getReqID()  %>
+				      &nbsp;		      
+				    
+				  <%
+				  	}
+				  %>
+			</td>		
+		</tr>
+		</table>
+		<br>				
 		<center><table width="100%"  border="0">
 			<thead>
 			    <tr>

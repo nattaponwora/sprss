@@ -36,7 +36,7 @@ public class MXMSync extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//response.sendRedirect("requisition");
+		response.sendRedirect("requisition");
 		// TODO Auto-generated method stub
 	}
 
