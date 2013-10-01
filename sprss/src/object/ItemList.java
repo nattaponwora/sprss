@@ -9,9 +9,19 @@ import java.util.ArrayList;
 public class ItemList {
 
 	private ArrayList<Item> items;
+	/*private ArrayList<Item> s;
+	private ArrayList<Item> f;
+	private ArrayList<Item> r;
+	private ArrayList<Item> n;
+	private ArrayList<Item> o;*/
 	
 	public ItemList(  ){
 		items = new ArrayList<Item>();
+		/*s = new ArrayList<Item>();
+		f = new ArrayList<Item>();
+		r = new ArrayList<Item>();
+		n = new ArrayList<Item>();
+		o = new ArrayList<Item>();*/
 	}
 	
 	public int size(){
@@ -20,16 +30,16 @@ public class ItemList {
 	
 	public Item getItem( int i ){
 		return items.get(i);
-	}
+	}	
 	
-	public void add( Item item ){		
+	public void add( Item item ){
 		if( items.size() == 0 ){
 			items.add(item);
 		}
 		else{
 			for( int i = items.size() - 1 ; i >= 0 ; i-- ){
 				if( item.getStoreType().equals("0") ){
-					items.add(0, item);
+					items.add(0 , item);
 					return;
 				}
 				if( item.getStoreType().equals("N") ){
@@ -70,7 +80,7 @@ public class ItemList {
 				}
 			}
 			items.add(0 , item);
-			//sort();
+			return;
 		}
 			
 	}
@@ -120,7 +130,228 @@ public class ItemList {
 		items.addAll(f);
 		items.addAll(r);
 		items.addAll(n);
-		items.addAll(o);
+		items.addAll(o);			
 	}
+	
+	/*public void add( Item item ){
+	if( item.getStoreType().equals("S") ){
+		if( s.size() == 0 ){
+			s.add(item);
+		}
+		else{
+			for( int i = s.size()-1 ; i >= 0 ; i-- ){
+				if( item.compareToLog(s.get(i)) == 0 ){
+					if( item.compareToShelf(s.get(i)) == 0 ){
+						if( item.compareToBasket(s.get(i)) == 0 ){
+							if( item.compareToBag(s.get(i)) == 0 || item.compareToBag(s.get(i)) < 0 ){
+								s.add(i+1, item);
+							}
+							else{
+								if( i == 0 ){
+									s.add(i, item);
+								}
+							}
+						}
+						else if( item.compareToBasket(s.get(i)) < 0 ){
+							s.add(i+1, item);
+						}
+						else{
+							if( i == 0 ){
+								s.add(i, item);
+							}
+						}
+					}
+					else if( item.compareToShelf(s.get(i)) < 0 ){
+						s.add(i+1 , item);
+					}
+					else{
+						if( i == 0 ){
+							s.add(i, item);
+						}
+					}
+				}
+				else if( item.compareToLog(s.get(i)) < 0 ){
+					s.add(i+1, item);
+				}
+				else{
+					if( i == 0 ){
+						s.add(i, item);
+					}
+				}
+			}
+		}
+	}		
+	else if( item.getStoreType().equals("F") ){
+		if( f.size() == 0 ){
+			f.add(item);
+		}
+		else{
+			for( int i = f.size()-1 ; i >= 0 ; i-- ){
+				if( item.compareToLog(f.get(i)) == 0 ){
+					if( item.compareToShelf(f.get(i)) == 0 ){
+						if( item.compareToBasket(f.get(i)) == 0 ){
+							if( item.compareToBag(f.get(i)) == 0 || item.compareToBag(f.get(i)) < 0 ){
+								f.add(i+1, item);
+							}
+							else{
+								if( i == 0 ){
+									f.add(i, item);
+								}
+							}
+						}
+						else if( item.compareToBasket(f.get(i)) < 0 ){
+							f.add(i+1, item);
+						}
+						else{
+							if( i == 0 ){
+								f.add(i, item);
+							}
+						}
+					}
+					else if( item.compareToShelf(f.get(i)) < 0 ){
+						f.add(i+1 , item);
+					}
+					else{
+						if( i == 0 ){
+							f.add(i, item);
+						}
+					}
+				}
+				else if( item.compareToLog(f.get(i)) < 0 ){
+					f.add(i+1, item);
+				}
+				else{
+					if( i == 0 ){
+						f.add(i, item);
+					}
+				}
+			}
+		}
+	}
+	else if( item.getStoreType().equals("R") ){
+		if( r.size() == 0 ){
+			r.add(item);
+		}
+		else{
+			for( int i = r.size()-1 ; i >= 0 ; i-- ){
+				if( item.compareToLog(r.get(i)) == 0 ){
+					if( item.compareToShelf(r.get(i)) == 0 ){
+						if( item.compareToBasket(r.get(i)) == 0 ){
+							if( item.compareToBag(r.get(i)) == 0 || item.compareToBag(r.get(i)) < 0 ){
+								r.add(i+1, item);
+							}
+							else{
+								if( i == 0 ){
+									r.add(i, item);
+								}
+							}
+						}
+						else if( item.compareToBasket(r.get(i)) < 0 ){
+							r.add(i+1, item);
+						}
+						else{
+							if( i == 0 ){
+								r.add(i, item);
+							}
+						}
+					}
+					else if( item.compareToShelf(r.get(i)) < 0 ){
+						r.add(i+1 , item);
+					}
+					else{
+						if( i == 0 ){
+							r.add(i, item);
+						}
+					}
+				}
+				else if( item.compareToLog(r.get(i)) < 0 ){
+					r.add(i+1, item);
+				}
+				else{
+					if( i == 0 ){
+						r.add(i, item);
+					}
+				}
+			}
+		}
+	}
+	if( item.getStoreType().equals("S") ){
+		if( s.size() == 0 ){
+			s.add(item);
+		}
+		else{
+			for( int i = s.size()-1 ; i >= 0 ; i-- ){
+				if( item.compareToLog(s.get(i)) == 0 ){
+					if( item.compareToShelf(s.get(i)) == 0 ){
+						if( item.compareToBasket(s.get(i)) == 0 ){
+							if( item.compareToBag(s.get(i)) == 0 || item.compareToBag(s.get(i)) < 0 ){
+								s.add(i+1, item);
+							}
+							else{
+								if( i == 0 ){
+									s.add(i, item);
+								}
+							}
+						}
+						else if( item.compareToBasket(s.get(i)) < 0 ){
+							s.add(i+1, item);
+						}
+						else{
+							if( i == 0 ){
+								s.add(i, item);
+							}
+						}
+					}
+					else if( item.compareToShelf(s.get(i)) < 0 ){
+						s.add(i+1 , item);
+					}
+					else{
+						if( i == 0 ){
+							s.add(i, item);
+						}
+					}
+				}
+				else if( item.compareToLog(s.get(i)) < 0 ){
+					s.add(i+1, item);
+				}
+				else{
+					if( i == 0 ){
+						s.add(i, item);
+					}
+				}
+			}
+		}
+	}
+	else if( item.getStoreType().equals("N") ){
+		if( n.size() == 0 ){
+			n.add(item);
+		}
+		else{
+			for( int j = 0 ; j < n.size() ; j++ ){
+				int temp = Integer.valueOf(n.get(j).getAssetNO().substring(n.get(j).getAssetNO().length()-2));
+				int temp2 = Integer.valueOf(item.getAssetNO().substring(item.getAssetNO().length()-2));
+				if( temp2 >= temp ){
+					n.add(j, item);
+				}
+				else{
+					if( j == n.size()-1 ){
+						n.add(item);
+					}
+				}
+			}
+			
+		}
+	}
+	else{
+		o.add(item);
+	}
+	items.clear();
+	items.addAll(s);
+	items.addAll(f);
+	items.addAll(r);
+	items.addAll(n);
+	items.addAll(o);
+	
+}*/
 	
 }

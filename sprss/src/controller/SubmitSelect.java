@@ -49,9 +49,9 @@ public class SubmitSelect extends HttpServlet {
 		 */
 		String pid = request.getParameter("picker");
 		ArrayList<User> p = (ArrayList<User>) sess.getAttribute("picker");
-		sess.removeAttribute("picker");
+		//sess.removeAttribute("picker");
 		RequisitionList allReq = (RequisitionList) sess.getAttribute("reqList");
-		sess.removeAttribute("reqList");
+		//sess.removeAttribute("reqList");
 		RequisitionList selectReq = new RequisitionList();
 		ItemList itemList = new ItemList();
 		

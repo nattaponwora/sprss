@@ -102,7 +102,6 @@ public class EnteredRequisitionModel {
 		if( rs.next() ){
 			selreq_id = rs.getInt(1);
 		}
-		stm.close();
 		return selreq_id;
 	}
 	
@@ -115,7 +114,6 @@ public class EnteredRequisitionModel {
 				
 		query += ")";
 		stm.executeUpdate(query);
-		stm.close();
 	}
 	
 	public static RequisitionList getSelectRequisition( int id ) throws SQLException{
@@ -162,8 +160,9 @@ public class EnteredRequisitionModel {
 				+ "WHERE s.selreq_id = "+id;
 		ResultSet rs = stm .executeQuery(query);
 		rs.next();
+		User u = new User(rs.getInt("uid"), rs.getString("firstname"), rs.getString("lastname"), rs.getInt("eid"), rs.getString("eid"), rs.getString("tel"), rs.getInt("usergroup"), rs.getString("plant"), rs.getString("storeroom"));
 		stm.close();
-		return new User(rs.getInt("uid"), rs.getString("firstname"), rs.getString("lastname"), rs.getInt("eid"), rs.getString("eid"), rs.getString("tel"), rs.getInt("usergroup"), rs.getString("plant"), rs.getString("storeroom"));
+		return u;
 	}
 
 }

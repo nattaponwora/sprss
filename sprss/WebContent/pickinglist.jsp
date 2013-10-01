@@ -36,7 +36,7 @@
 	%>
 	<div id = "divprint">
 		<div class="container">
-		<center><font style="font-weight:bold" >ใบรวมใบเบิกอะไหล่</font><br></center>
+		<center><font style="font-weight:bold" size="3" >ใบรวมใบเบิกอะไหล่</font><br></center>
 		<div style="text-align:right"><font style="font-weight:bold" >วันที่ : <%= dateFormat.format(date) + " น." %></font></div>
 		<table width="100%">		
 		<tr>	
