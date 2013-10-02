@@ -61,6 +61,15 @@ public class RequisitionList  {
 			  }
 	}
 	
+	public boolean isContain( int id ){
+		for( int i = 0 ; i < reqList.size() ; i++ ){
+			if( reqList.get(i).getReqID() == id ){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	private String getKey( Requisition r, String key ){
 		String tmp;
 		switch (key){
