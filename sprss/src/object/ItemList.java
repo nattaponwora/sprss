@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class ItemList {
 
 	private ArrayList<Item> items;
+	private final String storeTypeCode[] = {"S" , "F" , "R"};
 	/*private ArrayList<Item> s;
 	private ArrayList<Item> f;
 	private ArrayList<Item> r;
@@ -30,7 +31,81 @@ public class ItemList {
 	
 	public Item getItem( int i ){
 		return items.get(i);
-	}	
+	}
+	
+	/**
+	 * Compare Store Type
+	 * @return  1 if i greater than j
+	 * 			0 if equal
+	 * 		   -1 if i less than j
+	 * 
+	 * @author Nattapon Worasakdapisan 
+	 */
+	private int storeTypeCompare( Item i , Item j ){
+		String iCode = i.getStoreType();
+		String jCode = j.getStoreType();
+		int iPriority = Integer.MAX_VALUE, jPriority = Integer.MAX_VALUE;
+		for(int index = 0 ; index < storeTypeCode.length ; index++){
+			if( iCode.equalsIgnoreCase(storeTypeCode[index]) ){
+				iPriority = index;
+			}
+			
+			if( jCode.equalsIgnoreCase(storeTypeCode[index]) ){
+				jPriority = index;
+			}
+		}
+		if( iPriority < jPriority ){
+			return 1;
+		}else if ( iPriority > jPriority ){
+			return -1;
+		}else{
+			return 0;
+		}
+	}
+					
+	private int itemCompare( Item i , Item j ){
+		int rsStoreComp = storeTypeCompare( i , j );
+		System.out.println(i.getAssetNO() + " " + j.getAssetNO()+" "+"rsStoreComp = " + rsStoreComp);
+		if( rsStoreComp == 0 ){
+			System.out.println(i.getAssetNO() + " " + j.getAssetNO()+" "+"i.compareToLog(j) = " + i.compareToLog(j));
+			if( i.compareToLog(j) == 0 ){
+				System.out.println(i.getAssetNO() + " " + j.getAssetNO()+" "+"i.compareToShelf(j) = " + i.compareToShelf(j));
+				if( i.compareToShelf(j) == 0 ){
+					System.out.println(i.getAssetNO() + " " + j.getAssetNO()+" "+"i.compareToBasket(j) = " + i.compareToBasket(j));
+					if( i.compareToBasket(j) == 0 ){
+						System.out.println(i.getAssetNO() + " " + j.getAssetNO()+" "+"i.compareToBag(j) = " + i.compareToBag(j));
+						return i.compareToBag(j);
+					}else{
+						return i.compareToBasket(j);
+					}
+				}else{
+					return i.compareToShelf(j);
+				}
+			}else{
+				return i.compareToLog(j);
+			}
+		}else{
+			return rsStoreComp;
+		}
+		
+	}
+	
+	public void add( Item nItem ){
+		if( items.size() == 0 ){
+			items.add(nItem);
+		}else{
+			for( int i = items.size() - 1 ; i >= 0 ; i-- ){
+				System.out.println(itemCompare( nItem , items.get(i) ));
+				if( itemCompare( nItem , items.get(i) ) != 1 ){
+					items.add( i+1, nItem );
+					return;
+				}
+			}
+			items.add( 0, nItem );
+		}
+	}
+	
+	/*
 	
 	public void add( Item item ){
 		if( items.size() == 0 ){
