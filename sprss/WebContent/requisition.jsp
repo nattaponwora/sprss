@@ -242,7 +242,7 @@ function check()
 					  	</div>
 					  	<div align = "center">
 					  		<br /><br />
-					  		<b><font color = "#13A600">Last Update</font> : </b>
+					  		<!-- <b><font color = "#13A600">Last Update</font> : </b> -->
 					  		<br /> 
 					  		<button class="refresh" onclick ="window.location='mxmsync'">Refresh</button>
 					  	</div>
@@ -266,7 +266,7 @@ function check()
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5>ลำดับ</h5></font></th>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5><a href="requisition?sort=reqID">เลขที่ใบจอง</a></h5></font></th>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5>วันที่เบิก</h5></font></th>
-						      <th><font size="5" face="Tahoma" color="#493D26"><h5><a href="requisition?sort=item">จำนวนอะไหล่</a></h5></font></th>
+						      <th><font size="5" face="Tahoma" color="#493D26"><h5><a href="requisition?sort=item">จำนวนรายการ</a></h5></font></th>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5><a href="requisition?sort=eid">รหัสช่าง</a></h5></font></th>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5><a href="requisition?sort=team">ทีม</a></h5></font></th>
 						      <th><font size="5" face="Tahoma" color="#493D26"><h5>เลือก</h5></font></th>

@@ -48,7 +48,7 @@ public class MXMSyncModel {
 				String resv_team = rs.getString("resv_team");
 				String plant = rs.getString("plant");
 				String storeroom = rs.getString("storeroom");
-				Date enterdate = rs.getDate("enterdate");
+				Date enterdate = rs.getTimestamp("enterdate");
 				String type = rs.getString("type");
 				r = new Requisition(req_id, resv_id, resv_name, resv_team, enterdate, plant,storeroom , "entered", type);
 				rl.add(r);

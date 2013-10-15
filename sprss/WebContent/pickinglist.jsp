@@ -82,24 +82,19 @@
 			  	String s = "";
 			  	int temp = 0;
 			  	for ( int i =0; i < itemList.size() ; i++ ){
-			  		Item item = itemList.getItem(i);				  		
+			  		Item item = itemList.getItem(i);
 			  		if( !s.equals(item.getStoreType()) ){
 			  			s = item.getStoreType();
 			  			temp++;
-			  		}
-			  		if( temp%2 == 0 ){
-			  			
+			  			if(temp > 1 ){
+			  				
 			  %>
-			  			<tr bgcolor="#E5E4E2">			  	 
-			  <%	 
-			  		}
-			  		else{
-			  %>		
-			  		<tr>
+			  			<tr><td colspan="7"><hr></td></tr>
 			  <%
-			  		}			  
-			  %>			  		
-			  			  	
+			  		}
+			  	}
+			  %>
+			  		<tr>
 					  	  <td height="30" align="center"><%= item.getReqID() %></td>
 					      <td height="30" align="center"><%= item.getItemnum() %></td>
 					      <td height="30" align="left"><%= item.getDescription() %></td>
@@ -107,7 +102,7 @@
 					      <td height="30" align="center"><%= item.getAmount() %></td>
 					      <td height="30" align="center"><%= item.getUnit() %></td>
 					      <td height="30" align="center"><%= item.getAutID() %></td>					      				      
-			  </tr>	  	
+			  		</tr>	  	
 			  <%			  	
 			  	}
 			  %>

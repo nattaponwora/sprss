@@ -30,7 +30,7 @@
                 </div>
               </div><!-- /navbar-inner -->
             </div>
-            <center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26"> RSSM : Spare Part Requisition Management <font color="blue" size="3"><i>(alpha)</i></font> </font></h1><br></center>
+            <center><h1 style="margin-top:0.5em"><font size="5" face="Tahoma" color="#493D26"> RSSM : Spare Part Requisition Management <font color="blue" size="3"><i>(1.0 alpha)</i></font> </font></h1><br></center>
 </head>
 <body>
 	
