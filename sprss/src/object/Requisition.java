@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class Requisition {
 
-	private ArrayList<Item> itemList;
+	private ItemList itemList;
 	private int authorID;
 	private String authorName;
 	private String authorTeam;	
@@ -30,7 +30,7 @@ public class Requisition {
 	 */
 
 	public Requisition(int reqID, int authorID , String authorName, String authorTeam, Date enterDate, String plant, String storeroom, String status , String type ){
-		itemList = new ArrayList<Item>();
+		itemList = new ItemList();
 		this.authorID = authorID;
 		this.authorName = authorName;
 		this.authorTeam = authorTeam;		
@@ -44,7 +44,7 @@ public class Requisition {
 		totalItem = 0;
 	}
 	
-	public ArrayList<Item> getItemList(){
+	public ItemList getItemList(){
 		return itemList;
 	}
 	

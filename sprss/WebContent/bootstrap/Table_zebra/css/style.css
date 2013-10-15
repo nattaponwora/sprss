@@ -50,16 +50,16 @@ table {
 }
 
 .zebra tbody tr:nth-child(even) {
-    background: #000 !important;
-	color:#fff;
-}
-
-.zebra tr:hover *{
-    background: #eeeeee;
+    background: #CECECE !important;
 	color:#000;
 }
 
-.zebra tr {
-	background:#404040;
+.zebra tr:hover *{
+    background: #000;
 	color:#fff;
+}
+
+.zebra tr {
+	background:#F8F7F7;
+	color:#000;
 }

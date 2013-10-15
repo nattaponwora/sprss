@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import object.Item;
+import object.ItemList;
 import object.Requisition;
 import object.RequisitionList;
 
@@ -67,14 +68,16 @@ public class MXMSyncModel {
 		
 		for ( int i=0 ; i<rl.size() ; i++ ){
 			Requisition r = rl.get(i);
-			String query = "INSERT INTO requisition (req_id, resv_eid, resv_name, resv_team, plant, storeroom, enterdate, itemamount,status,  type) "
+			String query = "INSERT ignore INTO requisition (req_id, resv_eid, resv_name, resv_team, plant, storeroom, enterdate, itemamount,status,  type) "
 					+ "VALUE ( '" + r.getReqID() + "' , '" + r.getAuthorID() + "' , '" + r.getAuthorName() + "' ,  '" + r.getAuthorTeam() + "' ,  '" + r.getPlant() + "' ,  '" + r.getStoreroom() + "' ,  '" + r.getEnteredDate() + "' ,  '" + r.getTotalItem() + "' ,  '"+ r.getStatus() +"'   ,  '" + r.getType() + "' )";
-			sqlStm.executeUpdate(query);
-			ArrayList<Item> il = r.getItemList();
-			for( int j=0; j<il.size() ; j++  ){
-				Item item = il.get(j);
-				query = "INSERT INTO itemusage (itemnum, description, binnum, amount, unit, req_id) VALUE ( '"+item.getItemnum()+"' , '"+ item.getDescription() +"' , '" + item.getAssetNO() +"' , '"+item.getAmount()+"' , '"+ item.getUnit() +"' , '"+item.getReqID()+"' ) ";
-				sqlStm.executeUpdate(query);
+			int num_ins = sqlStm.executeUpdate(query);
+			ItemList il = r.getItemList();
+			if(num_ins != 0){
+				for( int j=0; j<il.size() ; j++  ){
+					Item item = il.get(j);
+					query = "INSERT INTO itemusage (itemnum, description, binnum, amount, unit, req_id) VALUE ( '"+item.getItemnum()+"' , '"+ item.getDescription() +"' , '" + item.getAssetNO() +"' , '"+item.getAmount()+"' , '"+ item.getUnit() +"' , '"+item.getReqID()+"' ) ";
+					sqlStm.executeUpdate(query);
+				}
 			}
 		}
 		

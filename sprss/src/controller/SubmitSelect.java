@@ -76,7 +76,7 @@ public class SubmitSelect extends HttpServlet {
 				}
 				reqOrder++;
 			}
-			ArrayList<Item> list = selectReq.get(selectOrder).getItemList();
+			ItemList list = selectReq.get(selectOrder).getItemList();
 			for ( int i = 0 ; i < list.size() ; i++ ){
 				Item item = list.get(i);
 				itemList.add( item );

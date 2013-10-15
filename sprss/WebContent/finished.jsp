@@ -12,8 +12,13 @@
 	<%@ include file = "header.jsp" %>
 	<center><h1><font size="5" face="Tahoma" color="#0000FF">ข้อมูลการหยิบอะไหล่</font></h1><br></center>
 	<%
-			ArrayList<PickingRequisition> pReq = (ArrayList<PickingRequisition>) request.getAttribute("pickReq");
-		%>	
+		ArrayList<PickingRequisition> pReq = (ArrayList<PickingRequisition>) request.getAttribute("pickReq");
+	%>
+	<div align="center">
+		<form>
+			<input type = "text" /> <input type="submit" class="btn btn-medium btn-primary" value = "ค้นหา"/>
+		</form>
+	</div>	
 	<center><table class="zebra">
 			<thead>
 			    <tr>

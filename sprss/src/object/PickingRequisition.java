@@ -57,5 +57,5 @@ public class PickingRequisition extends RequisitionList {
 	public Date getFinish(){
 		return finish;
 	}
-		
+	
 }
