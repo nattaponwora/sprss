@@ -22,7 +22,7 @@ public class MXMSyncModel {
 					+ "join INVUSELINE il on iu.INVUSENUM = il.INVUSENUM "
 					+ "join INVENTORY inv on inv.ITEMNUM = il.ITEMNUM AND inv.SITEID = iu.SITEID AND inv.LOCATION = iu.FROMSTORELOC "
 					+ "join PERSON p ON iu.GP_PDA_USERID = p.PERSONID "
-					+ "WHERE iu.GP_PDA_USERID is not null AND iu.status = 'ENTERED' AND iu.GP_PDA_UPDATEDDATE > date('2013-09-01')  AND "
+					+ "WHERE iu.GP_PDA_USERID is not null AND iu.status = 'ENTERED' AND iu.GP_PDA_UPDATEDDATE > date('2013-10-01')  AND "
 					+ "( ";
 		boolean first = true;
 		while( storeRS.next() ){

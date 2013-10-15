@@ -33,7 +33,6 @@
 			   		<th>รหัสพนักงาน</th>
 			   		<th>ชื่อพนักงาน</th>
 			      	<th>จำนวนใบเบิก</th>
-			     	<th>จำนวนอะไหล่ (ชิ้น)</th>
 			     	<th>เวลาเริ่มหยิบ</th>
 			     	<th>ยืนยัน</th>
 			     	<th>รายละเอียด</th>			    	
@@ -49,7 +48,6 @@
 			      <td align="center"><%= req.getEid() %></td>
 			      <td align="center"><%= req.getName() %></td>
 			      <td align="center"><%= req.size() %></td>
-			      <td align="center"><%= req.getItemNum() %></td>
 			      <td align="center"><%= req.getBegin().toString().replace(".0", " น.") %></td>
 			      <td><center><form action="submitfinish" method="post" height="0"><input type="hidden" name="finish" value="<%= req.getID() %>"/><input type="submit" class="btn btn-small btn-primary" value="เสร็จสิ้น"></input></form></center></td>
 			      <td><center><a href="pickinglist?id=<%= req.getID() %>"><img src="img/magnifying.png" width="30" height="10"></a></center></td>
