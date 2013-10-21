@@ -19,7 +19,7 @@
 			ArrayList<PickingRequisition> pReq = (ArrayList<PickingRequisition>) request.getAttribute("pickReq");
 			PickingRequisition req;
 			for( int i = 0 ; i < pReq.size() ; i++ ){
-				if( pReq.get(i).isContain(reqID) ){ // id = ทำให้ดึงข้อมูลจากเลขใบเบิกที่ input เข้ามา
+				if( true ){ // id = ทำให้ดึงข้อมูลจากเลขใบเบิกที่ input เข้ามา
 					req = pReq.get(i);
 	%>
 				<center><table class="zebra">

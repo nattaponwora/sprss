@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:web_1="http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>sprss</display-name>
-  <web_1:welcome-file-list>
-    <web_1:welcome-file>requisition</web_1:welcome-file>
-    <web_1:welcome-file>index.html</web_1:welcome-file>
-    <web_1:welcome-file>index.htm</web_1:welcome-file>
-    <web_1:welcome-file>index.jsp</web_1:welcome-file>
-    <web_1:welcome-file>default.html</web_1:welcome-file>
-    <web_1:welcome-file>default.htm</web_1:welcome-file>
-    <web_1:welcome-file>default.jsp</web_1:welcome-file>
-  </web_1:welcome-file-list>
-  <web_1:filter>
-    <web_1:filter-name>LoginFilter</web_1:filter-name>
-    <web_1:filter-class>filter.LoginFilter</web_1:filter-class>
-  </web_1:filter>
-  <web_1:filter-mapping>
-    <web_1:filter-name>LoginFilter</web_1:filter-name>
-    <web_1:url-pattern>/requisition</web_1:url-pattern>
-  </web_1:filter-mapping>
-  <web_1:filter-mapping>
-    <web_1:filter-name>LoginFilter</web_1:filter-name>
-    <web_1:url-pattern>/pickinglist</web_1:url-pattern>
-  </web_1:filter-mapping>
-  <web_1:filter-mapping>
-    <web_1:filter-name>LoginFilter</web_1:filter-name>
-    <web_1:url-pattern>/show</web_1:url-pattern>
-  </web_1:filter-mapping>
-  <web_1:filter-mapping>
-    <web_1:filter-name>LoginFilter</web_1:filter-name>
-    <web_1:url-pattern>/warehouse</web_1:url-pattern>
-  </web_1:filter-mapping>
+  <welcome-file-list>
+    <welcome-file>requisition</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <filter>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/requisition</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/pickinglist</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/show</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/warehouse</url-pattern>
+  </filter-mapping>
 </web-app>
