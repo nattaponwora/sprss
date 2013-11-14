@@ -1,10 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="object.Warehouse" %>
+<%@ page import="object.User" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="bootstrap/form/style.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/myStyle.css">
+	<link rel="stylesheet" href="bootstrap/popup/jquery-ui.css" />
+    <script src="bootstrap/popup/jquery-1.9.1.js"></script>
+    <script src="bootstrap/popup/jquery-ui.js"></script>
+    <script>
+  	$(function() {
+	    $( "#dialog" ).dialog();
+	  });
+  </script>
+  <script type="text/javascript">
+  	function disableWarehouse(){
+  		var group = document.getElementById("usergroup").value;
+  		if( group == 1 ){
+  			document.getElementById("warehouse").disabled=true;
+  		}else{
+  			document.getElementById("warehouse").disabled=false;
+  		}
+  	}
+  </script>
+	<%
+		ArrayList<Warehouse> wh = ( ArrayList<Warehouse> ) request.getAttribute("warehouse");
+		User u = ( User ) session.getAttribute("userData");
+	%>
 </head>
 <body background="img/indexBG.jpg">
 <%@ include file = "header.jsp" %>				
@@ -20,48 +45,61 @@
 	            	<table align = "center">
 	                <tr>
 	                	<td width="50%" style="padding-left: 20px">
-	                	<label for="inputEmpID" ><b>รหัสพนักงาน</b></label>
-	               		<input type="text" id="inputEmpID" name="empID">
+	                	<label for="inputEmpID" ><b>รหัสพนักงาน <font color="red" size=4em>*</font></b></label>
+	               		<input type="text" id="inputEmpID" name="empID" required>
 	                	</td>
 	                </tr>
 	                
 	                <tr>
 	                	<td width="50%" style="padding-left: 20px">
-	                	<label class="control-label" for="inputFirstname"><b>ชื่อ</b></label>						    		
-						<input type="text" id="inputFirstname" name="firstname">
+	                	<label class="control-label" for="inputFirstname"><b>ชื่อ <font color="red" size=4em>*</font></b></label>						    		
+						<input type="text" id="firstname" name="firstname" placeholder="ไม่ต้องมีคำนำหน้า" required>
 	                	</td>
 						<td width="50%" style="padding-left: 40px">
-						<label class="control-label" for="inputLastname"><b>นามสกุล</b></label>					    		
-						<input type="text" id="LastName" name="lastname">
+						<label class="control-label" for="inputLastname"><b>นามสกุล <font color="red" size=4em>*</font></b></label>					    		
+						<input type="text" id="lastname" name="lastname" required>
 						</td>
 	                </tr>
 	                <tr>
 	                <td width="50%" style="padding-left: 20px">
 	                	<label class="control-label" for="inputTelNum"><b>เบอร์โทรศัพท์</b></label>
-	                	<input type="text" id="inputTelNum" name="tel">
+	                	<input type="text" id="tel" name="tel" placeholder="ตัวเลขไม่มีเครื่องหมายคั่น " >
 	                </td>
 	                <td width="50%" style="padding-left: 40px">
 						<label class="control-label" for="inputEmail"><b>email</b></label>
-						<input type="text" id="inputEmail" name="email">
+						<input type="text" id="email" name="email">
 	                </td>
 	                </tr>
 	                <tr>
 	                <td width="50%" style="padding-left: 20px">
-	                	<label class="control-label" for="inputPlant"><b>Plant</b></label>
-	                	<input type="text" id="inputPlant" name="plant">
+	                	<label class="control-label" for="inputWarehouse"><b>คลัง <font color="red" size=4em>*</font></b></label>
+	                	<select id="warehouse" name="ware_id">
+	                		<%
+	                		for(int i =0 ; i < wh.size() ; i++){
+	                			Warehouse w = wh.get(i);
+	                		%>
+	                		<option value="<%= w.getID() %>"><%= w.getPlant()+"-"+w.getStoreroom()+" "+w.getDescription() %></option>
+	                		<%
+	                		}
+	                		%>
+	                	</select>
 	                </td>
-	                <td width="50%" style="padding-left: 40px">
-	                	<label class="control-label" for="inputStoreRoom"><b>StoreRoom</b></label>
-	                	<input type="text" id="inputStoreRoom" name="storeRoom">
-					</td>
+	                <td>&nbsp;</td>
+	                </tr>
+	                <tr>
 					</tr>
 					<tr>
 					<td width="50%" style="padding-left: 20px">
-	                	<label class="control-label" for="inputPassword"><b>กลุ่มผู้ใช้</b></label>				    		
-					      <select name="usergroup">
-								<option value="1">Administrator</option>
+	                	<label class="control-label" for="inputPassword"><b>กลุ่มผู้ใช้ <font color="red" size=4em>*</font></b></label>				    		
+					      <select id="usergroup" name="usergroup" onchange="disableWarehouse()">
+					      <% if( u.getUsergroup() == 1 ){
+					      %>
+					      		<option value="1">Administrator</option>
+					      <%
+					      }
+					      %>
 								<option value="2">Manager</option>
-								<option value="3">Picker</option>
+								<option value="3" selected="selected">Picker</option>
 						  </select>
 					</td>
 					</tr>		
@@ -80,7 +118,20 @@
 	        
 	    <!--END #signup-form -->   
 	    </div>
-
-
+		<%
+			Integer err = (Integer) request.getAttribute("err");
+			if(err != null){
+				int errNum = err.intValue(); 
+				if( errNum == 1 ){
+		%>
+		<div id="dialog" title="Error">
+  			<p><br/><b><center><%
+  					out.println("<font color='red'>ไม่สามารถเพิ่มผู้ใช้งานได้<br />โปรดลองอีกครั้ง</font>");
+  			%></center></b></p>
+		</div>
+		<%
+				}
+			}
+		%>
 </body>
 </html>

@@ -41,24 +41,49 @@ public class RequisitionList  {
 		return null;
 	}
 	
-	public void sort(String key){
+	private void sortByInt( String row ){
 		int n = reqList.size();
 		for (int i = 1; i < n; i++){
-			  int j = i;
+			int j = i;  
+			int nowK = getKey( reqList.get(i) , row );
+			int beforeK = getKey( reqList.get(j-1) , row );
 			  
-			  Requisition r = reqList.get(i);
-			  String nowK = getKey( reqList.get(i) , key );
-			  String beforeK = getKey( reqList.get(j-1) , key );
-			  
-			  while ((j > 0) && ( beforeK.compareToIgnoreCase( nowK ) > 0 )){
-				  j--;
-				  if( j > 0 ){
-					  beforeK = getKey( reqList.get(j-1) , key );
-				  }
+			while ((j > 0) && ( beforeK > nowK )){
+				j--;
+				if( j > 0 ){
+					beforeK = getKey( reqList.get(j-1) , row );
+				}
 				  
-			  }
-			  reqList.add(j, reqList.remove(i));
-			  }
+			}
+			reqList.add(j, reqList.remove(i));
+		}
+	}
+	
+	private void sortByString( String row ){
+		int n = reqList.size();
+		for (int i = 1; i < n; i++){
+			int j = i;  
+			String nowK = reqList.get(i).getAuthorTeam();
+			String beforeK = reqList.get(j-1).getAuthorTeam() ;
+			  
+			while ((j > 0) && ( beforeK.compareToIgnoreCase( nowK ) > 0 )){
+				j--;
+				if( j > 0 ){
+					beforeK = reqList.get(j-1).getAuthorTeam() ;
+				}
+				  
+			}
+			reqList.add(j, reqList.remove(i));
+		}
+	}
+	
+	public void sort(String row){
+		if( row.equals("team") ){
+			sortByString( row );
+		}else{
+			sortByInt( row );
+		}
+		
 	}
 	
 	public boolean isContain( int id ){
@@ -70,14 +95,12 @@ public class RequisitionList  {
 		return false;
 	}
 	
-	private String getKey( Requisition r, String key ){
-		String tmp;
-		switch (key){
-			case "reqID" : return r.getReqID() + "";
-			case "team" : return r.getAuthorTeam();
-			case "eid" : return r.getAuthorID() + "";
-			case "item" : return r.size() + "";
-			default : return r.getReqID() + "";
+	private int getKey( Requisition r, String row ){
+		switch (row){
+			case "reqID" : return r.getReqID();
+			case "eid" : return r.getAuthorID();
+			case "item" : return r.size();
+			default : return r.getReqID();
 		}
 	}
 }

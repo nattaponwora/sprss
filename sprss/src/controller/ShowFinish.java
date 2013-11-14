@@ -42,7 +42,7 @@ public class ShowFinish extends HttpServlet {
 		String storeroom = user.getStoreroom();
 		
 		try {
-			ArrayList<PickingRequisition> p = ShowFinishModel.getFinish( plant , storeroom );
+			ArrayList<PickingRequisition> p = ShowFinishModel.getFinish( plant , storeroom, user );
 			request.setAttribute("pickReq", p);
 			session.setAttribute("page", "finish");
 			RequestDispatcher obj = request.getRequestDispatcher("finished.jsp");

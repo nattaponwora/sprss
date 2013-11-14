@@ -11,6 +11,7 @@ public class PickingRequisition extends RequisitionList {
 	private Date begin;
 	private Date finish;
 	
+	
 	public PickingRequisition( int id , int eid , String firstname , String lastname, Date begin ){
 		super();
 		this.id = id;

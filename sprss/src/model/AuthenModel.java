@@ -16,10 +16,40 @@ public class AuthenModel {
 		return "";
 	}
 	
-	public boolean register(){
-		return true;
+	public static boolean register( String fname, String lname, int eid, String tel, String email, int usergroup, String plant, String storeroom ,String hpass) throws SQLException{
+		Statement stm =  StatementManager.getSQLStatement();
+		if( checkUser( eid ) == false  ){
+			return false;
+		}
+		String query = "INSERT INTO user (password, firstname, lastname, eid , email, tel, usergroup";
+		if( usergroup != 1 ){
+			query += ", plant, storeroom";
+		}
+		query += ") VALUE ('"+ hpass +"' ,'"+ fname +"' , '"+ lname +"' ,'"+ eid +"' ,'"+ email +"' ,'"+ tel +"' , '"+ usergroup +"'";
+		if( usergroup != 1 ){
+			query += " ,'"+ plant +"' ,'"+ storeroom +"'";
+		}
+		query += ")";
+		int r = stm.executeUpdate( query);
+		stm.close();
+		if ( r>0 ){
+			return true;
+		}else{
+			return false;
+			
+		}
 	}
 	
+	private static boolean checkUser(int eid) throws SQLException{
+		Statement stm =  StatementManager.getSQLStatement();
+		String query = "SELECT * FROM user WHERE eid=" + eid;
+		ResultSet rs = stm.executeQuery(query);
+		if( rs.next() ){
+			return false;
+		}else{
+			return true;
+		}
+	}
 	/**
 	 * ตรวจสอบว่าชื่อผู้ใช้และรหัสผ่านที่กรอกเข้ามาถูกต้องหรือไม่
 	 * @param eid

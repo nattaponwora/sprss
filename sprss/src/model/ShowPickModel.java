@@ -7,23 +7,29 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import object.Item;
 import object.ItemList;
 import object.PickingRequisition;
 import object.Requisition;
 import object.RequisitionList;
+import object.User;
 
 public class ShowPickModel {
-	public static ArrayList<PickingRequisition> getPicking( String plant , String storeroom  ) throws SQLException{
+	public static ArrayList<PickingRequisition> getPicking( String plant , String storeroom , User u ) throws SQLException{
 		Statement stm = StatementManager.getSQLStatement();
-
+		int group = u.getUsergroup();
 		String query_selreq = 	  
 				"SELECT selreq.selreq_id, selreq.begin_time, user.eid, user.firstname, user.lastname "
 				+ "FROM selreq "
 				+ "join user on user.uid = selreq.uid "
 				+ "join requisition on selreq.selreq_id = requisition.selreq_id "
-				+ "WHERE selreq.status = 'pick' and requisition.plant = '"+ plant +"' and requisition.storeroom = '" + storeroom + "' "
-				+ "group by selreq.selreq_id, selreq.begin_time, user.uid, user.firstname, user.lastname";
+				+ "WHERE selreq.status = 'pick' and requisition.plant = '"+ plant +"' and requisition.storeroom = '" + storeroom + "' ";
+		if ( group == 3 ){
+			query_selreq += "and selreq.uid = "+u.getID()+" ";
+		}
+		query_selreq += "group by selreq.selreq_id, selreq.begin_time, user.uid, user.firstname, user.lastname";
 		ResultSet selreq_rs = stm.executeQuery( query_selreq );
 		//create selreq List
 		ArrayList<PickingRequisition> selList = new ArrayList<PickingRequisition>();

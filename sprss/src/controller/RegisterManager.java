@@ -20,8 +20,12 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+
+import object.Warehouse;
 import model.AuthenModel;
 import model.StatementManager;
+import model.WarehouseManagerModel;
 
 /**
  * Servlet implementation class Register
@@ -49,38 +53,47 @@ public class RegisterManager extends HttpServlet {
     private void doRegister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     	try{
     		request.setCharacterEncoding("UTF-8");
-    		Statement stm =  StatementManager.getSQLStatement();
+    		String warehouse = request.getParameter("ware_id");
+    		String plant = null;
+    		String storeroom = null;
+    		if( warehouse != null ){
+    			int wid = Integer.parseInt( warehouse );
+    			Warehouse w = WarehouseManagerModel.getWarehouseByID(wid);
+    			plant = w.getPlant();
+    			storeroom = w.getStoreroom();
+    		}
     		String fname = (String) request.getParameter("firstname");
         	String lname = (String) request.getParameter("lastname");
-        	String eid = (String) request.getParameter("empID");
+        	int eid = Integer.parseInt(request.getParameter("empID"));
         	String tel = (String) request.getParameter("tel");
+        	if( tel.equals("")){
+        		tel = "-";
+        	}
         	String email = (String) request.getParameter("email");
-        	String usergroup = (String) request.getParameter("usergroup");
-        	String plant = (String) request.getParameter("plant");    	
-        	String storeRoom = (String) request.getParameter("storeRoom");
+        	if( email.equals("") ){
+        		email = "-";
+        	}
+        	int usergroup = Integer.parseInt(request.getParameter("usergroup"));
         	String password = "1234";
         	String hpass = AuthenModel.hashPassword(password);
-        	
-    		String query = "INSERT INTO user (password, firstname, lastname, eid , email, tel, usergroup, plant, storeroom) "
-    				+ "VALUE ('"+ hpass +"' ,'"+ fname +"' , '"+ lname +"' ,'"+ eid +"' ,'"+ email +"' ,'"+ tel +"' ,"
-    				+ "'"+ usergroup +"' ,'"+ plant +"' ,'"+ storeRoom +"')";
-    		
-    		System.out.println("RegisterManager:doRegister = " + query);
-    		
-    		int r = stm.executeUpdate( query);
-    		if( r > 0){
+        	boolean registerResult = AuthenModel.register(fname, lname, eid,tel,email,usergroup,plant,storeroom,hpass);
+    		if( registerResult == true ){
     			request.setAttribute("firstname", fname);
     			request.setAttribute("lastname", lname);
     			request.setAttribute("eid", eid);
     			request.setAttribute("tel", tel);
     			request.setAttribute("email", email);
     			request.setAttribute("usergroup", usergroup);
-    			request.setAttribute("plant", plant);
-    			request.setAttribute("storeRoom", storeRoom);
+    			if( usergroup != 1 ){
+    				request.setAttribute("plant", plant);
+    				request.setAttribute("storeRoom", storeroom);
+    			}
     			request.setAttribute("password", password);
     			
     			RequestDispatcher obj = request.getRequestDispatcher("registersuccess.jsp");
     			obj.forward(request,response);
+    		}else{
+    			response.sendRedirect("register?err=1");
     		}
     	}catch ( SQLException e ){
     		System.out.println("SQLException");

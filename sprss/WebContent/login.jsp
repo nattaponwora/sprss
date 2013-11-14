@@ -6,7 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>The Spare Part Requisition Smart System</title>
 <!-- Bootstrap -->
-	<img src = "img/cpr_logo.png">
+	<div>
+		<div style="float:left"><img src = "img/cpr_logo.png"></div>
+		<div align="right"><img src = "img/sprem.png"></div>
+	</div>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <div class="navbar navbar-inverse" style="position: static;">
               <div class="navbar-inner">                

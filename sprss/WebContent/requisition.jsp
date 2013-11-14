@@ -224,6 +224,16 @@ function check()
 </style>
 </head>
 <body background="img/indexBG.jpg">
+	<%
+		String err = request.getParameter("err");
+		if( err != null && err.equals("dup") ){
+	%>
+			<script type="text/javascript">
+				alert("มีใบเบิกอะไหล่ที่ถูกเลือกไปแล้วอยู่ในรายการ โปรดเลือกใหม่อีกครั้ง");
+			</script>
+	<%
+		}
+	%>
 	<%@ include file = "header.jsp" %>	
 	<div class="container-fluid">
 		  	<div class="row-fluid">

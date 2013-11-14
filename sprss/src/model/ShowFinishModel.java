@@ -11,9 +11,10 @@ import object.Item;
 import object.ItemList;
 import object.PickingRequisition;
 import object.Requisition;
+import object.User;
 
 public class ShowFinishModel {
-	public static ArrayList<PickingRequisition> getFinish( String plant , String storeroom  ) throws SQLException{
+	public static ArrayList<PickingRequisition> getFinish( String plant , String storeroom , User user ) throws SQLException{
 		Statement stm = StatementManager.getSQLStatement();
 
 		String query_selreq = 	  
@@ -21,9 +22,13 @@ public class ShowFinishModel {
 				+ "FROM selreq "
 				+ "join user on user.uid = selreq.uid "
 				+ "join requisition on selreq.selreq_id = requisition.selreq_id "
-				+ "WHERE selreq.status = 'finished' and requisition.plant = '"+ plant +"' and requisition.storeroom = '" + storeroom + "' "
-				+ "group by selreq.selreq_id, selreq.begin_time, user.uid, user.firstname, user.lastname";
+				+ "WHERE selreq.status = 'finished' ";
+		if(user.getUsergroup() > 1){
+			query_selreq += "and requisition.plant = '"+ plant +"' and requisition.storeroom = '" + storeroom + "' ";
+		}
+		query_selreq += "group by selreq.selreq_id, selreq.begin_time, user.uid, user.firstname, user.lastname";
 		ResultSet selreq_rs = stm.executeQuery( query_selreq );
+		
 		//create selreq List
 		ArrayList<PickingRequisition> selList = new ArrayList<PickingRequisition>();
 		while ( selreq_rs.next() ){
@@ -33,9 +38,12 @@ public class ShowFinishModel {
 		String query_item =   
 				"SELECT itemusage_id , itemnum, description, binnum, amount, unit ,requisition.req_id, requisition.resv_eid "
 				+ "FROM itemusage join requisition on itemusage.req_id = requisition.req_id "
-				+ "WHERE requisition.status = 'finished' AND requisition.plant = '"+ plant +"' AND requisition.storeroom = '" + storeroom + "'  "
-				+ "ORDER BY req_id asc";
-		
+				+ "WHERE requisition.status = 'finished' ";
+		if( user.getUsergroup() > 1 ){
+			query_item += " AND requisition.plant = '"+ plant +"' AND requisition.storeroom = '" + storeroom + "'  ";
+		}
+				
+		query_item += "ORDER BY req_id asc";
 		ResultSet item_rs = stm.executeQuery( query_item );
 		Map< Integer , ItemList > itemList = new HashMap<Integer, ItemList>();
 		while( item_rs.next() ){
@@ -53,17 +61,21 @@ public class ShowFinishModel {
 		}
 		
 		// add Requisition to selreq
-		String query_req = 	  "SELECT req_id ,resv_eid, resv_name, resv_team, enterdate, status, type, selreq_id "
+		String query_req = 	  "SELECT req_id ,resv_eid, resv_name, resv_team, enterdate, status, type, selreq_id, plant, storeroom "
 				+ "FROM requisition "
-				+ "WHERE status = 'finished' AND plant = '"+ plant +"' AND storeroom = '" + storeroom + "' "
-				+ "ORDER BY req_id asc";
+				+ "WHERE status = 'finished' ";
+		if( user.getUsergroup() > 1 ){
+			query_req += "AND plant = '"+ plant +"' AND storeroom = '" + storeroom + "' ";
+		}
+		query_req += "ORDER BY req_id asc ";
 		ResultSet req_rs = stm.executeQuery( query_req );
+		
 		while ( req_rs.next() ){
 			for( int i = 0 ; i< selList.size() ; i++ ){
 				PickingRequisition p = selList.get(i);
 				int selID = req_rs.getInt("selreq_id");
 				if(  selID == p.getID() ){
-					Requisition r = new Requisition( req_rs.getInt("req_id"), req_rs.getInt("resv_eid") ,  req_rs.getString("resv_name"), req_rs.getString("resv_team") , req_rs.getDate("enterdate") , plant , storeroom ,req_rs.getString("status") , req_rs.getString("type"));
+					Requisition r = new Requisition( req_rs.getInt("req_id"), req_rs.getInt("resv_eid") ,  req_rs.getString("resv_name"), req_rs.getString("resv_team") , req_rs.getDate("enterdate") , req_rs.getString("plant") , req_rs.getString("storeroom") ,req_rs.getString("status") , req_rs.getString("type"));
 					ItemList il = itemList.get( req_rs.getInt("req_id") );
 					for ( int j = 0 ; j < il.size() ; j++ ){
 						r.addItem(il.getItem(j));

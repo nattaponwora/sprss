@@ -40,10 +40,11 @@
 		<div style="text-align:right"><font style="font-weight:bold" >วันที่ : <%= dateFormat.format(date) + " น." %></font></div>
 		<table width="100%">		
 		<tr>	
-			<td align="right" height="15"><font style="font-weight:bold" >หมายเลขใบรวมรายการ : <%= id %></font></td>
+			<td colspan=2 align="right" height="15"><font style="font-weight:bold" >หมายเลขใบรวมรายการ : <%= id %></font></td>
 		</tr>
 		<tr>
 			<td height="15"><font style="font-weight:bold" >ผู้หยิบอะไหล่ : <%= picker.getName() %></font></td>
+			<td align="right"><font style="font-weight:bold" >Storeroom : <%= selectReq.get(0).getPlant()+"-"+selectReq.get(0).getStoreroom() %></font></td>
 		</tr>
 		<tr>
 			<td height="15"><font style="font-weight:bold" >รวมจำนวนใบเบิกอะไหล่ : <%= selectReq.size() %></font>	</td>

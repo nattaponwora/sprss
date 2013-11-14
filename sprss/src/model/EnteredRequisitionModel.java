@@ -164,5 +164,23 @@ public class EnteredRequisitionModel {
 		stm.close();
 		return u;
 	}
+	
+	public  static boolean checkDup(String[] reqList) throws SQLException{
+		Statement stm = StatementManager.getSQLStatement
+				();
+		String query = "SELECT * FROM requisition WHERE ";
+				for(int i =0; i<reqList.length; i++){
+					if(i!=0){
+						query += " OR ";
+					}
+					query += "( req_id = " + reqList[i] + " AND status = 'pick' )";
+				}
+		ResultSet rs = stm.executeQuery(query);
+		if( rs.next() ){
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 }

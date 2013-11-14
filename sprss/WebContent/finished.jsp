@@ -10,23 +10,19 @@
 </head>
 <body background="img/indexBG.jpg">
 	<%@ include file = "header.jsp" %>
-	<center><h1><font size="5" face="Tahoma" color="#0000FF">ข้อมูลการหยิบอะไหล่</font></h1><br></center>
+	<center><h1><font size="5" face="Tahoma" color="#0000FF">ข้อมูลการหยิบอะไหล่</font></h1></center>
 	<%
 		ArrayList<PickingRequisition> pReq = (ArrayList<PickingRequisition>) request.getAttribute("pickReq");
 	%>
-	<div align="center">
-		<form>
-			<input type = "text" /> <input type="submit" class="btn btn-medium btn-primary" value = "ค้นหา"/>
-		</form>
-	</div>	
+	
 	<center><table class="zebra">
 			<thead>
 			    <tr>
 			    	<th>เลขที่ใบหยิบ</th>
 			   		<th>รหัสพนักงาน</th>
 			   		<th>ชื่อพนักงาน</th>
+			   		<th>คลัง</th>
 			      	<th>จำนวนใบเบิก</th>
-			     	<th>จำนวนอะไหล่(ชิ้น)</th>
 			     	<th>เวลาเริ่มหยิบ</th>
 					<th>เวลาหยิบเสร็จ</th>
 			     	<th>รายละเอียด</th>			    	
@@ -41,8 +37,8 @@
 			      <td align="center"><%= req.getID() %></td>
 			      <td align="center"><%= req.getEid() %></td>
 			      <td align="center"><%= req.getName() %></td>
+			      <td align="center"><%= req.get(0).getPlant()+"-"+req.get(0).getStoreroom() %></td>
 			      <td align="center"><%= req.size() %></td>
-			      <td align="center"><%= req.getItemNum() %></td>
 			      <td align="center"><%= req.getBegin().toString().replace(".0", " น.") %></td>
 			      <td align="center"><%= req.getFinish().toString().replace(".0", " น.") %></td>
 			      <td><center><a href="pickinglist?id=<%= req.getID() %>"><img src="img/magnifying.png" width="30" height="10"></a></center></td>			      

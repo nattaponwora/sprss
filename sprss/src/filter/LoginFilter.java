@@ -37,13 +37,11 @@ public class LoginFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		System.out.println("enter");
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpSession session = req.getSession();
 		Boolean flag = (Boolean) session.getAttribute("isLogin");
 		boolean loginFlag;
-		System.out.println("declare");
 		if (flag == null) {
 			loginFlag = false;
 		} else {
@@ -51,10 +49,8 @@ public class LoginFilter implements Filter {
 		}
 
 		if ( ! loginFlag ) {
-			System.out.println("notlogin");
 			res.sendRedirect( "login" );
 		}else{
-			System.out.println("login");
 			chain.doFilter(request, response);
 		}
 	}

@@ -44,47 +44,53 @@ public class SubmitSelect extends HttpServlet {
 		 */
 		String[] reqList = request.getParameterValues("req");
 		
-		/*
-		 * หา Object สำหรับผู้หยิบอะไหล่ที่เลือก
-		 */
-		String pid = request.getParameter("picker");
-		ArrayList<User> p = (ArrayList<User>) sess.getAttribute("picker");
-		//sess.removeAttribute("picker");
-		RequisitionList allReq = (RequisitionList) sess.getAttribute("reqList");
-		//sess.removeAttribute("reqList");
-		RequisitionList selectReq = new RequisitionList();
-		ItemList itemList = new ItemList();
-		
-		//รับข้อมูลผู้ที่หยิบอะไหล่
-		User u = null;
-		for( int i = 0 ; i < p.size() ; i++ ){
-			if ( p.get(i).getID() == Integer.parseInt(pid) ){
-				u = p.get(i);
-				break;
+		try {
+			boolean dup;
+			dup = EnteredRequisitionModel.checkDup(reqList);
+			if( dup ){
+				response.sendRedirect("requisition?err=dup");
+				return;
 			}
-		}	
-		request.setAttribute("picker", u );
-
-		int reqOrder = 0; // ลำดับที่ใบใบสั่งอะไหล่ทั้งหมด
-		for ( int selectOrder = 0 ; selectOrder < reqList.length ; selectOrder++){
-			while( reqOrder < allReq.size() ){
-				Requisition r = allReq.get( reqOrder );
-				int checkReqID  = Integer.parseInt( reqList[ selectOrder ] );
-				if( checkReqID == r.getReqID() ){
-					selectReq.add(r);
+			/*
+			 * หา Object สำหรับผู้หยิบอะไหล่ที่เลือก
+			 */
+			String pid = request.getParameter("picker");
+			ArrayList<User> p = (ArrayList<User>) sess.getAttribute("picker");
+			//sess.removeAttribute("picker");
+			RequisitionList allReq = (RequisitionList) sess.getAttribute("reqList");
+			//sess.removeAttribute("reqList");
+			RequisitionList selectReq = new RequisitionList();
+			ItemList itemList = new ItemList();
+			
+			//รับข้อมูลผู้ที่หยิบอะไหล่
+			User u = null;
+			for( int i = 0 ; i < p.size() ; i++ ){
+				if ( p.get(i).getID() == Integer.parseInt(pid) ){
+					u = p.get(i);
 					break;
 				}
-				reqOrder++;
+			}	
+			request.setAttribute("picker", u );
+	
+			int reqOrder = 0; // ลำดับที่ใบใบสั่งอะไหล่ทั้งหมด
+			for ( int selectOrder = 0 ; selectOrder < reqList.length ; selectOrder++){
+				while( reqOrder < allReq.size() ){
+					Requisition r = allReq.get( reqOrder );
+					int checkReqID  = Integer.parseInt( reqList[ selectOrder ] );
+					if( checkReqID == r.getReqID() ){
+						selectReq.add(r);
+						break;
+					}
+					reqOrder++;
+				}
+				ItemList list = selectReq.get(selectOrder).getItemList();
+				for ( int i = 0 ; i < list.size() ; i++ ){
+					Item item = list.get(i);
+					itemList.add( item );
+				}
 			}
-			ItemList list = selectReq.get(selectOrder).getItemList();
-			for ( int i = 0 ; i < list.size() ; i++ ){
-				Item item = list.get(i);
-				itemList.add( item );
-			}
-		}
-		
-		int id;
-		try {
+			
+			int id;
 			id = EnteredRequisitionModel.insertSelectRequisition( u, selectReq,itemList);
 			response.sendRedirect("pickinglist?id="+id);
 		} catch (SQLException e) {

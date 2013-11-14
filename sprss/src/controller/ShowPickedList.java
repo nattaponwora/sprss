@@ -41,7 +41,7 @@ public class ShowPickedList extends HttpServlet {
 		String storeroom = user.getStoreroom();
 		
 		try {
-			ArrayList<PickingRequisition> p = ShowPickModel.getPicking( plant , storeroom );
+			ArrayList<PickingRequisition> p = ShowPickModel.getPicking( plant , storeroom , user );
 			request.setAttribute("pickReq", p);
 			session.setAttribute("page", "show");
 			RequestDispatcher obj = request.getRequestDispatcher("pickedlist.jsp");

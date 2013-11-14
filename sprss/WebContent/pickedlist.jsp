@@ -13,7 +13,7 @@
 </head>
 <body background="img/indexBG.jpg">
 	<%@ include file = "header.jsp" %>	
-	<center><h1><font size="5" face="Tahoma" color="#0000FF"> ใบหยิบที่กำลังดำเนินการ </font></h1><br></center>
+	<center><h1><font size="5" face="Tahoma" color="#0000FF"> ใบหยิบที่กำลังดำเนินการ </font></h1></center>
 	<%
 			ArrayList<PickingRequisition> pReq = (ArrayList<PickingRequisition>) request.getAttribute("pickReq");
 		%>

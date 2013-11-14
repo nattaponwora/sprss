@@ -37,14 +37,27 @@
 		<tr>
 			<td><font color = "#1569C7">email : </font><%= request.getAttribute("email") %><br></td>
 		</tr>
+		<% if ( request.getAttribute("usergroup").equals("1") ){ %>
 		<tr>
 			<td><font color = "#1569C7">Plant : </font><%= request.getAttribute("plant") %><br></td>
 		</tr>
 		<tr>
 			<td><font color = "#1569C7">Store Room : </font><%= request.getAttribute("storeRoom") %><br></td>
 		</tr>
+		<% } 
+			Integer group = (Integer) request.getAttribute("usergroup");
+			int gid =  group.intValue();
+			String groupName = null;
+			if( gid == 1 ){
+				groupName = "Administrator";
+			}else if( gid == 2 ){
+				groupName = "Manager";
+			}else{
+				groupName = "Picker";
+			}
+		%>
 		<tr>
-			<td><font color = "#1569C7">กลุ่มผู้ใช้ : </font><%= request.getAttribute("usergroup") %><br></td>
+			<td><font color = "#1569C7">กลุ่มผู้ใช้ : </font><%= groupName %><br></td>
 		</tr>
 			
 		</table>

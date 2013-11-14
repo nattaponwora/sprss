@@ -1,67 +1,137 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-    <%@ page import="object.Requisition" %>
-    <%@ page import="java.util.ArrayList" %>
-    <%@ page import="java.util.Date" %>
-    <%@ page import="object.RequisitionList" %>
-    <%@ page import="object.PickingRequisition" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="object.Requisition" %>
+<%@ page import="object.ItemList" %>
+<%@ page import="object.Item" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="object.RequisitionList" %>
+<%@ page import="object.PickingRequisition" %>
+<%@ page import="java.util.Map" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+	<title>RSSM : SPRM</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="bootstrap/Table_zebra/css/blue.css" type="text/css">
-	<title>Insert title here</title>
+	<link rel="stylesheet" href="bootstrap/Table_zebra/css/style.css" type="text/css">
+	<%
+		User user = (User) session.getAttribute("userData");
+	%>
 </head>
 <body background="img/indexBG.jpg">
 	<%@ include file = "header.jsp" %>
-	<center><b><font color="#1569C7">ใส่หมายเลขใบเลิกอะไหล่ : </font></b><input type="text" name="search" /><b></center>
+	<center><b><font color="#1569C7">ค้นหาข้อมูลการเบิกอะไหล่ </font></b></center>
+	<div align="center">
+		<form action="reqsearch" method="post">
+			<input type = "text" name="req" /> <input type="submit" class="btn btn-medium btn-primary" value = "ค้นหา"/>
+			<input type = "hidden" name = "plant" value ="<%= user.getPlant() %>" />
+			<input type = "hidden" name = "storeroom" value ="<%= user.getStoreroom() %>" />
+		</form>
+	</div>	
 	<%
-			ArrayList<PickingRequisition> pReq = (ArrayList<PickingRequisition>) request.getAttribute("pickReq");
-			PickingRequisition req;
-			for( int i = 0 ; i < pReq.size() ; i++ ){
-				if( true ){ // id = ทำให้ดึงข้อมูลจากเลขใบเบิกที่ input เข้ามา
-					req = pReq.get(i);
+		Boolean isSearch = (Boolean) request.getAttribute("isSearch");
+		Requisition r = (Requisition) request.getAttribute("req");
+		PickingRequisition selReq = ( PickingRequisition ) request.getAttribute("selReq");
+		
+		if( ! isSearch.booleanValue() ){
+			//don't do anything
+		} else if( r == null ){
 	%>
-				<center><table class="zebra">
-					<thead>
-					    <tr>
-					    	<th>เลขที่ใบหยิบ</th>
-					   		<th>รหัสพนักงาน</th>
-					   		<th>ชื่อพนักงาน</th>
-					      	<th>จำนวนใบเบิก</th>
-					     	<th>จำนวนอะไหล่(ชิ้น)</th>
-					     	<th>เวลาเริ่มหยิบ</th>
-							<th>เวลาหยิบเสร็จ</th>
-					     	<th>รายละเอียด</th>			    	
-					    </tr>
-					  </thead>
-					  <tbody>			  
-					    <tr>
-					      <td align="center"><%= req.getID() %></td>
-					      <td align="center"><%= req.getEid() %></td>
-					      <td align="center"><%= req.getName() %></td>
-					      <td align="center"><%= req.size() %></td>
-					      <td align="center"><%= req.getItemNum() %></td>
-					      <td align="center"><%= req.getBegin().toString().replace(".0", " น.") %></td>
-					      <td align="center"><%= req.getFinish().toString().replace(".0", " น.") %></td>
-					      <td><center><a href="pickinglist?id=<%= req.getID() %>"><img src="img/magnifying.png" width="30" height="10"></a></center></td>			      
-					    </tr>
-					  		    
-					  </tbody>
-				</table>		
-			</center>
+		<font color='red'><b><center><h4>ไม่พบรายการที่ต้องการ</h4></center></b></font>
 	<%
-				break;
-				}
-				else{
-					if( i == pReq.size()-1 ){
+		} else {
 	%>
-				<center><h1><font size="3" face="Tahoma" color="#FF0000"> ไม่พบใบเบิกอะไหล่ที่ทำการค้นหา </font></h1><br></center>
-	<%
+		<center><div style="width:800px;" align="left">
+		<div>
+		<table width = 100% border=0>
+			<tr>
+			<td colspan="2"><b>เลขที่ใบเบิกอะไหล่ : <%= r.getReqID() %></b></td>
+				<td>
+					สถานะใบเบิกอะไหล่ : 
+					<%
+						String status = r.getStatus();
+						int sid = -1;
+						if( status.equals("entered") ){
+							out.print("ENTERED");
+							sid = 1;
+						}else if( status.equals("pick") ){
+							out.print("กำลังดำเนินการหยิบ");
+							sid = 2;
+						}else if( status.equals("finished") ){
+							out.print("เสร็จสิ้น");
+							sid = 3;
+						}
+					%>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					ผู้เบิก : <%= r.getAuthorID() + " " + r.getAuthorName() %>
+				</td>
+				<td>
+					ทีม : <%= r.getAuthorTeam() %>
+				</td>
+				<td>
+					StoreRoom : <%= r.getPlant()+"-"+r.getStoreroom() %>
+				</td>
+			</tr>
+			<tr>
+				<td colspan = 3>เวลาขอเบิก : <%= r.getEnteredDate().toString().replace(".0", " น.") %></td>
+			</tr>
+			<%
+				if ( ! r.getStatus().equals("entered") ){
+			%>
+				<tr>
+					<td><b>หมายเลขใบหยิบ : <%= selReq.getID() %></b></td>
+					<td colspan=2>ผู้หยิบ : <%= selReq.getEid()+ " " + selReq.getName()  %></td>
+				</tr>
+				<tr>
+					<td>เวลาเริ่มหยิบ : <%= selReq.getBegin().toString().replace(".0", " น.") %></td>
+					<%
+					if ( r.getStatus().equals("finished")  ){
+						out.print("<td colspan=2>เวลาหยิบเสร็จ : " + selReq.getFinish().toString().replace(".0", " น.") + "</td>");
+					}else{
+						out.print("<td colspan=2>&nbsp;</td>");
 					}
+					%>
+				</tr>
+			<%
 				}
-			}
+			%>
+		</table>
+		<table width="100%" class="zebra">
+			<thead>
+			    <tr>
+			      	<th>รหัสสินค้า</th>
+			     	<th>รายการ</th>
+			    	<th>Asset No./Storage bin</th>
+			        <th>จำนวน</th>
+			        <th>หน่วย</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  <%
+			  	ItemList il = r.getItemList();
+			  	for( int j=0; j< il.size() ; j++  ){
+			  		Item item = il.get(j);
+			  %>
+			  	<tr>
+			  		<td height="30" align="center"><%= item.getItemnum() %></td>
+					<td height="30" align="left"><%= item.getDescription() %></td>
+					<td height="30" align="center"><%= item.getAssetNO() %></td>
+					<td height="30" align="center"><%= item.getAmount() %></td>
+					<td height="30" align="center"><%= item.getUnit() %></td>
+			  	</tr>
+			  <%
+				}
+			  %>
+			  </tbody>
+		</table>
+		</div></center>
+	<%
+		}
 	%>
-
+	</div>
 </body>
 </html>
